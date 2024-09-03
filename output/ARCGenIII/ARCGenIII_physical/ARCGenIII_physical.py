@@ -1,4 +1,5 @@
 from ARCGenIIIPORIS import *
+from xml.dom import minidom
 
 class ARCGenIII_physical(ARCGenIIIPORIS):
     # Go to ARCGengIIIPORIS.py, navigate to the ##### Action triggers ##### section
@@ -9,8 +10,14 @@ class ARCGenIII_physical(ARCGenIIIPORIS):
     pass
 
 
-thismodel = ARCGenIII_physical()
+thismodel = ARCGenIII_physical(13)
 
-print("Let's test our model ",thismodel.root.getName())
-print("Current mode is ",thismodel.root.getSelectedMode().getName())
+print("Let's test our model ",thismodel.getRoot().getName())
+print("Current mode is ",thismodel.getRoot().getSelectedMode().getName())
 
+# thismodel.list_nodes()
+
+dom = thismodel.toXML()
+pretty_xml_as_string = dom.toprettyxml()
+
+print(pretty_xml_as_string)
