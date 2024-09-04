@@ -14,10 +14,42 @@ thismodel = ARCGenIII_physical(13)
 
 print("Let's test our model ",thismodel.getRoot().getName())
 print("Current mode is ",thismodel.getRoot().getSelectedMode().getName())
+print("Current Binning mode is ",thismodel.prBinning.getSelectedMode().getName())
 
-# thismodel.list_nodes()
+# print(thismodel.getOrderedIdList())
 
-dom = thismodel.toXML()
-pretty_xml_as_string = dom.toprettyxml()
+# dom = thismodel.toXML()
+# pretty_xml_as_string = dom.toprettyxml()
 
-print(pretty_xml_as_string)
+# print(pretty_xml_as_string)
+
+thismodel.set_ARCGenIIIMode(thismodel.mdARCGenIIIMode_Real)
+print("Current mode is ",thismodel.getRoot().getSelectedMode().getName())
+print("Current Binning mode is ",thismodel.prBinning.getSelectedMode().getName())
+
+thismodel.set_ARCGenIIIMode(thismodel.mdARCGenIIIMode_UNKNOWN)
+print("Current mode is ",thismodel.getRoot().getSelectedMode().getName())
+print("Current Binning mode is ",thismodel.prBinning.getSelectedMode().getName())
+
+
+'''
+
+x = datetime.now(tz=pytz.utc)
+print(x)
+mystring = PORISVALUEFORMATTER_DATE.getString(x)
+print(mystring)
+mydate = PORISVALUEFORMATTER_DATE.getValue(mystring)
+print(mydate)
+mystring = PORISVALUEFORMATTER_DATE.getString(mydate)
+print(mystring)
+
+x = x.astimezone(timezone('US/Pacific'))
+print(x)
+mystring = PORISVALUEFORMATTER_DATE.getString(x)
+print(mystring)
+mydate = PORISVALUEFORMATTER_DATE.getValue(mystring)
+print(mydate)
+mystring = PORISVALUEFORMATTER_DATE.getString(mydate)
+print(mystring)
+
+'''
