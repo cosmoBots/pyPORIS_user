@@ -1,11 +1,11 @@
 from PORIS import *
 
-class simplePORIS:
-    def __init__(self):
-        idcounter = 1
+class simplePORIS(PORISDoc):
+    def __init__(self, project_id):
+        super().__init__(project_id)
         self.sysInstrument = PORISSys("Instrument")
         self.mdInstrumentMode_UNKNOWN = PORISMode("InstrumentMode_UNKNOWN")
-        self.root = self.sysInstrument
+        self.setRoot(self.sysInstrument)
         self.prMasks = PORISParam("Masks")
         self.mdMasksMode_UNKNOWN = PORISMode("MasksMode_UNKNOWN")
         self.vlMasks_UNKNOWN = PORISValue("Masks_UNKNOWN")
@@ -50,289 +50,197 @@ class simplePORIS:
         self.mdFilterMode_Enabled = PORISMode("FilterMode_Enabled")
         self.mdInstrumentMode_Engineering = PORISMode("InstrumentMode_Engineering")
         self.mdDetectorMode_Engineering = PORISMode("DetectorMode_Engineering")
-
-        self.sysInstrument.id = idcounter
-        idcounter += 1
-        self.sysInstrument.ident = "Instrument"
+        self.addItem(self.sysInstrument)
+        self.sysInstrument.ident = "n0"
         self.sysInstrument.description = ""
-
-        self.mdInstrumentMode_UNKNOWN.id = idcounter
-        idcounter += 1
+        self.addItem(self.mdInstrumentMode_UNKNOWN)
         self.mdInstrumentMode_UNKNOWN.ident = "InstrumentMode_UNKNOWN"
         self.mdInstrumentMode_UNKNOWN.description = ""
         self.sysInstrument.addMode(self.mdInstrumentMode_UNKNOWN)
-
-        self.prMasks.id = idcounter
-        idcounter += 1
-        self.prMasks.ident = "Masks"
+        self.addItem(self.prMasks)
+        self.prMasks.ident = "n0::n0"
         self.prMasks.description = ""
         self.sysInstrument.addParam(self.prMasks)
-
-        self.vlMasks_UNKNOWN.id = idcounter
-        idcounter += 1
+        self.addItem(self.vlMasks_UNKNOWN)
         self.vlMasks_UNKNOWN.ident = "Masks_UNKNOWN"
         self.vlMasks_UNKNOWN.description = "Unknown value for Masks"
         self.prMasks.addValue(self.vlMasks_UNKNOWN)
-
-        self.mdMasksMode_UNKNOWN.id = idcounter
-        idcounter += 1
+        self.addItem(self.mdMasksMode_UNKNOWN)
         self.mdMasksMode_UNKNOWN.ident = "MasksMode_UNKNOWN"
         self.mdMasksMode_UNKNOWN.description = "Unknown mode for Masks"
         self.prMasks.addMode(self.mdMasksMode_UNKNOWN)
         self.mdMasksMode_UNKNOWN.addValue(self.vlMasks_UNKNOWN)
         self.mdInstrumentMode_UNKNOWN.addSubMode(self.mdMasksMode_UNKNOWN)
-
-        self.prDispersion.id = idcounter
-        idcounter += 1
-        self.prDispersion.ident = "Dispersion"
+        self.addItem(self.prDispersion)
+        self.prDispersion.ident = "n0::n1"
         self.prDispersion.description = ""
         self.sysInstrument.addParam(self.prDispersion)
-
-        self.vlDispersion_UNKNOWN.id = idcounter
-        idcounter += 1
+        self.addItem(self.vlDispersion_UNKNOWN)
         self.vlDispersion_UNKNOWN.ident = "Dispersion_UNKNOWN"
         self.vlDispersion_UNKNOWN.description = "Unknown value for Dispersion"
         self.prDispersion.addValue(self.vlDispersion_UNKNOWN)
-
-        self.mdDispersionMode_UNKNOWN.id = idcounter
-        idcounter += 1
+        self.addItem(self.mdDispersionMode_UNKNOWN)
         self.mdDispersionMode_UNKNOWN.ident = "DispersionMode_UNKNOWN"
         self.mdDispersionMode_UNKNOWN.description = "Unknown mode for Dispersion"
         self.prDispersion.addMode(self.mdDispersionMode_UNKNOWN)
         self.mdDispersionMode_UNKNOWN.addValue(self.vlDispersion_UNKNOWN)
         self.mdInstrumentMode_UNKNOWN.addSubMode(self.mdDispersionMode_UNKNOWN)
-
-        self.sysDetector.id = idcounter
-        idcounter += 1
-        self.sysDetector.ident = "Detector"
+        self.addItem(self.sysDetector)
+        self.sysDetector.ident = "n0::n2"
         self.sysDetector.description = ""
         self.sysInstrument.addSubsystem(self.sysDetector)
-
-        self.mdDetectorMode_UNKNOWN.id = idcounter
-        idcounter += 1
+        self.addItem(self.mdDetectorMode_UNKNOWN)
         self.mdDetectorMode_UNKNOWN.ident = "DetectorMode_UNKNOWN"
         self.mdDetectorMode_UNKNOWN.description = ""
         self.sysDetector.addMode(self.mdDetectorMode_UNKNOWN)
-
-        self.prexpTime.id = idcounter
-        idcounter += 1
-        self.prexpTime.ident = "expTime"
+        self.addItem(self.prexpTime)
+        self.prexpTime.ident = "n0::n2::n0"
         self.prexpTime.description = ""
         self.sysDetector.addParam(self.prexpTime)
-
-        self.vlexpTime_UNKNOWN.id = idcounter
-        idcounter += 1
+        self.addItem(self.vlexpTime_UNKNOWN)
         self.vlexpTime_UNKNOWN.ident = "expTime_UNKNOWN"
         self.vlexpTime_UNKNOWN.description = "Unknown value for expTime"
         self.prexpTime.addValue(self.vlexpTime_UNKNOWN)
-
-        self.mdexpTimeMode_UNKNOWN.id = idcounter
-        idcounter += 1
+        self.addItem(self.mdexpTimeMode_UNKNOWN)
         self.mdexpTimeMode_UNKNOWN.ident = "expTimeMode_UNKNOWN"
         self.mdexpTimeMode_UNKNOWN.description = "Unknown mode for expTime"
         self.prexpTime.addMode(self.mdexpTimeMode_UNKNOWN)
         self.mdexpTimeMode_UNKNOWN.addValue(self.vlexpTime_UNKNOWN)
         self.mdDetectorMode_UNKNOWN.addSubMode(self.mdexpTimeMode_UNKNOWN)
-
-        self.prBinning.id = idcounter
-        idcounter += 1
-        self.prBinning.ident = "Binning"
+        self.addItem(self.prBinning)
+        self.prBinning.ident = "n0::n2::n1"
         self.prBinning.description = ""
         self.sysDetector.addParam(self.prBinning)
-
-        self.vlBinning_UNKNOWN.id = idcounter
-        idcounter += 1
+        self.addItem(self.vlBinning_UNKNOWN)
         self.vlBinning_UNKNOWN.ident = "Binning_UNKNOWN"
         self.vlBinning_UNKNOWN.description = "Unknown value for Binning"
         self.prBinning.addValue(self.vlBinning_UNKNOWN)
-
-        self.mdBinningMode_UNKNOWN.id = idcounter
-        idcounter += 1
+        self.addItem(self.mdBinningMode_UNKNOWN)
         self.mdBinningMode_UNKNOWN.ident = "BinningMode_UNKNOWN"
         self.mdBinningMode_UNKNOWN.description = "Unknown mode for Binning"
         self.prBinning.addMode(self.mdBinningMode_UNKNOWN)
         self.mdBinningMode_UNKNOWN.addValue(self.vlBinning_UNKNOWN)
         self.mdDetectorMode_UNKNOWN.addSubMode(self.mdBinningMode_UNKNOWN)
-
-        self.prFilter.id = idcounter
-        idcounter += 1
-        self.prFilter.ident = "Filter"
+        self.addItem(self.prFilter)
+        self.prFilter.ident = "n0::n5"
         self.prFilter.description = ""
         self.sysInstrument.addParam(self.prFilter)
-
-        self.vlFilter_UNKNOWN.id = idcounter
-        idcounter += 1
+        self.addItem(self.vlFilter_UNKNOWN)
         self.vlFilter_UNKNOWN.ident = "Filter_UNKNOWN"
         self.vlFilter_UNKNOWN.description = "Unknown value for Filter"
         self.prFilter.addValue(self.vlFilter_UNKNOWN)
-
-        self.mdFilterMode_UNKNOWN.id = idcounter
-        idcounter += 1
+        self.addItem(self.mdFilterMode_UNKNOWN)
         self.mdFilterMode_UNKNOWN.ident = "FilterMode_UNKNOWN"
         self.mdFilterMode_UNKNOWN.description = "Unknown mode for Filter"
         self.prFilter.addMode(self.mdFilterMode_UNKNOWN)
         self.mdFilterMode_UNKNOWN.addValue(self.vlFilter_UNKNOWN)
         self.mdInstrumentMode_UNKNOWN.addSubMode(self.mdFilterMode_UNKNOWN)
-
-        self.vlMasks_0_6.id = idcounter
-        idcounter += 1
-        self.vlMasks_0_6.ident = "Masks_0_6"
+        self.addItem(self.vlMasks_0_6)
+        self.vlMasks_0_6.ident = "n0::n0::n0"
         self.vlMasks_0_6.description = ""
         self.prMasks.addValue(self.vlMasks_0_6)
-
-        self.vlMasks_1_0.id = idcounter
-        idcounter += 1
-        self.vlMasks_1_0.ident = "Masks_1_0"
+        self.addItem(self.vlMasks_1_0)
+        self.vlMasks_1_0.ident = "n0::n0::n1"
         self.vlMasks_1_0.description = ""
         self.prMasks.addValue(self.vlMasks_1_0)
-
-        self.vlMasks_2_0.id = idcounter
-        idcounter += 1
-        self.vlMasks_2_0.ident = "Masks_2_0"
+        self.addItem(self.vlMasks_2_0)
+        self.vlMasks_2_0.ident = "n0::n0::n2"
         self.vlMasks_2_0.description = ""
         self.prMasks.addValue(self.vlMasks_2_0)
-
-        self.mdMasksMode_Spectroscopy.id = idcounter
-        idcounter += 1
-        self.mdMasksMode_Spectroscopy.ident = "MasksMode_Spectroscopy"
+        self.addItem(self.mdMasksMode_Spectroscopy)
+        self.mdMasksMode_Spectroscopy.ident = "n0::n0::n3"
         self.mdMasksMode_Spectroscopy.description = ""
         self.prMasks.addMode(self.mdMasksMode_Spectroscopy)
-
-        self.vlDispersion_R500.id = idcounter
-        idcounter += 1
-        self.vlDispersion_R500.ident = "Dispersion_R500"
+        self.addItem(self.vlDispersion_R500)
+        self.vlDispersion_R500.ident = "n0::n1::n0"
         self.vlDispersion_R500.description = ""
         self.prDispersion.addValue(self.vlDispersion_R500)
-
-        self.vlDispersion_R1000.id = idcounter
-        idcounter += 1
-        self.vlDispersion_R1000.ident = "Dispersion_R1000"
+        self.addItem(self.vlDispersion_R1000)
+        self.vlDispersion_R1000.ident = "n0::n1::n1"
         self.vlDispersion_R1000.description = ""
         self.prDispersion.addValue(self.vlDispersion_R1000)
-
-        self.vlDispersion_R2000.id = idcounter
-        idcounter += 1
-        self.vlDispersion_R2000.ident = "Dispersion_R2000"
+        self.addItem(self.vlDispersion_R2000)
+        self.vlDispersion_R2000.ident = "n0::n1::n2"
         self.vlDispersion_R2000.description = ""
         self.prDispersion.addValue(self.vlDispersion_R2000)
-
-        self.mdDispersionMode_Normal.id = idcounter
-        idcounter += 1
-        self.mdDispersionMode_Normal.ident = "DispersionMode_Normal"
+        self.addItem(self.mdDispersionMode_Normal)
+        self.mdDispersionMode_Normal.ident = "n0::n1::n3"
         self.mdDispersionMode_Normal.description = ""
         self.prDispersion.addMode(self.mdDispersionMode_Normal)
-
-        self.vlexpTime_NormalRange.id = idcounter
-        idcounter += 1
-        self.vlexpTime_NormalRange.ident = "expTime_NormalRange"
+        self.addItem(self.vlexpTime_NormalRange)
+        self.vlexpTime_NormalRange.ident = "n0::n2::n0::n0"
         self.vlexpTime_NormalRange.description = ""
         self.prexpTime.addValue(self.vlexpTime_NormalRange)
-
-        self.mdexpTimeMode_Slow.id = idcounter
-        idcounter += 1
-        self.mdexpTimeMode_Slow.ident = "expTimeMode_Slow"
+        self.addItem(self.mdexpTimeMode_Slow)
+        self.mdexpTimeMode_Slow.ident = "n0::n2::n0::n1"
         self.mdexpTimeMode_Slow.description = ""
         self.prexpTime.addMode(self.mdexpTimeMode_Slow)
-
-        self.mdexpTimeMode_Fast.id = idcounter
-        idcounter += 1
-        self.mdexpTimeMode_Fast.ident = "expTimeMode_Fast"
+        self.addItem(self.mdexpTimeMode_Fast)
+        self.mdexpTimeMode_Fast.ident = "n0::n2::n0::n2"
         self.mdexpTimeMode_Fast.description = ""
         self.prexpTime.addMode(self.mdexpTimeMode_Fast)
-
-        self.vlexpTime_FastRange.id = idcounter
-        idcounter += 1
-        self.vlexpTime_FastRange.ident = "expTime_FastRange"
+        self.addItem(self.vlexpTime_FastRange)
+        self.vlexpTime_FastRange.ident = "n0::n2::n0::n3"
         self.vlexpTime_FastRange.description = ""
         self.prexpTime.addValue(self.vlexpTime_FastRange)
-
-        self.vlBinning_1x1.id = idcounter
-        idcounter += 1
-        self.vlBinning_1x1.ident = "Binning_1x1"
+        self.addItem(self.vlBinning_1x1)
+        self.vlBinning_1x1.ident = "n0::n2::n1::n0"
         self.vlBinning_1x1.description = ""
         self.prBinning.addValue(self.vlBinning_1x1)
-
-        self.vlBinning_2x1.id = idcounter
-        idcounter += 1
-        self.vlBinning_2x1.ident = "Binning_2x1"
+        self.addItem(self.vlBinning_2x1)
+        self.vlBinning_2x1.ident = "n0::n2::n1::n1"
         self.vlBinning_2x1.description = ""
         self.prBinning.addValue(self.vlBinning_2x1)
-
-        self.vlBinning_1x2.id = idcounter
-        idcounter += 1
-        self.vlBinning_1x2.ident = "Binning_1x2"
+        self.addItem(self.vlBinning_1x2)
+        self.vlBinning_1x2.ident = "n0::n2::n1::n2"
         self.vlBinning_1x2.description = ""
         self.prBinning.addValue(self.vlBinning_1x2)
-
-        self.vlBinning_2x2.id = idcounter
-        idcounter += 1
-        self.vlBinning_2x2.ident = "Binning_2x2"
+        self.addItem(self.vlBinning_2x2)
+        self.vlBinning_2x2.ident = "n0::n2::n1::n3"
         self.vlBinning_2x2.description = ""
         self.prBinning.addValue(self.vlBinning_2x2)
-
-        self.mdBinningMode_Normal.id = idcounter
-        idcounter += 1
-        self.mdBinningMode_Normal.ident = "BinningMode_Normal"
+        self.addItem(self.mdBinningMode_Normal)
+        self.mdBinningMode_Normal.ident = "n0::n2::n1::n4"
         self.mdBinningMode_Normal.description = ""
         self.prBinning.addMode(self.mdBinningMode_Normal)
-
-        self.mdBinningMode_Square.id = idcounter
-        idcounter += 1
-        self.mdBinningMode_Square.ident = "BinningMode_Square"
+        self.addItem(self.mdBinningMode_Square)
+        self.mdBinningMode_Square.ident = "n0::n2::n1::n5"
         self.mdBinningMode_Square.description = ""
         self.prBinning.addMode(self.mdBinningMode_Square)
-
-        self.mdDetectorMode_SlowFree.id = idcounter
-        idcounter += 1
-        self.mdDetectorMode_SlowFree.ident = "DetectorMode_SlowFree"
+        self.addItem(self.mdDetectorMode_SlowFree)
+        self.mdDetectorMode_SlowFree.ident = "n0::n2::n2"
         self.mdDetectorMode_SlowFree.description = ""
         self.sysDetector.addMode(self.mdDetectorMode_SlowFree)
-
-        self.mdDetectorMode_FixedAspect.id = idcounter
-        idcounter += 1
-        self.mdDetectorMode_FixedAspect.ident = "DetectorMode_FixedAspect"
+        self.addItem(self.mdDetectorMode_FixedAspect)
+        self.mdDetectorMode_FixedAspect.ident = "n0::n2::n3"
         self.mdDetectorMode_FixedAspect.description = ""
         self.sysDetector.addMode(self.mdDetectorMode_FixedAspect)
-
-        self.mdInstrumentMode_Photometry.id = idcounter
-        idcounter += 1
-        self.mdInstrumentMode_Photometry.ident = "InstrumentMode_Photometry"
+        self.addItem(self.mdInstrumentMode_Photometry)
+        self.mdInstrumentMode_Photometry.ident = "n0::n3"
         self.mdInstrumentMode_Photometry.description = ""
         self.sysInstrument.addMode(self.mdInstrumentMode_Photometry)
-
-        self.mdInstrumentMode_Spectroscopy.id = idcounter
-        idcounter += 1
-        self.mdInstrumentMode_Spectroscopy.ident = "InstrumentMode_Spectroscopy"
+        self.addItem(self.mdInstrumentMode_Spectroscopy)
+        self.mdInstrumentMode_Spectroscopy.ident = "n0::n4"
         self.mdInstrumentMode_Spectroscopy.description = ""
         self.sysInstrument.addMode(self.mdInstrumentMode_Spectroscopy)
-
-        self.vlFilter_Red.id = idcounter
-        idcounter += 1
-        self.vlFilter_Red.ident = "Filter_Red"
+        self.addItem(self.vlFilter_Red)
+        self.vlFilter_Red.ident = "n0::n5::n0"
         self.vlFilter_Red.description = ""
         self.prFilter.addValue(self.vlFilter_Red)
-
-        self.vlFilter_Blue.id = idcounter
-        idcounter += 1
-        self.vlFilter_Blue.ident = "Filter_Blue"
+        self.addItem(self.vlFilter_Blue)
+        self.vlFilter_Blue.ident = "n0::n5::n1"
         self.vlFilter_Blue.description = ""
         self.prFilter.addValue(self.vlFilter_Blue)
-
-        self.mdFilterMode_Enabled.id = idcounter
-        idcounter += 1
-        self.mdFilterMode_Enabled.ident = "FilterMode_Enabled"
+        self.addItem(self.mdFilterMode_Enabled)
+        self.mdFilterMode_Enabled.ident = "n0::n5::n2"
         self.mdFilterMode_Enabled.description = ""
         self.prFilter.addMode(self.mdFilterMode_Enabled)
-
-        self.mdInstrumentMode_Engineering.id = idcounter
-        idcounter += 1
-        self.mdInstrumentMode_Engineering.ident = "InstrumentMode_Engineering"
+        self.addItem(self.mdInstrumentMode_Engineering)
+        self.mdInstrumentMode_Engineering.ident = "ENG-1"
         self.mdInstrumentMode_Engineering.description = "Instrument engineering mode"
         self.sysInstrument.addMode(self.mdInstrumentMode_Engineering)
-
-        self.mdDetectorMode_Engineering.id = idcounter
-        idcounter += 1
-        self.mdDetectorMode_Engineering.ident = "DetectorMode_Engineering"
+        self.addItem(self.mdDetectorMode_Engineering)
+        self.mdDetectorMode_Engineering.ident = "ENG-2"
         self.mdDetectorMode_Engineering.description = "Detector engineering mode"
         self.sysDetector.addMode(self.mdDetectorMode_Engineering)
         # Marcamos MasksMode_Spectroscopy como elegible para InstrumentMode_Spectroscopy

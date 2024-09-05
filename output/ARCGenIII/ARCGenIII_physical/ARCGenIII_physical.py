@@ -23,7 +23,7 @@ print("----- BEGIN --------- XML dump of the model ------------------")
 print("")
 
 dom = thismodel.toXML()
-pretty_xml_as_string = dom.toprettyxml()
+pretty_xml_as_string = dom.toprettyxml(encoding="utf-8")
 print(pretty_xml_as_string)
 print("")
 print("-----  END  --------- XML dump of the model ------------------")
@@ -35,12 +35,60 @@ print("Current mode is ",thismodel.getRoot().getSelectedMode().getName())
 print("Current Binning mode is ",thismodel.prBinning.getSelectedMode().getName())
 print("Current binning value is",thismodel.prBinning.getSelectedValue().getName())
 print("")
+print("We will add 2x1 to the Binnning_1x1 mode")
+binning1x1mode = thismodel.prBinning.getSelectedMode()
+binning1x1mode.addValue(thismodel.vlBinning_2x1)
 
 thismodel.set_ARCGenIIIMode(thismodel.mdARCGenIIIMode_UNKNOWN)
 print("Current mode is ",thismodel.getRoot().getSelectedMode().getName())
 print("Current Binning mode is ",thismodel.prBinning.getSelectedMode().getName())
 print("After change, Current binning value is",thismodel.prBinning.getSelectedValue().getName())
 
+thismodel.set_ARCGenIIIMode(thismodel.mdARCGenIIIMode_Real)
+print("Current mode is ",thismodel.getRoot().getSelectedMode().getName())
+print("Current Binning mode is ",thismodel.prBinning.getSelectedMode().getName())
+print("Current binning value is",thismodel.prBinning.getSelectedValue().getName())
+
+print("We will select 2x1 as the default value for the Binnning_1x1 mode")
+binning1x1mode.setDefaultValue(thismodel.vlBinning_2x1)
+
+thismodel.set_ARCGenIIIMode(thismodel.mdARCGenIIIMode_UNKNOWN)
+print("Current mode is ",thismodel.getRoot().getSelectedMode().getName())
+print("Current Binning mode is ",thismodel.prBinning.getSelectedMode().getName())
+print("After change, Current binning value is",thismodel.prBinning.getSelectedValue().getName())
+
+thismodel.set_ARCGenIIIMode(thismodel.mdARCGenIIIMode_Real)
+print("Current mode is ",thismodel.getRoot().getSelectedMode().getName())
+print("Current Binning mode is ",thismodel.prBinning.getSelectedMode().getName())
+print("Current binning value is",thismodel.prBinning.getSelectedValue().getName())
+print("Current Acquisition mode is ",thismodel.sysAcquisition.getSelectedMode().getName())
+
+print("We will select NormalWindow as the default acquisition mode")
+thismodel.sysAcquisition.setDefaultMode(thismodel.mdAcquisitionMode_NormalWindow)
+
+thismodel.set_ARCGenIIIMode(thismodel.mdARCGenIIIMode_UNKNOWN)
+print("Current mode is ",thismodel.getRoot().getSelectedMode().getName())
+print("Current Binning mode is ",thismodel.prBinning.getSelectedMode().getName())
+print("After change, Current binning value is",thismodel.prBinning.getSelectedValue().getName())
+
+thismodel.set_ARCGenIIIMode(thismodel.mdARCGenIIIMode_Real)
+print("Current mode is ",thismodel.getRoot().getSelectedMode().getName())
+print("Current Binning mode is ",thismodel.prBinning.getSelectedMode().getName())
+print("Current binning value is",thismodel.prBinning.getSelectedValue().getName())
+print("Current Acquisition mode is ",thismodel.sysAcquisition.getSelectedMode().getName())
+
+print("")
+
+print("----- BEGIN --------- XML dump of the model ------------------")
+print("")
+
+dom = thismodel.toXML()
+pretty_xml_as_string = dom.toprettyxml(encoding="utf-8")
+print(pretty_xml_as_string)
+print("")
+print("-----  END  --------- XML dump of the model ------------------")
+
+print("")
 
 '''
 
