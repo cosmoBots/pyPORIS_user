@@ -11,22 +11,35 @@ class ARCGenIII_physical(ARCGenIIIPORIS):
 
 
 thismodel = ARCGenIII_physical(13)
-
+'''
 print("Let's test our model ",thismodel.getRoot().getName())
 print("")
 print("Initial mode is ",thismodel.getRoot().getSelectedMode().getName())
 print("Initial Binning mode is ",thismodel.prBinning.getSelectedMode().getName())
 print("Initial binning value is",thismodel.prBinning.getSelectedValue().getName())
 print("")
-'''
+
 print("----- BEGIN --------- XML dump of the model ------------------")
 print("")
-
+'''
 dom = thismodel.toXML()
-pretty_xml_as_string = dom.toprettyxml(encoding="utf-8")
-print(pretty_xml_as_string)
+'''
+pretty_xml_as_string = dom.toprettyxml(encoding="UTF-8")
+print("----- BEGIN --------- XML dump of the model ------------------")
+# print(pretty_xml_as_string.decode('utf-8')) )
 print("")
 print("-----  END  --------- XML dump of the model ------------------")
+
+print("Let's parse")
+'''
+othermodel = PORISDoc(2)
+othermodel.fromXML(dom)
+
+# print("Let's dump")
+dom2 = othermodel.toXML()
+pretty_xml_as_string = dom2.toprettyxml(encoding="UTF-8")
+print(pretty_xml_as_string.decode('utf-8')) 
+
 '''
 print("")
 
@@ -89,9 +102,9 @@ print("")
 print("-----  END  --------- XML dump of the model ------------------")
 
 print("")
-
 '''
 
+'''
 x = datetime.now(tz=pytz.utc)
 print(x)
 mystring = PORISVALUEFORMATTER_DATE.getString(x)
