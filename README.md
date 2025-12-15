@@ -11,17 +11,39 @@ The models are located in the models folder.  You can find there some examples w
 
 ## Requirements
 
-- Java
+- Java (which can support Java Swing panels)
 - Python 3
 
 Install python libraries:
 
-    pip3 install bs4
-    pip3 install lxml
-    pip3 install pyexcel_ods
-    pip3 install python-redmine
+- bs4 (< 4.13, because this version breaks the parser)
+- lxml
+- pyexcel_ods
+- python-redmine
 
-NOTE: In Windows you should use 'pip' instead of 'pip3'
+We have added requirements.txt and constraints.txt for taking care of the dependencies which could break the functionality.
+
+If you want to install a venv with the strict requirements, you can do:
+
+```
+python -m venv venv
+source venv/bin/activate
+pip install --no-cache-dir -r requirements.txt
+```
+
+If you want to use newest pip libraries but respecting the constraints:
+
+```
+python -m venv venv
+source venv/bin/activate
+pip install -c constraints.txt bs4 lxml pyexcel_ods python-redmine
+```
+
+This is an example of how to install a valid Java platform in a modern Linux machine:
+
+```
+sudo apt install openjdk-17-jdk
+```
 
 ## Forking
 
