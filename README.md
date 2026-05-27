@@ -26,16 +26,16 @@ We have added requirements.txt and constraints.txt for taking care of the depend
 If you want to install a venv with the strict requirements, you can do:
 
 ```
-python -m venv venv
-source venv/bin/activate
+python -m venv .venv
+source .venv/bin/activate
 pip install --no-cache-dir -r requirements.txt
 ```
 
 If you want to use newest pip libraries but respecting the constraints:
 
 ```
-python -m venv venv
-source venv/bin/activate
+python -m venv .venv
+source .venv/bin/activate
 pip install -c constraints.txt bs4 lxml pyexcel_ods python-redmine
 ```
 
