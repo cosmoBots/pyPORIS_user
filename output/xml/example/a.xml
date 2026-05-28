@@ -46,15 +46,15 @@
         <project-id type="integer">13</project-id>
         <type>PORISMode</type>
         <destinations type="array">
-            <destination type="Value">
+            <destination type="PORISValue">
                 <id type="integer">2000000001</id>
                 <ident>n0::n0</ident>
             </destination>
-            <destination type="Value">
+            <destination type="PORISValue">
                 <id type="integer">2000000002</id>
                 <ident>n0::n1</ident>
             </destination>
-            <destination type="Value">
+            <destination type="PORISValue">
                 <id type="integer">2000000003</id>
                 <ident>n0::n2</ident>
             </destination>

@@ -29,6 +29,9 @@ class ARCGenIIIPORIS(PORISDoc):
         self.prBinning = PORISParam("Binning")
         self.mdARCGenIIIMode_Real = PORISMode("ARCGenIIIMode_Real")
         self.mdARCGenIIIMode_Emulated = PORISMode("ARCGenIIIMode_Emulated")
+        self.cmdARCGenIII_expose = PORISCmd("ARCGenIII_expose")
+        self.cmdARCGenIII_init_expose = PORISCmd("ARCGenIII_init_expose")
+        self.cmdARCGenIII_cfg_init_expose = PORISCmd("ARCGenIII_cfg_init_expose")
         self.mdFirmwareMode_tim = PORISMode("FirmwareMode_tim")
         self.mdFirmwareMode_osiris2 = PORISMode("FirmwareMode_osiris2")
         self.mdFirmwareMode_osiris3 = PORISMode("FirmwareMode_osiris3")
@@ -37,36 +40,36 @@ class ARCGenIIIPORIS(PORISDoc):
         self.mdAcquisitionMode_Normal = PORISMode("AcquisitionMode_Normal")
         self.mdAcquisitionMode_FrameTransfer = PORISMode("AcquisitionMode_FrameTransfer")
         self.mdAcquisitionMode_Shuffling = PORISMode("AcquisitionMode_Shuffling")
-        self.vlShuffleLines_Full_Range = PORISValueFloat("ShuffleLines_Full_Range",0,200,1000)
+        self.vlShuffleLines_Full_Range = PORISValueFloat("ShuffleLines_Full_Range",0.0,200.0,1000.0)
         self.mdShuffleLinesMode_Normal = PORISMode("ShuffleLinesMode_Normal")
-        self.vlShiftNumber_Full_Range = PORISValueFloat("ShiftNumber_Full_Range",0,5,1000)
+        self.vlShiftNumber_Full_Range = PORISValueFloat("ShiftNumber_Full_Range",0.0,5.0,1000.0)
         self.mdShiftNumberMode_Normal = PORISMode("ShiftNumberMode_Normal")
         self.mdSubarrayFeatureMode_Off = PORISMode("SubarrayFeatureMode_Off")
         self.mdSubarrayFeatureMode_On = PORISMode("SubarrayFeatureMode_On")
         self.mdColsMode_Normal = PORISMode("ColsMode_Normal")
-        self.vlCols_Full_Range = PORISValueFloat("Cols_Full_Range",0,2048,4098)
+        self.vlCols_Full_Range = PORISValueFloat("Cols_Full_Range",0.0,2048.0,4098.0)
         self.mdoffsetRowMode_Normal = PORISMode("offsetRowMode_Normal")
-        self.vloffsetRow_Full_Range = PORISValueFloat("offsetRow_Full_Range",0,2048,4098)
+        self.vloffsetRow_Full_Range = PORISValueFloat("offsetRow_Full_Range",0.0,2048.0,4098.0)
         self.mdRowsMode_Normal = PORISMode("RowsMode_Normal")
-        self.vlRows_Full_Range = PORISValueFloat("Rows_Full_Range",0,2048,4098)
+        self.vlRows_Full_Range = PORISValueFloat("Rows_Full_Range",0.0,2048.0,4098.0)
         self.mdoffsetColMode_Normal = PORISMode("offsetColMode_Normal")
-        self.vloffsetCol_Full_Range = PORISValueFloat("offsetCol_Full_Range",0,2048,4098)
+        self.vloffsetCol_Full_Range = PORISValueFloat("offsetCol_Full_Range",0.0,2048.0,4098.0)
         self.mdOpenShutterMode_On = PORISMode("OpenShutterMode_On")
         self.mdOpenShutterMode_Off = PORISMode("OpenShutterMode_Off")
-        self.vlExpTime_Full_Range = PORISValueFloat("ExpTime_Full_Range",0,1,4294967.295)
+        self.vlExpTime_Full_Range = PORISValueFloat("ExpTime_Full_Range",0.0,1.0,4294967.295)
         self.mdExpTimeMode_Normal = PORISMode("ExpTimeMode_Normal")
         self.mdExpTimeMode_FT = PORISMode("ExpTimeMode_FT")
-        self.vlExpTime_FT_Range = PORISValueFloat("ExpTime_FT_Range",0,0,360)
+        self.vlExpTime_FT_Range = PORISValueFloat("ExpTime_FT_Range",0.0,0.0,360.0)
         self.mdPixelSpeedMode_SLW = PORISMode("PixelSpeedMode_SLW")
         self.mdPixelSpeedMode_MED = PORISMode("PixelSpeedMode_MED")
         self.mdPixelSpeedMode_FST = PORISMode("PixelSpeedMode_FST")
         self.mdExposureCtrlMode_Normal = PORISMode("ExposureCtrlMode_Normal")
         self.mdExposureCtrlMode_FT = PORISMode("ExposureCtrlMode_FT")
         self.mdnumOfFramesMode_Multiple = PORISMode("numOfFramesMode_Multiple")
-        self.vlnumOfFrames_Multiple_Range = PORISValueFloat("numOfFrames_Multiple_Range",2,10,4294967295)
+        self.vlnumOfFrames_Multiple_Range = PORISValueFloat("numOfFrames_Multiple_Range",2.0,10.0,4294967295.0)
         self.mdnumOfFramesMode_Single = PORISMode("numOfFramesMode_Single")
         self.vlnumOfFrames_1 = PORISValue("numOfFrames_1")
-        self.vlCalibGain_Normal_Range = PORISValueFloat("CalibGain_Normal_Range",0,2,15)
+        self.vlCalibGain_Normal_Range = PORISValueFloat("CalibGain_Normal_Range",0.0,2.0,15.0)
         self.mdCalibGainMode_Normal = PORISMode("CalibGainMode_Normal")
         self.mdExposureCtrlMode_NoShutter = PORISMode("ExposureCtrlMode_NoShutter")
         self.mdExposureCtrlMode_Calibration = PORISMode("ExposureCtrlMode_Calibration")
@@ -84,11 +87,11 @@ class ARCGenIIIPORIS(PORISDoc):
         self.mdRecompositionMode_CDSQuad = PORISMode("RecompositionMode_CDSQuad")
         self.mdRecompositionMode_HawaiiRG = PORISMode("RecompositionMode_HawaiiRG")
         self.mdAcquisitionMode_NormalWindow = PORISMode("AcquisitionMode_NormalWindow")
-        self.vluiRows_Full_Range = PORISValueFloat("uiRows_Full_Range",0,4112,4112)
+        self.vluiRows_Full_Range = PORISValueFloat("uiRows_Full_Range",0.0,4112.0,4112.0)
         self.mduiRowsMode_Normal = PORISMode("uiRowsMode_Normal")
-        self.vluiRows_FTRange = PORISValueFloat("uiRows_FTRange",0,2056,2056)
+        self.vluiRows_FTRange = PORISValueFloat("uiRows_FTRange",0.0,2056.0,2056.0)
         self.mduiRowsMode_Half = PORISMode("uiRowsMode_Half")
-        self.vluiCols_Full_Range = PORISValueFloat("uiCols_Full_Range",0,4096,4096)
+        self.vluiCols_Full_Range = PORISValueFloat("uiCols_Full_Range",0.0,4096.0,4096.0)
         self.mduiColsMode_Normal = PORISMode("uiColsMode_Normal")
         self.mdDimensionsMode_Normal = PORISMode("DimensionsMode_Normal")
         self.mdDimensionsMode_FT = PORISMode("DimensionsMode_FT")
@@ -101,393 +104,571 @@ class ARCGenIIIPORIS(PORISDoc):
         self.mdVariantsMode_Normal = PORISMode("VariantsMode_Normal")
         self.mdVariantsMode_Extended = PORISMode("VariantsMode_Extended")
         self.mdVariantsMode_Extended_2 = PORISMode("VariantsMode_Extended_2")
+        self.cmdARCGenIII_abort = PORISCmd("ARCGenIII_abort")
+        self.mdARCGenIIIMode_Engineering = PORISMode("ARCGenIIIMode_Engineering")
+        self.mdFirmwareMode_Engineering = PORISMode("FirmwareMode_Engineering")
+        self.mdVariantsMode_Engineering = PORISMode("VariantsMode_Engineering")
+        self.mdAcquisitionMode_Engineering = PORISMode("AcquisitionMode_Engineering")
+        self.mdSubarrayFeatureMode_Engineering = PORISMode("SubarrayFeatureMode_Engineering")
+        self.mdExposureCtrlMode_Engineering = PORISMode("ExposureCtrlMode_Engineering")
+        self.mdOutputSourceMode_Engineering = PORISMode("OutputSourceMode_Engineering")
+        self.mdDimensionsMode_Engineering = PORISMode("DimensionsMode_Engineering")
         self.addItem(self.sysARCGenIII)
         self.sysARCGenIII.ident = "ARC-0004"
+        self.sysARCGenIII.setXMLName('ARCGenIII')
         self.sysARCGenIII.description = ""
         self.addItem(self.sysFirmware)
         self.sysFirmware.ident = "ARC-0007"
+        self.sysFirmware.setXMLName('Firmware')
         self.sysFirmware.description = ""
         self.sysARCGenIII.addSubsystem(self.sysFirmware)
         self.addItem(self.sysVariants)
         self.sysVariants.ident = "ARC-0097"
+        self.sysVariants.setXMLName('Variants')
         self.sysVariants.description = ""
         self.sysFirmware.addSubsystem(self.sysVariants)
         self.addItem(self.sysAcquisition)
         self.sysAcquisition.ident = "ARC-0076"
+        self.sysAcquisition.setXMLName('Acquisition')
         self.sysAcquisition.description = ""
         self.sysVariants.addSubsystem(self.sysAcquisition)
         self.addItem(self.prShuffleLines)
         self.prShuffleLines.ident = "ARC-0080"
+        self.prShuffleLines.setXMLName('ShuffleLines')
         self.prShuffleLines.description = ""
         self.sysAcquisition.addParam(self.prShuffleLines)
         self.addItem(self.prShiftNumber)
         self.prShiftNumber.ident = "ARC-0083"
+        self.prShiftNumber.setXMLName('ShiftNumber')
         self.prShiftNumber.description = ""
         self.sysAcquisition.addParam(self.prShiftNumber)
         self.addItem(self.sysSubarrayFeature)
         self.sysSubarrayFeature.ident = "ARC-0013"
+        self.sysSubarrayFeature.setXMLName('SubarrayFeature')
         self.sysSubarrayFeature.description = ""
         self.sysAcquisition.addSubsystem(self.sysSubarrayFeature)
         self.addItem(self.prCols)
         self.prCols.ident = "ARC-0044"
+        self.prCols.setXMLName('Cols')
         self.prCols.description = ""
         self.sysSubarrayFeature.addParam(self.prCols)
         self.addItem(self.proffsetRow)
         self.proffsetRow.ident = "ARC-0045"
+        self.proffsetRow.setXMLName('offsetRow')
         self.proffsetRow.description = ""
         self.sysSubarrayFeature.addParam(self.proffsetRow)
         self.addItem(self.prRows)
         self.prRows.ident = "ARC-0043"
+        self.prRows.setXMLName('Rows')
         self.prRows.description = ""
         self.sysSubarrayFeature.addParam(self.prRows)
         self.addItem(self.proffsetCol)
         self.proffsetCol.ident = "ARC-0046"
+        self.proffsetCol.setXMLName('offsetCol')
         self.proffsetCol.description = ""
         self.sysSubarrayFeature.addParam(self.proffsetCol)
         self.addItem(self.sysExposureCtrl)
         self.sysExposureCtrl.ident = "ARC-0103"
+        self.sysExposureCtrl.setXMLName('ExposureCtrl')
         self.sysExposureCtrl.description = ""
         self.sysAcquisition.addSubsystem(self.sysExposureCtrl)
         self.addItem(self.sysOpenShutter)
         self.sysOpenShutter.ident = "ARC-0009"
+        self.sysOpenShutter.setXMLName('OpenShutter')
         self.sysOpenShutter.description = ""
         self.sysExposureCtrl.addSubsystem(self.sysOpenShutter)
         self.addItem(self.prExpTime)
         self.prExpTime.ident = "ARC-0010"
+        self.prExpTime.setXMLName('ExpTime')
         self.prExpTime.description = ""
         self.sysExposureCtrl.addParam(self.prExpTime)
         self.addItem(self.sysPixelSpeed)
         self.sysPixelSpeed.ident = "ARC-0093"
+        self.sysPixelSpeed.setXMLName('PixelSpeed')
         self.sysPixelSpeed.description = ""
         self.sysExposureCtrl.addSubsystem(self.sysPixelSpeed)
         self.addItem(self.prnumOfFrames)
         self.prnumOfFrames.ident = "ARC-0001"
+        self.prnumOfFrames.setXMLName('numOfFrames')
         self.prnumOfFrames.description = ""
         self.sysExposureCtrl.addParam(self.prnumOfFrames)
         self.addItem(self.prCalibGain)
         self.prCalibGain.ident = "ARC-0130"
+        self.prCalibGain.setXMLName('CalibGain')
         self.prCalibGain.description = ""
         self.sysExposureCtrl.addParam(self.prCalibGain)
         self.addItem(self.sysOutputSource)
         self.sysOutputSource.ident = "ARC-0086"
+        self.sysOutputSource.setXMLName('OutputSource')
         self.sysOutputSource.description = ""
         self.sysAcquisition.addSubsystem(self.sysOutputSource)
         self.addItem(self.sysRecomposition)
         self.sysRecomposition.ident = "ARC-0020"
+        self.sysRecomposition.setXMLName('Recomposition')
         self.sysRecomposition.description = ""
         self.sysOutputSource.addSubsystem(self.sysRecomposition)
         self.addItem(self.sysDimensions)
         self.sysDimensions.ident = "ARC-0099"
+        self.sysDimensions.setXMLName('Dimensions')
         self.sysDimensions.description = ""
         self.sysAcquisition.addSubsystem(self.sysDimensions)
         self.addItem(self.pruiRows)
         self.pruiRows.ident = "ARC-0005"
+        self.pruiRows.setXMLName('uiRows')
         self.pruiRows.description = ""
         self.sysDimensions.addParam(self.pruiRows)
         self.addItem(self.pruiCols)
         self.pruiCols.ident = "ARC-0006"
+        self.pruiCols.setXMLName('uiCols')
         self.pruiCols.description = ""
         self.sysDimensions.addParam(self.pruiCols)
         self.addItem(self.prBinning)
         self.prBinning.ident = "ARC-0008"
+        self.prBinning.setXMLName('Binning')
         self.prBinning.description = ""
         self.sysAcquisition.addParam(self.prBinning)
         self.addItem(self.mdARCGenIIIMode_Real)
         self.mdARCGenIIIMode_Real.ident = "ARC-0018"
+        self.mdARCGenIIIMode_Real.setXMLName('Real')
         self.mdARCGenIIIMode_Real.description = ""
         self.sysARCGenIII.addMode(self.mdARCGenIIIMode_Real)
         self.addItem(self.mdARCGenIIIMode_Emulated)
         self.mdARCGenIIIMode_Emulated.ident = "ARC-0110"
+        self.mdARCGenIIIMode_Emulated.setXMLName('Emulated')
         self.mdARCGenIIIMode_Emulated.description = ""
         self.sysARCGenIII.addMode(self.mdARCGenIIIMode_Emulated)
+        self.addItem(self.cmdARCGenIII_expose)
+        self.cmdARCGenIII_expose.setActionName("expose")
+        self.cmdARCGenIII_expose.setHandlerName("execARCGenIII_expose")
+        self.cmdARCGenIII_expose.setTracePath("sysARCGenIII.expose")
+        self.cmdARCGenIII_expose.ident = "ARC-0121"
+        self.cmdARCGenIII_expose.setXMLName('expose')
+        self.cmdARCGenIII_expose.description = ""
+        self.sysARCGenIII.addCommand(self.cmdARCGenIII_expose)
+        self.addItem(self.cmdARCGenIII_init_expose)
+        self.cmdARCGenIII_init_expose.setActionName("init_expose")
+        self.cmdARCGenIII_init_expose.setHandlerName("execARCGenIII_init_expose")
+        self.cmdARCGenIII_init_expose.setTracePath("sysARCGenIII.init_expose")
+        self.cmdARCGenIII_init_expose.ident = "ARC-0122"
+        self.cmdARCGenIII_init_expose.setXMLName('init_expose')
+        self.cmdARCGenIII_init_expose.description = ""
+        self.sysARCGenIII.addCommand(self.cmdARCGenIII_init_expose)
+        self.addItem(self.cmdARCGenIII_cfg_init_expose)
+        self.cmdARCGenIII_cfg_init_expose.setActionName("cfg_init_expose")
+        self.cmdARCGenIII_cfg_init_expose.setHandlerName("execARCGenIII_cfg_init_expose")
+        self.cmdARCGenIII_cfg_init_expose.setTracePath("sysARCGenIII.cfg_init_expose")
+        self.cmdARCGenIII_cfg_init_expose.ident = "ARC-0123"
+        self.cmdARCGenIII_cfg_init_expose.setXMLName('cfg_init_expose')
+        self.cmdARCGenIII_cfg_init_expose.description = ""
+        self.sysARCGenIII.addCommand(self.cmdARCGenIII_cfg_init_expose)
         self.addItem(self.mdFirmwareMode_tim)
         self.mdFirmwareMode_tim.ident = "ARC-0021"
+        self.mdFirmwareMode_tim.setXMLName('tim')
         self.mdFirmwareMode_tim.description = ""
         self.sysFirmware.addMode(self.mdFirmwareMode_tim)
         self.addItem(self.mdFirmwareMode_osiris2)
         self.mdFirmwareMode_osiris2.ident = "ARC-0062"
+        self.mdFirmwareMode_osiris2.setXMLName('osiris2')
         self.mdFirmwareMode_osiris2.description = ""
         self.sysFirmware.addMode(self.mdFirmwareMode_osiris2)
         self.addItem(self.mdFirmwareMode_osiris3)
         self.mdFirmwareMode_osiris3.ident = "ARC-0073"
+        self.mdFirmwareMode_osiris3.setXMLName('osiris3')
         self.mdFirmwareMode_osiris3.description = ""
         self.sysFirmware.addMode(self.mdFirmwareMode_osiris3)
         self.addItem(self.mdFirmwareMode_osiris4)
         self.mdFirmwareMode_osiris4.ident = "ARC-0074"
+        self.mdFirmwareMode_osiris4.setXMLName('osiris4')
         self.mdFirmwareMode_osiris4.description = ""
         self.sysFirmware.addMode(self.mdFirmwareMode_osiris4)
         self.addItem(self.mdFirmwareMode_osiris5)
         self.mdFirmwareMode_osiris5.ident = "ARC-0075"
+        self.mdFirmwareMode_osiris5.setXMLName('osiris5')
         self.mdFirmwareMode_osiris5.description = ""
         self.sysFirmware.addMode(self.mdFirmwareMode_osiris5)
         self.addItem(self.mdAcquisitionMode_Normal)
         self.mdAcquisitionMode_Normal.ident = "ARC-0077"
+        self.mdAcquisitionMode_Normal.setXMLName('Normal')
         self.mdAcquisitionMode_Normal.description = ""
         self.sysAcquisition.addMode(self.mdAcquisitionMode_Normal)
         self.addItem(self.mdAcquisitionMode_FrameTransfer)
         self.mdAcquisitionMode_FrameTransfer.ident = "ARC-0078"
+        self.mdAcquisitionMode_FrameTransfer.setXMLName('FrameTransfer')
         self.mdAcquisitionMode_FrameTransfer.description = ""
         self.sysAcquisition.addMode(self.mdAcquisitionMode_FrameTransfer)
         self.addItem(self.mdAcquisitionMode_Shuffling)
         self.mdAcquisitionMode_Shuffling.ident = "ARC-0079"
+        self.mdAcquisitionMode_Shuffling.setXMLName('Shuffling')
         self.mdAcquisitionMode_Shuffling.description = ""
         self.sysAcquisition.addMode(self.mdAcquisitionMode_Shuffling)
         self.addItem(self.vlShuffleLines_Full_Range)
         self.vlShuffleLines_Full_Range.ident = "ARC-0081"
+        self.vlShuffleLines_Full_Range.setXMLName('Full_Range')
         self.vlShuffleLines_Full_Range.description = ""
         self.prShuffleLines.addValue(self.vlShuffleLines_Full_Range)
         self.addItem(self.mdShuffleLinesMode_Normal)
         self.mdShuffleLinesMode_Normal.ident = "ARC-0082"
+        self.mdShuffleLinesMode_Normal.setXMLName('Normal')
         self.mdShuffleLinesMode_Normal.description = ""
         self.prShuffleLines.addMode(self.mdShuffleLinesMode_Normal)
         self.addItem(self.vlShiftNumber_Full_Range)
         self.vlShiftNumber_Full_Range.ident = "ARC-0084"
+        self.vlShiftNumber_Full_Range.setXMLName('Full_Range')
         self.vlShiftNumber_Full_Range.description = ""
         self.prShiftNumber.addValue(self.vlShiftNumber_Full_Range)
         self.addItem(self.mdShiftNumberMode_Normal)
         self.mdShiftNumberMode_Normal.ident = "ARC-0085"
+        self.mdShiftNumberMode_Normal.setXMLName('Normal')
         self.mdShiftNumberMode_Normal.description = ""
         self.prShiftNumber.addMode(self.mdShiftNumberMode_Normal)
         self.addItem(self.mdSubarrayFeatureMode_Off)
         self.mdSubarrayFeatureMode_Off.ident = "ARC-0041"
+        self.mdSubarrayFeatureMode_Off.setXMLName('Off')
         self.mdSubarrayFeatureMode_Off.description = ""
         self.sysSubarrayFeature.addMode(self.mdSubarrayFeatureMode_Off)
         self.addItem(self.mdSubarrayFeatureMode_On)
         self.mdSubarrayFeatureMode_On.ident = "ARC-0042"
+        self.mdSubarrayFeatureMode_On.setXMLName('On')
         self.mdSubarrayFeatureMode_On.description = ""
         self.sysSubarrayFeature.addMode(self.mdSubarrayFeatureMode_On)
         self.addItem(self.mdColsMode_Normal)
         self.mdColsMode_Normal.ident = "ARC-0066"
+        self.mdColsMode_Normal.setXMLName('Normal')
         self.mdColsMode_Normal.description = ""
         self.prCols.addMode(self.mdColsMode_Normal)
         self.addItem(self.vlCols_Full_Range)
         self.vlCols_Full_Range.ident = "ARC-0065"
+        self.vlCols_Full_Range.setXMLName('Full_Range')
         self.vlCols_Full_Range.description = ""
         self.prCols.addValue(self.vlCols_Full_Range)
         self.addItem(self.mdoffsetRowMode_Normal)
         self.mdoffsetRowMode_Normal.ident = "ARC-0068"
+        self.mdoffsetRowMode_Normal.setXMLName('Normal')
         self.mdoffsetRowMode_Normal.description = ""
         self.proffsetRow.addMode(self.mdoffsetRowMode_Normal)
         self.addItem(self.vloffsetRow_Full_Range)
         self.vloffsetRow_Full_Range.ident = "ARC-0067"
+        self.vloffsetRow_Full_Range.setXMLName('Full_Range')
         self.vloffsetRow_Full_Range.description = ""
         self.proffsetRow.addValue(self.vloffsetRow_Full_Range)
         self.addItem(self.mdRowsMode_Normal)
         self.mdRowsMode_Normal.ident = "ARC-0064"
+        self.mdRowsMode_Normal.setXMLName('Normal')
         self.mdRowsMode_Normal.description = ""
         self.prRows.addMode(self.mdRowsMode_Normal)
         self.addItem(self.vlRows_Full_Range)
         self.vlRows_Full_Range.ident = "ARC-0063"
+        self.vlRows_Full_Range.setXMLName('Full_Range')
         self.vlRows_Full_Range.description = ""
         self.prRows.addValue(self.vlRows_Full_Range)
         self.addItem(self.mdoffsetColMode_Normal)
         self.mdoffsetColMode_Normal.ident = "ARC-0070"
+        self.mdoffsetColMode_Normal.setXMLName('Normal')
         self.mdoffsetColMode_Normal.description = ""
         self.proffsetCol.addMode(self.mdoffsetColMode_Normal)
         self.addItem(self.vloffsetCol_Full_Range)
         self.vloffsetCol_Full_Range.ident = "ARC-0069"
+        self.vloffsetCol_Full_Range.setXMLName('Full_Range')
         self.vloffsetCol_Full_Range.description = ""
         self.proffsetCol.addValue(self.vloffsetCol_Full_Range)
         self.addItem(self.mdOpenShutterMode_On)
         self.mdOpenShutterMode_On.ident = "ARC-0033"
+        self.mdOpenShutterMode_On.setXMLName('On')
         self.mdOpenShutterMode_On.description = ""
         self.sysOpenShutter.addMode(self.mdOpenShutterMode_On)
         self.addItem(self.mdOpenShutterMode_Off)
         self.mdOpenShutterMode_Off.ident = "ARC-0034"
+        self.mdOpenShutterMode_Off.setXMLName('Off')
         self.mdOpenShutterMode_Off.description = ""
         self.sysOpenShutter.addMode(self.mdOpenShutterMode_Off)
         self.addItem(self.vlExpTime_Full_Range)
         self.vlExpTime_Full_Range.ident = "ARC-0035"
+        self.vlExpTime_Full_Range.setXMLName('Full_Range')
         self.vlExpTime_Full_Range.description = ""
         self.prExpTime.addValue(self.vlExpTime_Full_Range)
         self.addItem(self.mdExpTimeMode_Normal)
         self.mdExpTimeMode_Normal.ident = "ARC-0036"
+        self.mdExpTimeMode_Normal.setXMLName('Normal')
         self.mdExpTimeMode_Normal.description = ""
         self.prExpTime.addMode(self.mdExpTimeMode_Normal)
         self.addItem(self.mdExpTimeMode_FT)
         self.mdExpTimeMode_FT.ident = "ARC-0119"
+        self.mdExpTimeMode_FT.setXMLName('FT')
         self.mdExpTimeMode_FT.description = ""
         self.prExpTime.addMode(self.mdExpTimeMode_FT)
         self.addItem(self.vlExpTime_FT_Range)
         self.vlExpTime_FT_Range.ident = "ARC-0120"
+        self.vlExpTime_FT_Range.setXMLName('FT_Range')
         self.vlExpTime_FT_Range.description = ""
         self.prExpTime.addValue(self.vlExpTime_FT_Range)
         self.addItem(self.mdPixelSpeedMode_SLW)
         self.mdPixelSpeedMode_SLW.ident = "ARC-0094"
+        self.mdPixelSpeedMode_SLW.setXMLName('SLW')
         self.mdPixelSpeedMode_SLW.description = ""
         self.sysPixelSpeed.addMode(self.mdPixelSpeedMode_SLW)
         self.addItem(self.mdPixelSpeedMode_MED)
         self.mdPixelSpeedMode_MED.ident = "ARC-0095"
+        self.mdPixelSpeedMode_MED.setXMLName('MED')
         self.mdPixelSpeedMode_MED.description = ""
         self.sysPixelSpeed.addMode(self.mdPixelSpeedMode_MED)
         self.addItem(self.mdPixelSpeedMode_FST)
         self.mdPixelSpeedMode_FST.ident = "ARC-0096"
+        self.mdPixelSpeedMode_FST.setXMLName('FST')
         self.mdPixelSpeedMode_FST.description = ""
         self.sysPixelSpeed.addMode(self.mdPixelSpeedMode_FST)
         self.addItem(self.mdExposureCtrlMode_Normal)
         self.mdExposureCtrlMode_Normal.ident = "ARC-0104"
+        self.mdExposureCtrlMode_Normal.setXMLName('Normal')
         self.mdExposureCtrlMode_Normal.description = ""
         self.sysExposureCtrl.addMode(self.mdExposureCtrlMode_Normal)
         self.addItem(self.mdExposureCtrlMode_FT)
         self.mdExposureCtrlMode_FT.ident = "ARC-0114"
+        self.mdExposureCtrlMode_FT.setXMLName('FT')
         self.mdExposureCtrlMode_FT.description = ""
         self.sysExposureCtrl.addMode(self.mdExposureCtrlMode_FT)
         self.addItem(self.mdnumOfFramesMode_Multiple)
         self.mdnumOfFramesMode_Multiple.ident = "ARC-0072"
+        self.mdnumOfFramesMode_Multiple.setXMLName('Multiple')
         self.mdnumOfFramesMode_Multiple.description = ""
         self.prnumOfFrames.addMode(self.mdnumOfFramesMode_Multiple)
         self.addItem(self.vlnumOfFrames_Multiple_Range)
         self.vlnumOfFrames_Multiple_Range.ident = "ARC-0071"
+        self.vlnumOfFrames_Multiple_Range.setXMLName('Multiple_Range')
         self.vlnumOfFrames_Multiple_Range.description = ""
         self.prnumOfFrames.addValue(self.vlnumOfFrames_Multiple_Range)
         self.addItem(self.mdnumOfFramesMode_Single)
         self.mdnumOfFramesMode_Single.ident = "ARC-0037"
+        self.mdnumOfFramesMode_Single.setXMLName('Single')
         self.mdnumOfFramesMode_Single.description = ""
         self.prnumOfFrames.addMode(self.mdnumOfFramesMode_Single)
         self.addItem(self.vlnumOfFrames_1)
         self.vlnumOfFrames_1.ident = "ARC-0131"
+        self.vlnumOfFrames_1.setXMLName('1')
         self.vlnumOfFrames_1.description = ""
         self.prnumOfFrames.addValue(self.vlnumOfFrames_1)
         self.addItem(self.vlCalibGain_Normal_Range)
         self.vlCalibGain_Normal_Range.ident = "ARC-0124"
+        self.vlCalibGain_Normal_Range.setXMLName('Normal_Range')
         self.vlCalibGain_Normal_Range.description = ""
         self.prCalibGain.addValue(self.vlCalibGain_Normal_Range)
         self.addItem(self.mdCalibGainMode_Normal)
         self.mdCalibGainMode_Normal.ident = "ARC-0125"
+        self.mdCalibGainMode_Normal.setXMLName('Normal')
         self.mdCalibGainMode_Normal.description = ""
         self.prCalibGain.addMode(self.mdCalibGainMode_Normal)
         self.addItem(self.mdExposureCtrlMode_NoShutter)
         self.mdExposureCtrlMode_NoShutter.ident = "ARC-0134"
+        self.mdExposureCtrlMode_NoShutter.setXMLName('NoShutter')
         self.mdExposureCtrlMode_NoShutter.description = ""
         self.sysExposureCtrl.addMode(self.mdExposureCtrlMode_NoShutter)
         self.addItem(self.mdExposureCtrlMode_Calibration)
         self.mdExposureCtrlMode_Calibration.ident = "ARC-0136"
+        self.mdExposureCtrlMode_Calibration.setXMLName('Calibration')
         self.mdExposureCtrlMode_Calibration.description = ""
         self.sysExposureCtrl.addMode(self.mdExposureCtrlMode_Calibration)
         self.addItem(self.mdOutputSourceMode_0x0)
         self.mdOutputSourceMode_0x0.ident = "ARC-0087"
+        self.mdOutputSourceMode_0x0.setXMLName('0x0')
         self.mdOutputSourceMode_0x0.description = ""
         self.sysOutputSource.addMode(self.mdOutputSourceMode_0x0)
         self.addItem(self.mdOutputSourceMode_0x1)
         self.mdOutputSourceMode_0x1.ident = "ARC-0088"
+        self.mdOutputSourceMode_0x1.setXMLName('0x1')
         self.mdOutputSourceMode_0x1.description = ""
         self.sysOutputSource.addMode(self.mdOutputSourceMode_0x1)
         self.addItem(self.mdOutputSourceMode_0x2)
         self.mdOutputSourceMode_0x2.ident = "ARC-0089"
+        self.mdOutputSourceMode_0x2.setXMLName('0x2')
         self.mdOutputSourceMode_0x2.description = ""
         self.sysOutputSource.addMode(self.mdOutputSourceMode_0x2)
         self.addItem(self.mdOutputSourceMode_0x3)
         self.mdOutputSourceMode_0x3.ident = "ARC-0090"
+        self.mdOutputSourceMode_0x3.setXMLName('0x3')
         self.mdOutputSourceMode_0x3.description = ""
         self.sysOutputSource.addMode(self.mdOutputSourceMode_0x3)
         self.addItem(self.mdOutputSourceMode_ALL)
         self.mdOutputSourceMode_ALL.ident = "ARC-0091"
+        self.mdOutputSourceMode_ALL.setXMLName('ALL')
         self.mdOutputSourceMode_ALL.description = ""
         self.sysOutputSource.addMode(self.mdOutputSourceMode_ALL)
         self.addItem(self.mdOutputSourceMode_TWO)
         self.mdOutputSourceMode_TWO.ident = "ARC-0092"
+        self.mdOutputSourceMode_TWO.setXMLName('TWO')
         self.mdOutputSourceMode_TWO.description = ""
         self.sysOutputSource.addMode(self.mdOutputSourceMode_TWO)
         self.addItem(self.mdRecompositionMode_None)
         self.mdRecompositionMode_None.ident = "ARC-0055"
+        self.mdRecompositionMode_None.setXMLName('None')
         self.mdRecompositionMode_None.description = ""
         self.sysRecomposition.addMode(self.mdRecompositionMode_None)
         self.addItem(self.mdRecompositionMode_Parallel)
         self.mdRecompositionMode_Parallel.ident = "ARC-0056"
+        self.mdRecompositionMode_Parallel.setXMLName('Parallel')
         self.mdRecompositionMode_Parallel.description = ""
         self.sysRecomposition.addMode(self.mdRecompositionMode_Parallel)
         self.addItem(self.mdRecompositionMode_Serial)
         self.mdRecompositionMode_Serial.ident = "ARC-0057"
+        self.mdRecompositionMode_Serial.setXMLName('Serial')
         self.mdRecompositionMode_Serial.description = ""
         self.sysRecomposition.addMode(self.mdRecompositionMode_Serial)
         self.addItem(self.mdRecompositionMode_QuadCCD)
         self.mdRecompositionMode_QuadCCD.ident = "ARC-0058"
+        self.mdRecompositionMode_QuadCCD.setXMLName('QuadCCD')
         self.mdRecompositionMode_QuadCCD.description = ""
         self.sysRecomposition.addMode(self.mdRecompositionMode_QuadCCD)
         self.addItem(self.mdRecompositionMode_QuadIR)
         self.mdRecompositionMode_QuadIR.ident = "ARC-0059"
+        self.mdRecompositionMode_QuadIR.setXMLName('QuadIR')
         self.mdRecompositionMode_QuadIR.description = ""
         self.sysRecomposition.addMode(self.mdRecompositionMode_QuadIR)
         self.addItem(self.mdRecompositionMode_CDSQuad)
         self.mdRecompositionMode_CDSQuad.ident = "ARC-0060"
+        self.mdRecompositionMode_CDSQuad.setXMLName('CDSQuad')
         self.mdRecompositionMode_CDSQuad.description = ""
         self.sysRecomposition.addMode(self.mdRecompositionMode_CDSQuad)
         self.addItem(self.mdRecompositionMode_HawaiiRG)
         self.mdRecompositionMode_HawaiiRG.ident = "ARC-0061"
+        self.mdRecompositionMode_HawaiiRG.setXMLName('HawaiiRG')
         self.mdRecompositionMode_HawaiiRG.description = ""
         self.sysRecomposition.addMode(self.mdRecompositionMode_HawaiiRG)
         self.addItem(self.mdAcquisitionMode_NormalWindow)
         self.mdAcquisitionMode_NormalWindow.ident = "ARC-0126"
+        self.mdAcquisitionMode_NormalWindow.setXMLName('NormalWindow')
         self.mdAcquisitionMode_NormalWindow.description = ""
         self.sysAcquisition.addMode(self.mdAcquisitionMode_NormalWindow)
         self.addItem(self.vluiRows_Full_Range)
         self.vluiRows_Full_Range.ident = "ARC-0022"
+        self.vluiRows_Full_Range.setXMLName('Full_Range')
         self.vluiRows_Full_Range.description = ""
         self.pruiRows.addValue(self.vluiRows_Full_Range)
         self.addItem(self.mduiRowsMode_Normal)
         self.mduiRowsMode_Normal.ident = "ARC-0023"
+        self.mduiRowsMode_Normal.setXMLName('Normal')
         self.mduiRowsMode_Normal.description = ""
         self.pruiRows.addMode(self.mduiRowsMode_Normal)
         self.addItem(self.vluiRows_FTRange)
         self.vluiRows_FTRange.ident = "ARC-0127"
+        self.vluiRows_FTRange.setXMLName('FTRange')
         self.vluiRows_FTRange.description = ""
         self.pruiRows.addValue(self.vluiRows_FTRange)
         self.addItem(self.mduiRowsMode_Half)
         self.mduiRowsMode_Half.ident = "ARC-0128"
+        self.mduiRowsMode_Half.setXMLName('Half')
         self.mduiRowsMode_Half.description = ""
         self.pruiRows.addMode(self.mduiRowsMode_Half)
         self.addItem(self.vluiCols_Full_Range)
         self.vluiCols_Full_Range.ident = "ARC-0024"
+        self.vluiCols_Full_Range.setXMLName('Full_Range')
         self.vluiCols_Full_Range.description = ""
         self.pruiCols.addValue(self.vluiCols_Full_Range)
         self.addItem(self.mduiColsMode_Normal)
         self.mduiColsMode_Normal.ident = "ARC-0025"
+        self.mduiColsMode_Normal.setXMLName('Normal')
         self.mduiColsMode_Normal.description = ""
         self.pruiCols.addMode(self.mduiColsMode_Normal)
         self.addItem(self.mdDimensionsMode_Normal)
         self.mdDimensionsMode_Normal.ident = "ARC-0100"
+        self.mdDimensionsMode_Normal.setXMLName('Normal')
         self.mdDimensionsMode_Normal.description = ""
         self.sysDimensions.addMode(self.mdDimensionsMode_Normal)
         self.addItem(self.mdDimensionsMode_FT)
         self.mdDimensionsMode_FT.ident = "ARC-0129"
+        self.mdDimensionsMode_FT.setXMLName('FT')
         self.mdDimensionsMode_FT.description = ""
         self.sysDimensions.addMode(self.mdDimensionsMode_FT)
         self.addItem(self.vlBinning_1x1)
         self.vlBinning_1x1.ident = "ARC-0026"
+        self.vlBinning_1x1.setXMLName('1x1')
         self.vlBinning_1x1.description = ""
         self.prBinning.addValue(self.vlBinning_1x1)
         self.addItem(self.vlBinning_1x2)
         self.vlBinning_1x2.ident = "ARC-0027"
+        self.vlBinning_1x2.setXMLName('1x2')
         self.vlBinning_1x2.description = ""
         self.prBinning.addValue(self.vlBinning_1x2)
         self.addItem(self.vlBinning_2x1)
         self.vlBinning_2x1.ident = "ARC-0028"
+        self.vlBinning_2x1.setXMLName('2x1')
         self.vlBinning_2x1.description = ""
         self.prBinning.addValue(self.vlBinning_2x1)
         self.addItem(self.vlBinning_2x2)
         self.vlBinning_2x2.ident = "ARC-0029"
+        self.vlBinning_2x2.setXMLName('2x2')
         self.vlBinning_2x2.description = ""
         self.prBinning.addValue(self.vlBinning_2x2)
         self.addItem(self.mdBinningMode_All)
         self.mdBinningMode_All.ident = "ARC-0031"
+        self.mdBinningMode_All.setXMLName('All')
         self.mdBinningMode_All.description = ""
         self.prBinning.addMode(self.mdBinningMode_All)
         self.addItem(self.mdAcquisitionMode_Calibration)
         self.mdAcquisitionMode_Calibration.ident = "ARC-0137"
+        self.mdAcquisitionMode_Calibration.setXMLName('Calibration')
         self.mdAcquisitionMode_Calibration.description = ""
         self.sysAcquisition.addMode(self.mdAcquisitionMode_Calibration)
         self.addItem(self.mdVariantsMode_Normal)
         self.mdVariantsMode_Normal.ident = "ARC-0098"
+        self.mdVariantsMode_Normal.setXMLName('Normal')
         self.mdVariantsMode_Normal.description = ""
         self.sysVariants.addMode(self.mdVariantsMode_Normal)
         self.addItem(self.mdVariantsMode_Extended)
         self.mdVariantsMode_Extended.ident = "ARC-0105"
+        self.mdVariantsMode_Extended.setXMLName('Extended')
         self.mdVariantsMode_Extended.description = ""
         self.sysVariants.addMode(self.mdVariantsMode_Extended)
         self.addItem(self.mdVariantsMode_Extended_2)
         self.mdVariantsMode_Extended_2.ident = "ARC-0138"
+        self.mdVariantsMode_Extended_2.setXMLName('Extended_2')
         self.mdVariantsMode_Extended_2.description = ""
         self.sysVariants.addMode(self.mdVariantsMode_Extended_2)
+        self.addItem(self.cmdARCGenIII_abort)
+        self.cmdARCGenIII_abort.setActionName("abort")
+        self.cmdARCGenIII_abort.setHandlerName("execARCGenIII_abort")
+        self.cmdARCGenIII_abort.setTracePath("sysARCGenIII.abort")
+        self.cmdARCGenIII_abort.ident = "ARC-0139"
+        self.cmdARCGenIII_abort.setXMLName('abort')
+        self.cmdARCGenIII_abort.description = ""
+        self.sysARCGenIII.addCommand(self.cmdARCGenIII_abort)
+        self.addItem(self.mdARCGenIIIMode_Engineering)
+        self.mdARCGenIIIMode_Engineering.ident = "ENG-1"
+        self.mdARCGenIIIMode_Engineering.setXMLName('Engineering')
+        self.mdARCGenIIIMode_Engineering.description = "ARCGenIII engineering mode"
+        self.sysARCGenIII.addMode(self.mdARCGenIIIMode_Engineering)
+        self.addItem(self.mdFirmwareMode_Engineering)
+        self.mdFirmwareMode_Engineering.ident = "ENG-2"
+        self.mdFirmwareMode_Engineering.setXMLName('Engineering')
+        self.mdFirmwareMode_Engineering.description = "Firmware engineering mode"
+        self.sysFirmware.addMode(self.mdFirmwareMode_Engineering)
+        self.addItem(self.mdVariantsMode_Engineering)
+        self.mdVariantsMode_Engineering.ident = "ENG-3"
+        self.mdVariantsMode_Engineering.setXMLName('Engineering')
+        self.mdVariantsMode_Engineering.description = "Variants engineering mode"
+        self.sysVariants.addMode(self.mdVariantsMode_Engineering)
+        self.addItem(self.mdAcquisitionMode_Engineering)
+        self.mdAcquisitionMode_Engineering.ident = "ENG-4"
+        self.mdAcquisitionMode_Engineering.setXMLName('Engineering')
+        self.mdAcquisitionMode_Engineering.description = "Acquisition engineering mode"
+        self.sysAcquisition.addMode(self.mdAcquisitionMode_Engineering)
+        self.addItem(self.mdSubarrayFeatureMode_Engineering)
+        self.mdSubarrayFeatureMode_Engineering.ident = "ENG-5"
+        self.mdSubarrayFeatureMode_Engineering.setXMLName('Engineering')
+        self.mdSubarrayFeatureMode_Engineering.description = "SubarrayFeature engineering mode"
+        self.sysSubarrayFeature.addMode(self.mdSubarrayFeatureMode_Engineering)
+        self.addItem(self.mdExposureCtrlMode_Engineering)
+        self.mdExposureCtrlMode_Engineering.ident = "ENG-6"
+        self.mdExposureCtrlMode_Engineering.setXMLName('Engineering')
+        self.mdExposureCtrlMode_Engineering.description = "ExposureCtrl engineering mode"
+        self.sysExposureCtrl.addMode(self.mdExposureCtrlMode_Engineering)
+        self.addItem(self.mdOutputSourceMode_Engineering)
+        self.mdOutputSourceMode_Engineering.ident = "ENG-7"
+        self.mdOutputSourceMode_Engineering.setXMLName('Engineering')
+        self.mdOutputSourceMode_Engineering.description = "OutputSource engineering mode"
+        self.sysOutputSource.addMode(self.mdOutputSourceMode_Engineering)
+        self.addItem(self.mdDimensionsMode_Engineering)
+        self.mdDimensionsMode_Engineering.ident = "ENG-8"
+        self.mdDimensionsMode_Engineering.setXMLName('Engineering')
+        self.mdDimensionsMode_Engineering.description = "Dimensions engineering mode"
+        self.sysDimensions.addMode(self.mdDimensionsMode_Engineering)
         # Marcamos FirmwareMode_tim como elegible para ARCGenIIIMode_Real
         self.mdARCGenIIIMode_Real.addSubMode(self.mdFirmwareMode_tim)
         # Marcamos FirmwareMode_osiris2 como elegible para ARCGenIIIMode_Real
@@ -508,6 +689,18 @@ class ARCGenIIIPORIS(PORISDoc):
         self.mdARCGenIIIMode_Emulated.addSubMode(self.mdFirmwareMode_osiris4)
         # Marcamos FirmwareMode_osiris5 como elegible para ARCGenIIIMode_Emulated
         self.mdARCGenIIIMode_Emulated.addSubMode(self.mdFirmwareMode_osiris5)
+        # Marcamos FirmwareMode_tim como elegible para ARCGenIIIMode_Engineering
+        self.mdARCGenIIIMode_Engineering.addSubMode(self.mdFirmwareMode_tim)
+        # Marcamos FirmwareMode_osiris2 como elegible para ARCGenIIIMode_Engineering
+        self.mdARCGenIIIMode_Engineering.addSubMode(self.mdFirmwareMode_osiris2)
+        # Marcamos FirmwareMode_osiris3 como elegible para ARCGenIIIMode_Engineering
+        self.mdARCGenIIIMode_Engineering.addSubMode(self.mdFirmwareMode_osiris3)
+        # Marcamos FirmwareMode_osiris4 como elegible para ARCGenIIIMode_Engineering
+        self.mdARCGenIIIMode_Engineering.addSubMode(self.mdFirmwareMode_osiris4)
+        # Marcamos FirmwareMode_osiris5 como elegible para ARCGenIIIMode_Engineering
+        self.mdARCGenIIIMode_Engineering.addSubMode(self.mdFirmwareMode_osiris5)
+        # Marcamos FirmwareMode_Engineering como elegible para ARCGenIIIMode_Engineering
+        self.mdARCGenIIIMode_Engineering.addSubMode(self.mdFirmwareMode_Engineering)
         # Marcamos VariantsMode_Normal como elegible para FirmwareMode_tim
         self.mdFirmwareMode_tim.addSubMode(self.mdVariantsMode_Normal)
         # Marcamos VariantsMode_Extended como elegible para FirmwareMode_osiris2
@@ -518,6 +711,14 @@ class ARCGenIIIPORIS(PORISDoc):
         self.mdFirmwareMode_osiris4.addSubMode(self.mdVariantsMode_Extended_2)
         # Marcamos VariantsMode_Extended_2 como elegible para FirmwareMode_osiris5
         self.mdFirmwareMode_osiris5.addSubMode(self.mdVariantsMode_Extended_2)
+        # Marcamos VariantsMode_Normal como elegible para FirmwareMode_Engineering
+        self.mdFirmwareMode_Engineering.addSubMode(self.mdVariantsMode_Normal)
+        # Marcamos VariantsMode_Extended como elegible para FirmwareMode_Engineering
+        self.mdFirmwareMode_Engineering.addSubMode(self.mdVariantsMode_Extended)
+        # Marcamos VariantsMode_Extended_2 como elegible para FirmwareMode_Engineering
+        self.mdFirmwareMode_Engineering.addSubMode(self.mdVariantsMode_Extended_2)
+        # Marcamos VariantsMode_Engineering como elegible para FirmwareMode_Engineering
+        self.mdFirmwareMode_Engineering.addSubMode(self.mdVariantsMode_Engineering)
         # Marcamos AcquisitionMode_Normal como elegible para VariantsMode_Normal
         self.mdVariantsMode_Normal.addSubMode(self.mdAcquisitionMode_Normal)
         # Marcamos AcquisitionMode_NormalWindow como elegible para VariantsMode_Normal
@@ -540,12 +741,28 @@ class ARCGenIIIPORIS(PORISDoc):
         self.mdVariantsMode_Extended_2.addSubMode(self.mdAcquisitionMode_NormalWindow)
         # Marcamos AcquisitionMode_Calibration como elegible para VariantsMode_Extended_2
         self.mdVariantsMode_Extended_2.addSubMode(self.mdAcquisitionMode_Calibration)
+        # Marcamos AcquisitionMode_Normal como elegible para VariantsMode_Engineering
+        self.mdVariantsMode_Engineering.addSubMode(self.mdAcquisitionMode_Normal)
+        # Marcamos AcquisitionMode_FrameTransfer como elegible para VariantsMode_Engineering
+        self.mdVariantsMode_Engineering.addSubMode(self.mdAcquisitionMode_FrameTransfer)
+        # Marcamos AcquisitionMode_Shuffling como elegible para VariantsMode_Engineering
+        self.mdVariantsMode_Engineering.addSubMode(self.mdAcquisitionMode_Shuffling)
+        # Marcamos AcquisitionMode_NormalWindow como elegible para VariantsMode_Engineering
+        self.mdVariantsMode_Engineering.addSubMode(self.mdAcquisitionMode_NormalWindow)
+        # Marcamos AcquisitionMode_Calibration como elegible para VariantsMode_Engineering
+        self.mdVariantsMode_Engineering.addSubMode(self.mdAcquisitionMode_Calibration)
+        # Marcamos AcquisitionMode_Engineering como elegible para VariantsMode_Engineering
+        self.mdVariantsMode_Engineering.addSubMode(self.mdAcquisitionMode_Engineering)
         # Marcamos ShuffleLinesMode_Normal como elegible para AcquisitionMode_Shuffling
         self.mdAcquisitionMode_Shuffling.addSubMode(self.mdShuffleLinesMode_Normal)
+        # Marcamos ShuffleLinesMode_Normal como elegible para AcquisitionMode_Engineering
+        self.mdAcquisitionMode_Engineering.addSubMode(self.mdShuffleLinesMode_Normal)
         # Marcamos ShuffleLines_Full_Range como elegible para ShuffleLinesMode_Normal
         self.mdShuffleLinesMode_Normal.addValue(self.vlShuffleLines_Full_Range)
         # Marcamos ShiftNumberMode_Normal como elegible para AcquisitionMode_Shuffling
         self.mdAcquisitionMode_Shuffling.addSubMode(self.mdShiftNumberMode_Normal)
+        # Marcamos ShiftNumberMode_Normal como elegible para AcquisitionMode_Engineering
+        self.mdAcquisitionMode_Engineering.addSubMode(self.mdShiftNumberMode_Normal)
         # Marcamos ShiftNumber_Full_Range como elegible para ShiftNumberMode_Normal
         self.mdShiftNumberMode_Normal.addValue(self.vlShiftNumber_Full_Range)
         # Marcamos SubarrayFeatureMode_Off como elegible para AcquisitionMode_Normal
@@ -554,20 +771,34 @@ class ARCGenIIIPORIS(PORISDoc):
         self.mdAcquisitionMode_NormalWindow.addSubMode(self.mdSubarrayFeatureMode_On)
         # Marcamos SubarrayFeatureMode_Off como elegible para AcquisitionMode_Calibration
         self.mdAcquisitionMode_Calibration.addSubMode(self.mdSubarrayFeatureMode_Off)
+        # Marcamos SubarrayFeatureMode_Off como elegible para AcquisitionMode_Engineering
+        self.mdAcquisitionMode_Engineering.addSubMode(self.mdSubarrayFeatureMode_Off)
+        # Marcamos SubarrayFeatureMode_On como elegible para AcquisitionMode_Engineering
+        self.mdAcquisitionMode_Engineering.addSubMode(self.mdSubarrayFeatureMode_On)
+        # Marcamos SubarrayFeatureMode_Engineering como elegible para AcquisitionMode_Engineering
+        self.mdAcquisitionMode_Engineering.addSubMode(self.mdSubarrayFeatureMode_Engineering)
         # Marcamos ColsMode_Normal como elegible para SubarrayFeatureMode_On
         self.mdSubarrayFeatureMode_On.addSubMode(self.mdColsMode_Normal)
+        # Marcamos ColsMode_Normal como elegible para SubarrayFeatureMode_Engineering
+        self.mdSubarrayFeatureMode_Engineering.addSubMode(self.mdColsMode_Normal)
         # Marcamos Cols_Full_Range como elegible para ColsMode_Normal
         self.mdColsMode_Normal.addValue(self.vlCols_Full_Range)
         # Marcamos offsetRowMode_Normal como elegible para SubarrayFeatureMode_On
         self.mdSubarrayFeatureMode_On.addSubMode(self.mdoffsetRowMode_Normal)
+        # Marcamos offsetRowMode_Normal como elegible para SubarrayFeatureMode_Engineering
+        self.mdSubarrayFeatureMode_Engineering.addSubMode(self.mdoffsetRowMode_Normal)
         # Marcamos offsetRow_Full_Range como elegible para offsetRowMode_Normal
         self.mdoffsetRowMode_Normal.addValue(self.vloffsetRow_Full_Range)
         # Marcamos RowsMode_Normal como elegible para SubarrayFeatureMode_On
         self.mdSubarrayFeatureMode_On.addSubMode(self.mdRowsMode_Normal)
+        # Marcamos RowsMode_Normal como elegible para SubarrayFeatureMode_Engineering
+        self.mdSubarrayFeatureMode_Engineering.addSubMode(self.mdRowsMode_Normal)
         # Marcamos Rows_Full_Range como elegible para RowsMode_Normal
         self.mdRowsMode_Normal.addValue(self.vlRows_Full_Range)
         # Marcamos offsetColMode_Normal como elegible para SubarrayFeatureMode_On
         self.mdSubarrayFeatureMode_On.addSubMode(self.mdoffsetColMode_Normal)
+        # Marcamos offsetColMode_Normal como elegible para SubarrayFeatureMode_Engineering
+        self.mdSubarrayFeatureMode_Engineering.addSubMode(self.mdoffsetColMode_Normal)
         # Marcamos offsetCol_Full_Range como elegible para offsetColMode_Normal
         self.mdoffsetColMode_Normal.addValue(self.vloffsetCol_Full_Range)
         # Marcamos ExposureCtrlMode_Normal como elegible para AcquisitionMode_Normal
@@ -580,6 +811,16 @@ class ARCGenIIIPORIS(PORISDoc):
         self.mdAcquisitionMode_NormalWindow.addSubMode(self.mdExposureCtrlMode_Normal)
         # Marcamos ExposureCtrlMode_Calibration como elegible para AcquisitionMode_Calibration
         self.mdAcquisitionMode_Calibration.addSubMode(self.mdExposureCtrlMode_Calibration)
+        # Marcamos ExposureCtrlMode_Normal como elegible para AcquisitionMode_Engineering
+        self.mdAcquisitionMode_Engineering.addSubMode(self.mdExposureCtrlMode_Normal)
+        # Marcamos ExposureCtrlMode_FT como elegible para AcquisitionMode_Engineering
+        self.mdAcquisitionMode_Engineering.addSubMode(self.mdExposureCtrlMode_FT)
+        # Marcamos ExposureCtrlMode_NoShutter como elegible para AcquisitionMode_Engineering
+        self.mdAcquisitionMode_Engineering.addSubMode(self.mdExposureCtrlMode_NoShutter)
+        # Marcamos ExposureCtrlMode_Calibration como elegible para AcquisitionMode_Engineering
+        self.mdAcquisitionMode_Engineering.addSubMode(self.mdExposureCtrlMode_Calibration)
+        # Marcamos ExposureCtrlMode_Engineering como elegible para AcquisitionMode_Engineering
+        self.mdAcquisitionMode_Engineering.addSubMode(self.mdExposureCtrlMode_Engineering)
         # Marcamos OpenShutterMode_Off como elegible para ExposureCtrlMode_Normal
         self.mdExposureCtrlMode_Normal.addSubMode(self.mdOpenShutterMode_Off)
         # Marcamos OpenShutterMode_On como elegible para ExposureCtrlMode_Normal
@@ -592,6 +833,10 @@ class ARCGenIIIPORIS(PORISDoc):
         self.mdExposureCtrlMode_Calibration.addSubMode(self.mdOpenShutterMode_Off)
         # Marcamos OpenShutterMode_On como elegible para ExposureCtrlMode_Calibration
         self.mdExposureCtrlMode_Calibration.addSubMode(self.mdOpenShutterMode_On)
+        # Marcamos OpenShutterMode_On como elegible para ExposureCtrlMode_Engineering
+        self.mdExposureCtrlMode_Engineering.addSubMode(self.mdOpenShutterMode_On)
+        # Marcamos OpenShutterMode_Off como elegible para ExposureCtrlMode_Engineering
+        self.mdExposureCtrlMode_Engineering.addSubMode(self.mdOpenShutterMode_Off)
         # Marcamos ExpTimeMode_Normal como elegible para ExposureCtrlMode_Normal
         self.mdExposureCtrlMode_Normal.addSubMode(self.mdExpTimeMode_Normal)
         # Marcamos ExpTimeMode_FT como elegible para ExposureCtrlMode_FT
@@ -600,6 +845,10 @@ class ARCGenIIIPORIS(PORISDoc):
         self.mdExposureCtrlMode_NoShutter.addSubMode(self.mdExpTimeMode_Normal)
         # Marcamos ExpTimeMode_Normal como elegible para ExposureCtrlMode_Calibration
         self.mdExposureCtrlMode_Calibration.addSubMode(self.mdExpTimeMode_Normal)
+        # Marcamos ExpTimeMode_Normal como elegible para ExposureCtrlMode_Engineering
+        self.mdExposureCtrlMode_Engineering.addSubMode(self.mdExpTimeMode_Normal)
+        # Marcamos ExpTimeMode_FT como elegible para ExposureCtrlMode_Engineering
+        self.mdExposureCtrlMode_Engineering.addSubMode(self.mdExpTimeMode_FT)
         # Marcamos ExpTime_Full_Range como elegible para ExpTimeMode_Normal
         self.mdExpTimeMode_Normal.addValue(self.vlExpTime_Full_Range)
         # Marcamos ExpTime_FT_Range como elegible para ExpTimeMode_FT
@@ -628,6 +877,12 @@ class ARCGenIIIPORIS(PORISDoc):
         self.mdExposureCtrlMode_Calibration.addSubMode(self.mdPixelSpeedMode_MED)
         # Marcamos PixelSpeedMode_SLW como elegible para ExposureCtrlMode_Calibration
         self.mdExposureCtrlMode_Calibration.addSubMode(self.mdPixelSpeedMode_SLW)
+        # Marcamos PixelSpeedMode_SLW como elegible para ExposureCtrlMode_Engineering
+        self.mdExposureCtrlMode_Engineering.addSubMode(self.mdPixelSpeedMode_SLW)
+        # Marcamos PixelSpeedMode_MED como elegible para ExposureCtrlMode_Engineering
+        self.mdExposureCtrlMode_Engineering.addSubMode(self.mdPixelSpeedMode_MED)
+        # Marcamos PixelSpeedMode_FST como elegible para ExposureCtrlMode_Engineering
+        self.mdExposureCtrlMode_Engineering.addSubMode(self.mdPixelSpeedMode_FST)
         # Marcamos numOfFramesMode_Single como elegible para ExposureCtrlMode_Normal
         self.mdExposureCtrlMode_Normal.addSubMode(self.mdnumOfFramesMode_Single)
         # Marcamos numOfFramesMode_Multiple como elegible para ExposureCtrlMode_Normal
@@ -644,12 +899,18 @@ class ARCGenIIIPORIS(PORISDoc):
         self.mdExposureCtrlMode_Calibration.addSubMode(self.mdnumOfFramesMode_Single)
         # Marcamos numOfFramesMode_Multiple como elegible para ExposureCtrlMode_Calibration
         self.mdExposureCtrlMode_Calibration.addSubMode(self.mdnumOfFramesMode_Multiple)
+        # Marcamos numOfFramesMode_Multiple como elegible para ExposureCtrlMode_Engineering
+        self.mdExposureCtrlMode_Engineering.addSubMode(self.mdnumOfFramesMode_Multiple)
+        # Marcamos numOfFramesMode_Single como elegible para ExposureCtrlMode_Engineering
+        self.mdExposureCtrlMode_Engineering.addSubMode(self.mdnumOfFramesMode_Single)
         # Marcamos numOfFrames_Multiple_Range como elegible para numOfFramesMode_Multiple
         self.mdnumOfFramesMode_Multiple.addValue(self.vlnumOfFrames_Multiple_Range)
         # Marcamos numOfFrames_1 como elegible para numOfFramesMode_Single
         self.mdnumOfFramesMode_Single.addValue(self.vlnumOfFrames_1)
         # Marcamos CalibGainMode_Normal como elegible para ExposureCtrlMode_Calibration
         self.mdExposureCtrlMode_Calibration.addSubMode(self.mdCalibGainMode_Normal)
+        # Marcamos CalibGainMode_Normal como elegible para ExposureCtrlMode_Engineering
+        self.mdExposureCtrlMode_Engineering.addSubMode(self.mdCalibGainMode_Normal)
         # Marcamos CalibGain_Normal_Range como elegible para CalibGainMode_Normal
         self.mdCalibGainMode_Normal.addValue(self.vlCalibGain_Normal_Range)
         # Marcamos OutputSourceMode_0x0 como elegible para AcquisitionMode_Normal
@@ -694,6 +955,20 @@ class ARCGenIIIPORIS(PORISDoc):
         self.mdAcquisitionMode_Calibration.addSubMode(self.mdOutputSourceMode_TWO)
         # Marcamos OutputSourceMode_ALL como elegible para AcquisitionMode_Calibration
         self.mdAcquisitionMode_Calibration.addSubMode(self.mdOutputSourceMode_ALL)
+        # Marcamos OutputSourceMode_0x0 como elegible para AcquisitionMode_Engineering
+        self.mdAcquisitionMode_Engineering.addSubMode(self.mdOutputSourceMode_0x0)
+        # Marcamos OutputSourceMode_0x1 como elegible para AcquisitionMode_Engineering
+        self.mdAcquisitionMode_Engineering.addSubMode(self.mdOutputSourceMode_0x1)
+        # Marcamos OutputSourceMode_0x2 como elegible para AcquisitionMode_Engineering
+        self.mdAcquisitionMode_Engineering.addSubMode(self.mdOutputSourceMode_0x2)
+        # Marcamos OutputSourceMode_0x3 como elegible para AcquisitionMode_Engineering
+        self.mdAcquisitionMode_Engineering.addSubMode(self.mdOutputSourceMode_0x3)
+        # Marcamos OutputSourceMode_ALL como elegible para AcquisitionMode_Engineering
+        self.mdAcquisitionMode_Engineering.addSubMode(self.mdOutputSourceMode_ALL)
+        # Marcamos OutputSourceMode_TWO como elegible para AcquisitionMode_Engineering
+        self.mdAcquisitionMode_Engineering.addSubMode(self.mdOutputSourceMode_TWO)
+        # Marcamos OutputSourceMode_Engineering como elegible para AcquisitionMode_Engineering
+        self.mdAcquisitionMode_Engineering.addSubMode(self.mdOutputSourceMode_Engineering)
         # Marcamos RecompositionMode_None como elegible para OutputSourceMode_0x0
         self.mdOutputSourceMode_0x0.addSubMode(self.mdRecompositionMode_None)
         # Marcamos RecompositionMode_None como elegible para OutputSourceMode_0x1
@@ -706,6 +981,20 @@ class ARCGenIIIPORIS(PORISDoc):
         self.mdOutputSourceMode_ALL.addSubMode(self.mdRecompositionMode_QuadCCD)
         # Marcamos RecompositionMode_Serial como elegible para OutputSourceMode_TWO
         self.mdOutputSourceMode_TWO.addSubMode(self.mdRecompositionMode_Serial)
+        # Marcamos RecompositionMode_None como elegible para OutputSourceMode_Engineering
+        self.mdOutputSourceMode_Engineering.addSubMode(self.mdRecompositionMode_None)
+        # Marcamos RecompositionMode_Parallel como elegible para OutputSourceMode_Engineering
+        self.mdOutputSourceMode_Engineering.addSubMode(self.mdRecompositionMode_Parallel)
+        # Marcamos RecompositionMode_Serial como elegible para OutputSourceMode_Engineering
+        self.mdOutputSourceMode_Engineering.addSubMode(self.mdRecompositionMode_Serial)
+        # Marcamos RecompositionMode_QuadCCD como elegible para OutputSourceMode_Engineering
+        self.mdOutputSourceMode_Engineering.addSubMode(self.mdRecompositionMode_QuadCCD)
+        # Marcamos RecompositionMode_QuadIR como elegible para OutputSourceMode_Engineering
+        self.mdOutputSourceMode_Engineering.addSubMode(self.mdRecompositionMode_QuadIR)
+        # Marcamos RecompositionMode_CDSQuad como elegible para OutputSourceMode_Engineering
+        self.mdOutputSourceMode_Engineering.addSubMode(self.mdRecompositionMode_CDSQuad)
+        # Marcamos RecompositionMode_HawaiiRG como elegible para OutputSourceMode_Engineering
+        self.mdOutputSourceMode_Engineering.addSubMode(self.mdRecompositionMode_HawaiiRG)
         # Marcamos DimensionsMode_Normal como elegible para AcquisitionMode_Normal
         self.mdAcquisitionMode_Normal.addSubMode(self.mdDimensionsMode_Normal)
         # Marcamos DimensionsMode_FT como elegible para AcquisitionMode_FrameTransfer
@@ -714,10 +1003,20 @@ class ARCGenIIIPORIS(PORISDoc):
         self.mdAcquisitionMode_Shuffling.addSubMode(self.mdDimensionsMode_Normal)
         # Marcamos DimensionsMode_Normal como elegible para AcquisitionMode_Calibration
         self.mdAcquisitionMode_Calibration.addSubMode(self.mdDimensionsMode_Normal)
+        # Marcamos DimensionsMode_Normal como elegible para AcquisitionMode_Engineering
+        self.mdAcquisitionMode_Engineering.addSubMode(self.mdDimensionsMode_Normal)
+        # Marcamos DimensionsMode_FT como elegible para AcquisitionMode_Engineering
+        self.mdAcquisitionMode_Engineering.addSubMode(self.mdDimensionsMode_FT)
+        # Marcamos DimensionsMode_Engineering como elegible para AcquisitionMode_Engineering
+        self.mdAcquisitionMode_Engineering.addSubMode(self.mdDimensionsMode_Engineering)
         # Marcamos uiRowsMode_Normal como elegible para DimensionsMode_Normal
         self.mdDimensionsMode_Normal.addSubMode(self.mduiRowsMode_Normal)
         # Marcamos uiRowsMode_Half como elegible para DimensionsMode_FT
         self.mdDimensionsMode_FT.addSubMode(self.mduiRowsMode_Half)
+        # Marcamos uiRowsMode_Normal como elegible para DimensionsMode_Engineering
+        self.mdDimensionsMode_Engineering.addSubMode(self.mduiRowsMode_Normal)
+        # Marcamos uiRowsMode_Half como elegible para DimensionsMode_Engineering
+        self.mdDimensionsMode_Engineering.addSubMode(self.mduiRowsMode_Half)
         # Marcamos uiRows_Full_Range como elegible para uiRowsMode_Normal
         self.mduiRowsMode_Normal.addValue(self.vluiRows_Full_Range)
         # Marcamos uiRows_FTRange como elegible para uiRowsMode_Half
@@ -726,6 +1025,8 @@ class ARCGenIIIPORIS(PORISDoc):
         self.mdDimensionsMode_Normal.addSubMode(self.mduiColsMode_Normal)
         # Marcamos uiColsMode_Normal como elegible para DimensionsMode_FT
         self.mdDimensionsMode_FT.addSubMode(self.mduiColsMode_Normal)
+        # Marcamos uiColsMode_Normal como elegible para DimensionsMode_Engineering
+        self.mdDimensionsMode_Engineering.addSubMode(self.mduiColsMode_Normal)
         # Marcamos uiCols_Full_Range como elegible para uiColsMode_Normal
         self.mduiColsMode_Normal.addValue(self.vluiCols_Full_Range)
         # Marcamos BinningMode_All como elegible para AcquisitionMode_Normal
@@ -738,6 +1039,8 @@ class ARCGenIIIPORIS(PORISDoc):
         self.mdAcquisitionMode_NormalWindow.addSubMode(self.mdBinningMode_All)
         # Marcamos BinningMode_All como elegible para AcquisitionMode_Calibration
         self.mdAcquisitionMode_Calibration.addSubMode(self.mdBinningMode_All)
+        # Marcamos BinningMode_All como elegible para AcquisitionMode_Engineering
+        self.mdAcquisitionMode_Engineering.addSubMode(self.mdBinningMode_All)
         # Marcamos Binning_1x1 como elegible para BinningMode_All
         self.mdBinningMode_All.addValue(self.vlBinning_1x1)
         # Marcamos Binning_1x2 como elegible para BinningMode_All
@@ -1213,25 +1516,21 @@ class ARCGenIIIPORIS(PORISDoc):
 
 
     ## Action trigger ARCGenIII_expose ##
-    def execARCGenIII_expose(self, value: bool) -> bool:
-        # Override this
-        return True
+    def execARCGenIII_expose(self, *args, **kwargs) -> bool:
+        return self.cmdARCGenIII_expose.defaultExecute(*args, **kwargs)
 
 
     ## Action trigger ARCGenIII_init_expose ##
-    def execARCGenIII_init_expose(self, value: bool) -> bool:
-        # Override this
-        return True
+    def execARCGenIII_init_expose(self, *args, **kwargs) -> bool:
+        return self.cmdARCGenIII_init_expose.defaultExecute(*args, **kwargs)
 
 
     ## Action trigger ARCGenIII_cfg_init_expose ##
-    def execARCGenIII_cfg_init_expose(self, value: bool) -> bool:
-        # Override this
-        return True
+    def execARCGenIII_cfg_init_expose(self, *args, **kwargs) -> bool:
+        return self.cmdARCGenIII_cfg_init_expose.defaultExecute(*args, **kwargs)
 
 
     ## Action trigger ARCGenIII_abort ##
-    def execARCGenIII_abort(self, value: bool) -> bool:
-        # Override this
-        return True
+    def execARCGenIII_abort(self, *args, **kwargs) -> bool:
+        return self.cmdARCGenIII_abort.defaultExecute(*args, **kwargs)
 

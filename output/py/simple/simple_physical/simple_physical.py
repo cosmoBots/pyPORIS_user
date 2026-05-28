@@ -1,6 +1,6 @@
-from example_evolvedPORIS import *
+from simplePORIS import *
 
-class example_evolved_physical(example_evolvedPORIS):
+class simple_physical(simplePORIS):
     # Go to ARCGengIIIPORIS.py, navigate to the ##### Action triggers ##### section
     # which is normally at the bottom of the class, and copy here the methods 
     # to start overriding them, in order to convert the virtual device into a physical one
@@ -9,8 +9,8 @@ class example_evolved_physical(example_evolvedPORIS):
     pass
 
 
-thismodel = example_evolved_physical()
+thismodel = simple_physical(12)
 
-print("Let's test our model ",thismodel.root.getName())
-print("Current mode is ",thismodel.root.getSelectedMode().getName())
+print("Let's test our model ",thismodel.getRoot().getName())
+print("Current mode is ",thismodel.getRoot().getSelectedMode().getName())
 

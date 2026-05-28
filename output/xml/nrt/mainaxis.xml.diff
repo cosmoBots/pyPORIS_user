@@ -1,5 +1,5 @@
---- output/xml/nrt/mainaxis.xml	2026-05-28 07:14:08.347436105 +0100
-+++ output/xml/nrt/mainaxis.from-python.xml	2026-05-28 07:14:08.266436102 +0100
+--- /home/txinto/repos/cbots/pyPORIS_user/output/xml/nrt/mainaxis.xml	2026-05-28 08:21:01.801571899 +0100
++++ /home/txinto/repos/cbots/pyPORIS_user/output/xml/nrt/mainaxis.from-python.xml	2026-05-28 08:21:01.924571903 +0100
 @@ -1,671 +1,588 @@
  <?xml version="1.0" encoding="UTF-8"?>
 -<poris>

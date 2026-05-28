@@ -1,0 +1,118 @@
+--- /home/txinto/repos/cbots/pyPORIS_user/output/xml/example/b.xml	2026-05-28 08:21:00.335571849 +0100
++++ /home/txinto/repos/cbots/pyPORIS_user/output/xml/example/b.from-python.xml	2026-05-28 08:21:00.419571852 +0100
+@@ -1,92 +1,48 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<poris>
+-    <value>
+-        <id type="integer">-1</id>
+-        <ident>VIRT-1</ident>
++<poris id="systems">
++    <mode>
+         <name>Photometry</name>
+-        <node-type-id type="integer">5</node-type-id>
+-        <project-id type="integer">13</project-id>
+-        <type>PORISValue</type>
+-        <value-formatter-id type="integer" nil="true"/>
+-        <destinations type="array"/>
+-        <node-attributes type="array"/>
++        <id type="integer">4</id>
++        <type>PORISMode</type>
++        <node-type-id type="integer">6</node-type-id>
++        <ident>n0::n0</ident>
++        <project-id type="integer">0</project-id>
+         <labels type="array"/>
+-    </value>
+-    <value>
+-        <id type="integer">-2</id>
+-        <ident>VIRT-2</ident>
+-        <name>Spectroscopy</name>
+-        <node-type-id type="integer">5</node-type-id>
+-        <project-id type="integer">13</project-id>
+-        <type>PORISValue</type>
+-        <value-formatter-id type="integer" nil="true"/>
+         <destinations type="array"/>
+         <node-attributes type="array"/>
+-        <labels type="array"/>
+-    </value>
+-    <mode>
+         <default-mode-id type="integer" nil="true"/>
+         <default-value-id type="integer" nil="true"/>
+-        <id type="integer">2000000001</id>
+-        <ident>n0::n0</ident>
+-        <name>Photometry</name>
+-        <node-type-id type="integer">6</node-type-id>
+-        <project-id type="integer">13</project-id>
+-        <type>PORISMode</type>
+-        <destinations type="array">
+-            <destination type="PORISValue">
+-                <id type="integer">-1</id>
+-                <ident>VIRT-1</ident>
+-            </destination>
+-        </destinations>
+-        <node-attributes type="array"/>
+-        <labels type="array"/>
+     </mode>
+     <mode>
+-        <default-mode-id type="integer" nil="true"/>
+-        <default-value-id type="integer" nil="true"/>
+-        <id type="integer">2000000002</id>
+-        <ident>n0::n1</ident>
+         <name>Spectroscopy</name>
+-        <node-type-id type="integer">6</node-type-id>
+-        <project-id type="integer">13</project-id>
++        <id type="integer">5</id>
+         <type>PORISMode</type>
+-        <destinations type="array">
+-            <destination type="PORISValue">
+-                <id type="integer">-2</id>
+-                <ident>VIRT-2</ident>
+-            </destination>
+-        </destinations>
+-        <node-attributes type="array"/>
++        <node-type-id type="integer">6</node-type-id>
++        <ident>n0::n1</ident>
++        <project-id type="integer">0</project-id>
+         <labels type="array"/>
++        <destinations type="array"/>
++        <node-attributes type="array"/>
++        <default-mode-id type="integer" nil="true"/>
++        <default-value-id type="integer" nil="true"/>
+     </mode>
+     <sub-system>
+-        <default-mode-id type="integer" nil="true"/>
+-        <id type="integer">2000000003</id>
+-        <ident>n0</ident>
+         <name>Instrument</name>
+-        <node-type-id type="integer">4</node-type-id>
+-        <project-id type="integer">13</project-id>
++        <id type="integer">1</id>
+         <type>PORISNode</type>
++        <node-type-id type="integer">4</node-type-id>
++        <ident>n0</ident>
++        <project-id type="integer">0</project-id>
++        <labels type="array"/>
+         <destinations type="array">
+-            <destination type="PORISValue">
+-                <id type="integer">-1</id>
+-                <ident>VIRT-1</ident>
+-            </destination>
+             <destination type="PORISMode">
+-                <id type="integer">2000000001</id>
+-                <ident>n0::n0</ident>
+-            </destination>
+-            <destination type="PORISValue">
+-                <id type="integer">-2</id>
+-                <ident>VIRT-2</ident>
++                <id type="integer">4</id>
+             </destination>
+             <destination type="PORISMode">
+-                <id type="integer">2000000002</id>
+-                <ident>n0::n1</ident>
++                <id type="integer">5</id>
+             </destination>
+         </destinations>
+         <node-attributes type="array"/>
+-        <labels type="array"/>
++        <default-mode-id type="integer" nil="true"/>
+     </sub-system>
+ </poris>

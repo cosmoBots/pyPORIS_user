@@ -34,7 +34,7 @@
         <project-id type="integer">13</project-id>
         <type>PORISMode</type>
         <destinations type="array">
-            <destination type="Value">
+            <destination type="PORISValue">
                 <id type="integer">-1</id>
                 <ident>VIRT-1</ident>
             </destination>
@@ -52,7 +52,7 @@
         <project-id type="integer">13</project-id>
         <type>PORISMode</type>
         <destinations type="array">
-            <destination type="Value">
+            <destination type="PORISValue">
                 <id type="integer">-2</id>
                 <ident>VIRT-2</ident>
             </destination>

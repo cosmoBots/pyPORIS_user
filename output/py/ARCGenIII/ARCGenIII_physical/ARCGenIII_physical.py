@@ -1,5 +1,6 @@
-from ARCGenIIIPORIS import *
 from xml.dom import minidom
+
+from ARCGenIIIPORIS import *
 
 class ARCGenIII_physical(ARCGenIIIPORIS):
     # Go to ARCGengIIIPORIS.py, navigate to the ##### Action triggers ##### section
@@ -11,6 +12,7 @@ class ARCGenIII_physical(ARCGenIIIPORIS):
 
 
 thismodel = ARCGenIII_physical(13)
+
 '''
 print("Let's test our model ",thismodel.getRoot().getName())
 print("")

@@ -1,6 +1,6 @@
-from examplePORIS import *
+from osirisPORIS import *
 
-class example_physical(examplePORIS):
+class osiris_physical(osirisPORIS):
     # Go to ARCGengIIIPORIS.py, navigate to the ##### Action triggers ##### section
     # which is normally at the bottom of the class, and copy here the methods 
     # to start overriding them, in order to convert the virtual device into a physical one
@@ -9,7 +9,7 @@ class example_physical(examplePORIS):
     pass
 
 
-thismodel = example_physical(12)
+thismodel = osiris_physical(12)
 
 print("Let's test our model ",thismodel.getRoot().getName())
 print("Current mode is ",thismodel.getRoot().getSelectedMode().getName())
