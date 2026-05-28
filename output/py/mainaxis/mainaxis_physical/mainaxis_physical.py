@@ -13,4 +13,7 @@ thismodel = mainaxis_physical(12)
 
 print("Let's test our model ",thismodel.getRoot().getName())
 print("Current mode is ",thismodel.getRoot().getSelectedMode().getName())
-
+print("Current yaw mode is ",thismodel.prYaw.getSelectedMode().getName())
+thismodel.getRoot().selectMode(thismodel.mdMainAxisMode_Operation)
+print("Current mode is ",thismodel.getRoot().getSelectedMode().getName())
+print("Current yaw mode is ",thismodel.prYaw.getSelectedMode().getName())

@@ -18,6 +18,8 @@ class mainaxisPORIS(PORISDoc):
         self.mdYawMode_Parking = PORISMode("YawMode_Parking")
         self.mdYawMode_Technical = PORISMode("YawMode_Technical")
         self.mdYawMode_Pointing = PORISMode("YawMode_Pointing")
+        self.mdYawMode_PointingTech = PORISMode("YawMode_PointingTech")
+        self.vlYaw_Y_angle_unbound = PORISValueFloat("Yaw_Y_angle_unbound",-370.0,0.0,370.0)
         self.mdMainAxisSysMode_Homing = PORISMode("MainAxisSysMode_Homing")
         self.mdMainAxisSysMode_Parking = PORISMode("MainAxisSysMode_Parking")
         self.mdMainAxisSysMode_Technical = PORISMode("MainAxisSysMode_Technical")
@@ -30,6 +32,9 @@ class mainaxisPORIS(PORISDoc):
         self.mdPitchMode_Parking = PORISMode("PitchMode_Parking")
         self.mdPitchMode_Technical = PORISMode("PitchMode_Technical")
         self.mdPitchMode_Pointing = PORISMode("PitchMode_Pointing")
+        self.mdPitchMode_PointingTech = PORISMode("PitchMode_PointingTech")
+        self.vlPitch_P_angle_unbound = PORISValueFloat("Pitch_P_angle_unbound",-60.0,0.0,40.0)
+        self.mdMainAxisSysMode_PointingTech = PORISMode("MainAxisSysMode_PointingTech")
         self.mdMainAxisMode_Technical = PORISMode("MainAxisMode_Technical")
         self.mdMainAxisMode_Engineering = PORISMode("MainAxisMode_Engineering")
         self.mdMainAxisSysMode_Engineering = PORISMode("MainAxisSysMode_Engineering")
@@ -102,6 +107,16 @@ class mainaxisPORIS(PORISDoc):
         self.mdYawMode_Pointing.setXMLName('Pointing')
         self.mdYawMode_Pointing.description = ""
         self.prYaw.addMode(self.mdYawMode_Pointing)
+        self.addItem(self.mdYawMode_PointingTech)
+        self.mdYawMode_PointingTech.ident = "n0::n2::n0::n8"
+        self.mdYawMode_PointingTech.setXMLName('PointingTech')
+        self.mdYawMode_PointingTech.description = ""
+        self.prYaw.addMode(self.mdYawMode_PointingTech)
+        self.addItem(self.vlYaw_Y_angle_unbound)
+        self.vlYaw_Y_angle_unbound.ident = "n0::n2::n0::n9"
+        self.vlYaw_Y_angle_unbound.setXMLName('Y_angle_unbound')
+        self.vlYaw_Y_angle_unbound.description = ""
+        self.prYaw.addValue(self.vlYaw_Y_angle_unbound)
         self.addItem(self.mdMainAxisSysMode_Homing)
         self.mdMainAxisSysMode_Homing.ident = "n0::n2::n1"
         self.mdMainAxisSysMode_Homing.setXMLName('Homing')
@@ -162,6 +177,21 @@ class mainaxisPORIS(PORISDoc):
         self.mdPitchMode_Pointing.setXMLName('Pointing')
         self.mdPitchMode_Pointing.description = ""
         self.prPitch.addMode(self.mdPitchMode_Pointing)
+        self.addItem(self.mdPitchMode_PointingTech)
+        self.mdPitchMode_PointingTech.ident = "n0::n2::n5::n8"
+        self.mdPitchMode_PointingTech.setXMLName('PointingTech')
+        self.mdPitchMode_PointingTech.description = ""
+        self.prPitch.addMode(self.mdPitchMode_PointingTech)
+        self.addItem(self.vlPitch_P_angle_unbound)
+        self.vlPitch_P_angle_unbound.ident = "n0::n2::n5::n9"
+        self.vlPitch_P_angle_unbound.setXMLName('P_angle_unbound')
+        self.vlPitch_P_angle_unbound.description = ""
+        self.prPitch.addValue(self.vlPitch_P_angle_unbound)
+        self.addItem(self.mdMainAxisSysMode_PointingTech)
+        self.mdMainAxisSysMode_PointingTech.ident = "n0::n2::n6"
+        self.mdMainAxisSysMode_PointingTech.setXMLName('PointingTech')
+        self.mdMainAxisSysMode_PointingTech.description = ""
+        self.sysMainAxisSys.addMode(self.mdMainAxisSysMode_PointingTech)
         self.addItem(self.mdMainAxisMode_Technical)
         self.mdMainAxisMode_Technical.ident = "n0::n3"
         self.mdMainAxisMode_Technical.setXMLName('Technical')
@@ -189,8 +219,8 @@ class mainaxisPORIS(PORISDoc):
         self.mdMainAxisMode_Technical.addSubMode(self.mdMainAxisSysMode_Parking)
         # Marcamos MainAxisSysMode_Technical como elegible para MainAxisMode_Technical
         self.mdMainAxisMode_Technical.addSubMode(self.mdMainAxisSysMode_Technical)
-        # Marcamos MainAxisSysMode_Pointing como elegible para MainAxisMode_Technical
-        self.mdMainAxisMode_Technical.addSubMode(self.mdMainAxisSysMode_Pointing)
+        # Marcamos MainAxisSysMode_PointingTech como elegible para MainAxisMode_Technical
+        self.mdMainAxisMode_Technical.addSubMode(self.mdMainAxisSysMode_PointingTech)
         # Marcamos MainAxisSysMode_Homing como elegible para MainAxisMode_Engineering
         self.mdMainAxisMode_Engineering.addSubMode(self.mdMainAxisSysMode_Homing)
         # Marcamos MainAxisSysMode_Parking como elegible para MainAxisMode_Engineering
@@ -199,6 +229,8 @@ class mainaxisPORIS(PORISDoc):
         self.mdMainAxisMode_Engineering.addSubMode(self.mdMainAxisSysMode_Technical)
         # Marcamos MainAxisSysMode_Pointing como elegible para MainAxisMode_Engineering
         self.mdMainAxisMode_Engineering.addSubMode(self.mdMainAxisSysMode_Pointing)
+        # Marcamos MainAxisSysMode_PointingTech como elegible para MainAxisMode_Engineering
+        self.mdMainAxisMode_Engineering.addSubMode(self.mdMainAxisSysMode_PointingTech)
         # Marcamos MainAxisSysMode_Engineering como elegible para MainAxisMode_Engineering
         self.mdMainAxisMode_Engineering.addSubMode(self.mdMainAxisSysMode_Engineering)
         # Marcamos YawMode_Homing como elegible para MainAxisSysMode_Homing
@@ -209,6 +241,8 @@ class mainaxisPORIS(PORISDoc):
         self.mdMainAxisSysMode_Technical.addSubMode(self.mdYawMode_Technical)
         # Marcamos YawMode_Pointing como elegible para MainAxisSysMode_Pointing
         self.mdMainAxisSysMode_Pointing.addSubMode(self.mdYawMode_Pointing)
+        # Marcamos YawMode_PointingTech como elegible para MainAxisSysMode_PointingTech
+        self.mdMainAxisSysMode_PointingTech.addSubMode(self.mdYawMode_PointingTech)
         # Marcamos YawMode_Homing como elegible para MainAxisSysMode_Engineering
         self.mdMainAxisSysMode_Engineering.addSubMode(self.mdYawMode_Homing)
         # Marcamos YawMode_Parking como elegible para MainAxisSysMode_Engineering
@@ -217,6 +251,8 @@ class mainaxisPORIS(PORISDoc):
         self.mdMainAxisSysMode_Engineering.addSubMode(self.mdYawMode_Technical)
         # Marcamos YawMode_Pointing como elegible para MainAxisSysMode_Engineering
         self.mdMainAxisSysMode_Engineering.addSubMode(self.mdYawMode_Pointing)
+        # Marcamos YawMode_PointingTech como elegible para MainAxisSysMode_Engineering
+        self.mdMainAxisSysMode_Engineering.addSubMode(self.mdYawMode_PointingTech)
         # Marcamos Yaw_Y_HOME como elegible para YawMode_Homing
         self.mdYawMode_Homing.addValue(self.vlYaw_Y_HOME)
         # Marcamos Yaw_Y_PARK como elegible para YawMode_Parking
@@ -225,6 +261,8 @@ class mainaxisPORIS(PORISDoc):
         self.mdYawMode_Technical.addValue(self.vlYaw_Y_TECH)
         # Marcamos Yaw_Y_angle como elegible para YawMode_Pointing
         self.mdYawMode_Pointing.addValue(self.vlYaw_Y_angle)
+        # Marcamos Yaw_Y_angle_unbound como elegible para YawMode_PointingTech
+        self.mdYawMode_PointingTech.addValue(self.vlYaw_Y_angle_unbound)
         # Marcamos PitchMode_Homing como elegible para MainAxisSysMode_Homing
         self.mdMainAxisSysMode_Homing.addSubMode(self.mdPitchMode_Homing)
         # Marcamos PitchMode_Parking como elegible para MainAxisSysMode_Parking
@@ -233,6 +271,8 @@ class mainaxisPORIS(PORISDoc):
         self.mdMainAxisSysMode_Technical.addSubMode(self.mdPitchMode_Technical)
         # Marcamos PitchMode_Pointing como elegible para MainAxisSysMode_Pointing
         self.mdMainAxisSysMode_Pointing.addSubMode(self.mdPitchMode_Pointing)
+        # Marcamos PitchMode_PointingTech como elegible para MainAxisSysMode_PointingTech
+        self.mdMainAxisSysMode_PointingTech.addSubMode(self.mdPitchMode_PointingTech)
         # Marcamos PitchMode_Homing como elegible para MainAxisSysMode_Engineering
         self.mdMainAxisSysMode_Engineering.addSubMode(self.mdPitchMode_Homing)
         # Marcamos PitchMode_Parking como elegible para MainAxisSysMode_Engineering
@@ -241,6 +281,8 @@ class mainaxisPORIS(PORISDoc):
         self.mdMainAxisSysMode_Engineering.addSubMode(self.mdPitchMode_Technical)
         # Marcamos PitchMode_Pointing como elegible para MainAxisSysMode_Engineering
         self.mdMainAxisSysMode_Engineering.addSubMode(self.mdPitchMode_Pointing)
+        # Marcamos PitchMode_PointingTech como elegible para MainAxisSysMode_Engineering
+        self.mdMainAxisSysMode_Engineering.addSubMode(self.mdPitchMode_PointingTech)
         # Marcamos Pitch_P_HOME como elegible para PitchMode_Homing
         self.mdPitchMode_Homing.addValue(self.vlPitch_P_HOME)
         # Marcamos Pitch_P_PARK como elegible para PitchMode_Parking
@@ -249,6 +291,8 @@ class mainaxisPORIS(PORISDoc):
         self.mdPitchMode_Technical.addValue(self.vlPitch_P_TECH)
         # Marcamos Pitch_P_angle como elegible para PitchMode_Pointing
         self.mdPitchMode_Pointing.addValue(self.vlPitch_P_angle)
+        # Marcamos Pitch_P_angle_unbound como elegible para PitchMode_PointingTech
+        self.mdPitchMode_PointingTech.addValue(self.vlPitch_P_angle_unbound)
 
     #----------------------------------------------------------------------
     #  Specific methods
@@ -301,6 +345,18 @@ class mainaxisPORIS(PORISDoc):
         return self.prYaw.getSelectedValue().setData(data)
 
 
+    ## prParam MainAxisSys 
+
+    # YawDouble  
+    def get_YawDouble(self)-> float :
+        v = self.prYaw.getSelectedValue()
+        v.__class__ = PORISValueFloat
+        return v.getData()
+
+    def set_YawDouble(self, data: float)-> float :
+        return self.prYaw.getSelectedValue().setData(data)
+
+
     ## prParam Pitch 
 
     # Pitch
@@ -317,6 +373,18 @@ class mainaxisPORIS(PORISDoc):
 
     def set_PitchMode(self, mode: PORISMode)-> PORISMode :
         return self.prPitch.selectMode(mode)
+
+
+    ## prParam MainAxisSys 
+
+    # PitchDouble  
+    def get_PitchDouble(self)-> float :
+        v = self.prPitch.getSelectedValue()
+        v.__class__ = PORISValueFloat
+        return v.getData()
+
+    def set_PitchDouble(self, data: float)-> float :
+        return self.prPitch.getSelectedValue().setData(data)
 
 
     ## prParam MainAxisSys 
