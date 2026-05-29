@@ -279,9 +279,6 @@
             <destination type="PORISMode">
                 <id type="integer">42</id>
             </destination>
-            <destination type="PORISMode">
-                <id type="integer">43</id>
-            </destination>
         </destinations>
         <node-attributes type="array"/>
         <default-mode-id type="integer" nil="true"/>

@@ -315,8 +315,6 @@ class osigeomPORIS(PORISDoc):
         self.mdOutputSourceMode_ALL.addSubMode(self.mdRecompositionMode_QuadCCD)
         # Marcamos RecompositionMode_Serial como elegible para OutputSourceMode_TWO
         self.mdOutputSourceMode_TWO.addSubMode(self.mdRecompositionMode_Serial)
-        # Marcamos RecompositionMode_QuadCCD como elegible para OutputSourceMode_TWO
-        self.mdOutputSourceMode_TWO.addSubMode(self.mdRecompositionMode_QuadCCD)
         # Marcamos RecompositionMode_None como elegible para OutputSourceMode_Engineering
         self.mdOutputSourceMode_Engineering.addSubMode(self.mdRecompositionMode_None)
         # Marcamos RecompositionMode_Serial como elegible para OutputSourceMode_Engineering
