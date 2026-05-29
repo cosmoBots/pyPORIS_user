@@ -1,115 +1,173 @@
 # pyPORIS_user
 
-An example of how to use pyPORIS to model your own instruments
+This repository is a working area for PORIS instrument models. It is meant to be
+forked by users who want to keep their own models under version control while
+using the `pyPORIS` toolchain as a submodule.
 
-The purpose of this repo is provide an starting point to fork, so every user can have her/his own modeling environment with her/his own models under control system.
-The repo uses the pyPORIS toolchain (https://github.com/cosmoBots/pyPORIS) which is obtained as a submodule.
-The toolchain commands (files with *.sh) are just copied from the pyPORIS ones and adapted to the new models location.
+Models live under `models/`. Generated products live under `output/`:
 
-The models are located in the models folder.  You can find there some examples which you can delete once you've validated your toolchain.
+```text
+output/py/    generated Python model classes and editable physical companions
+output/xml/   XML files loaded by the Java Swing panel
+output/ods/   optional spreadsheet products
+```
 
+The current generation flow is centered on Python: GraphML is parsed into a
+Python PORIS model, and the XML panel file is generated from that Python model.
+The direct XML-from-parser path is kept only as an optional comparison tool.
 
 ## Requirements
 
-- Java (which can support Java Swing panels)
 - Python 3
+- Java, for the Swing-based `AstroPorisPlayer`
+- Python packages from `requirements.txt`
 
-Install python libraries:
+Recommended setup:
 
-- bs4 (< 4.13, because this version breaks the parser)
-- lxml
-- pyexcel_ods
-- python-redmine
-
-We have added requirements.txt and constraints.txt for taking care of the dependencies which could break the functionality.
-
-If you want to install a venv with the strict requirements, you can do:
-
-```
+```bash
 python -m venv .venv
 source .venv/bin/activate
 pip install --no-cache-dir -r requirements.txt
 ```
 
-If you want to use newest pip libraries but respecting the constraints:
+The dependency constraints are kept in `constraints.txt` because some parser
+dependencies have had breaking changes.
 
-```
-python -m venv .venv
-source .venv/bin/activate
-pip install -c constraints.txt bs4 lxml pyexcel_ods python-redmine
-```
+On Debian/Ubuntu-like systems, a suitable Java installation is:
 
-This is an example of how to install a valid Java platform in a modern Linux machine:
-
-```
+```bash
 sudo apt install openjdk-17-jdk
 ```
 
-## Forking
+## First Checkout
 
-Just go to Github https://github.com/cosmoBots/pyPORIS_user and press the fork button.  Set the new path, let's say you create the fork in https://github.com/myname/myporismodels
+After cloning or forking the repository, initialize the submodule:
 
-Then copy the clone link for the new forked repository and execute the typical clone action, something like this:
+```bash
+git submodule update --init --recursive
+```
 
-    git clone git@github.com:myname/myporismodels.git
+This populates `pyPORIS/` and the bundled `AstroPorisPlayer` binaries.
 
-Then you can enter the cloned repository folder:
+## Quick Start
 
-    cd myporismodels
+Open a generated panel for a single GraphML model:
 
-## Preparation after forking
+```bash
+pyPORIS/porispanel.sh nrt/mainaxis
+```
 
-Execute:
+The model argument is the path below `models/`, without the `.graphml`
+extension. The command above reads:
 
-    git submodule update --init --recursive
+```text
+models/nrt/mainaxis.graphml
+```
 
-It will populate pyPORIS folder and the AstroPorisPlayer binaries.  pyPORIS contains the PORIS toolkit toolchain to parse models in GraphML diagrams and convert them to ODS and XML files, and to create a Python class from the model, and AstroPorisPlayer allows you to interactively play with a configuration panel (using Java Swing technology) so you can check your model fits your expectations.
+and produces:
 
-## Using the toolchain
+```text
+output/py/mainaxis/mainaxis/mainaxisPORIS.py
+output/xml/nrt/mainaxis.xml
+```
 
-This repo has been done so you can execute some of the features pyPORIS provides.  Not all the features provided from pyPORIS have been translated to this repository.  Please check https://github.com/cosmoBots/pyPORIS/blob/main/README.md for details.
+To generate without opening the panel:
 
-The features currently added are:
+```bash
+pyPORIS/porispanel.sh --no-panel nrt/mainaxis
+```
 
-- porispanel.sh Creates a PORIS representation in ODS and XML format from a PORIS diagram in GraphML, and launches a configuration panel to validate the model.
-- porispanel_csys.sh Adds to porispanel.sh the synchronization with a cosmoSys instance.
-- redoPorisPython.sh and doPorisPython.sh converts an ODS representation of a PORIS model into convenient Python classes.
+To also write the ODS spreadsheet product:
 
-The toolchain commands have been adapted to have the same behaviour of the pyPORIS ones, but acting on ./models and ./output folders of this repo instead of acting on ./pyPORIS/models or ./pyPORIS/output
+```bash
+pyPORIS/porispanel.sh --ods nrt/mainaxis
+```
 
-Apart from this transparent adaptation, the syntax is the same.
+ODS generation is opt-in so normal validation runs do not rewrite spreadsheet
+products unnecessarily.
 
-## Updating the toolchain as time passes
+## User Guide
 
-The pyPORIS submodule is cloned and initialized from an specific commit entry, identified by a hash.  If you would like to update the submodule to point to another commit entry you should update it manually.  Let's say you want to update to a new commit entry 9343abf...
+For the normal modeling workflows, see:
 
-    cd pyPORIS
-    git fetch --all
-    git checkout -b 9343abf
-    git pull
-    cd ..
-    git commit pyPORIS
-    git commit -m "Updated to a different pyPORIS version"
+```text
+docs/user-guide.md
+```
 
-If you want to prepare your local copy to be regularly updating it to use latest pyPORIS version in the main branch:
+That guide covers:
 
-    cd pyPORIS
-    git fetch --all
-    git checkout -b main
-    git pull
-    cd ..
-    git commit pyPORIS
-    git commit -m "Updated to the latest commit in main branch of pyPORIS"
+- single-file models
+- directory/supramodel models
+- XML generation from Python
+- optional parser XML comparison
+- visual validation of all panels
+- generated Python and editable physical code
 
-and then, regularly update your pyPORIS using the following sentence.
+## Main Commands
 
-    git submodule update --init --recursive
+Single GraphML model:
 
-Take into account that pyPORIS might be changing the syntaxes or the procedures, so you will be responsible of keeping your *.sh or *.bat files compatible with the version of pyPORIS you are using.
+```bash
+pyPORIS/porispanel.sh [--ods] [--parser-xml] [--no-panel] <model>
+```
 
-HINT: From time to time we at cosmoBots.eu update the repository you initially forked from.  You can check the changes occurred in it to have an idea of the adaptations needed to support newer versions of pyPORIS
+Fragmented directory model:
 
-## Conclusion
+```bash
+pyPORIS/porispanel_dir.sh [--ods] [--parser-xml] [--no-panel] <model-dir>
+```
+
+cosmoSys variants:
+
+```bash
+pyPORIS/porispanel_csys.sh <model>
+pyPORIS/porispanel_dir_csys.sh <model-dir>
+```
+
+Open an existing XML directly:
+
+```bash
+pyPORIS/xmlporispanel.sh output/xml/nrt/mainaxis.xml
+```
+
+Generate or run the Python physical model:
+
+```bash
+pyPORIS/doPorisPython.sh nrt/mainaxis
+pyPORIS/runPorisModel.sh nrt/mainaxis
+```
+
+Run a visual validation pass over all known panels:
+
+```bash
+pyPORIS/test_porispanels.sh
+```
+
+Close each `AstroPorisPlayer` window to continue with the next model.
+
+## Updating pyPORIS
+
+`pyPORIS/` is a git submodule pinned by this repository. To update it manually:
+
+```bash
+cd pyPORIS
+git fetch --all
+git checkout main
+git pull
+cd ..
+git add pyPORIS
+git commit -m "Update pyPORIS submodule"
+```
+
+Toolchain behavior can change over time, so validate the generated products
+after moving the submodule.
+
+## Notes
+
+The `models/` directory should contain source models only. Generated Python,
+XML and ODS products should be kept under `output/`.
+
+
 Happy modeling!
 
 cosmoBots.eu

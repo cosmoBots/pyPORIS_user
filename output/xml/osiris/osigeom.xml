@@ -1,137 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <poris id="systems">
-    <value>
-        <name>0.6</name>
-        <id type="integer">30</id>
-        <type>PORISValue</type>
-        <node-type-id type="integer">5</node-type-id>
-        <ident>EX-1826</ident>
+    <mode>
+        <name>None</name>
+        <id type="integer">41</id>
+        <type>PORISMode</type>
+        <node-type-id type="integer">6</node-type-id>
+        <ident>OSI-0446</ident>
         <project-id type="integer">0</project-id>
         <labels type="array"/>
         <destinations type="array"/>
         <node-attributes type="array"/>
-        <value-formatter-id type="integer" nil="true"/>
-    </value>
-    <value>
-        <name>1.0</name>
-        <id type="integer">31</id>
-        <type>PORISValue</type>
-        <node-type-id type="integer">5</node-type-id>
-        <ident>EX-1827</ident>
+        <default-mode-id type="integer" nil="true"/>
+        <default-value-id type="integer" nil="true"/>
+    </mode>
+    <mode>
+        <name>Serial</name>
+        <id type="integer">42</id>
+        <type>PORISMode</type>
+        <node-type-id type="integer">6</node-type-id>
+        <ident>OSI-0448</ident>
         <project-id type="integer">0</project-id>
         <labels type="array"/>
         <destinations type="array"/>
         <node-attributes type="array"/>
-        <value-formatter-id type="integer" nil="true"/>
-    </value>
-    <value>
-        <name>2.0</name>
-        <id type="integer">32</id>
-        <type>PORISValue</type>
-        <node-type-id type="integer">5</node-type-id>
-        <ident>EX-1828</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array"/>
-        <node-attributes type="array"/>
-        <value-formatter-id type="integer" nil="true"/>
-    </value>
-    <value>
-        <name>Half-field</name>
-        <id type="integer">34</id>
-        <type>PORISValue</type>
-        <node-type-id type="integer">5</node-type-id>
-        <ident>EX-1830</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array"/>
-        <node-attributes type="array"/>
-        <value-formatter-id type="integer" nil="true"/>
-    </value>
-    <value>
-        <name>R500</name>
-        <id type="integer">36</id>
-        <type>PORISValue</type>
-        <node-type-id type="integer">5</node-type-id>
-        <ident>EX-1832</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array"/>
-        <node-attributes type="array"/>
-        <value-formatter-id type="integer" nil="true"/>
-    </value>
-    <value>
-        <name>R1000</name>
-        <id type="integer">37</id>
-        <type>PORISValue</type>
-        <node-type-id type="integer">5</node-type-id>
-        <ident>EX-1833</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array"/>
-        <node-attributes type="array"/>
-        <value-formatter-id type="integer" nil="true"/>
-    </value>
-    <value>
-        <name>R2000</name>
-        <id type="integer">38</id>
-        <type>PORISValue</type>
-        <node-type-id type="integer">5</node-type-id>
-        <ident>EX-1834</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array"/>
-        <node-attributes type="array"/>
-        <value-formatter-id type="integer" nil="true"/>
-    </value>
-    <value-double-range>
-        <name>NormalRange</name>
-        <id type="integer">40</id>
-        <type>PORISValueFloat</type>
-        <node-type-id type="integer">0</node-type-id>
-        <ident>EX-1836</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array"/>
-        <node-attributes type="array"/>
-        <value-formatter-id type="integer">1</value-formatter-id>
-        <default-float type="float">1.0</default-float>
-        <rangemin type="float">0.0</rangemin>
-        <rangemax type="float">3600.0</rangemax>
-    </value-double-range>
-    <value-double-range>
-        <name>FastRange</name>
+        <default-mode-id type="integer" nil="true"/>
+        <default-value-id type="integer" nil="true"/>
+    </mode>
+    <mode>
+        <name>QuadCCD</name>
         <id type="integer">43</id>
-        <type>PORISValueFloat</type>
-        <node-type-id type="integer">0</node-type-id>
-        <ident>EX-1839</ident>
+        <type>PORISMode</type>
+        <node-type-id type="integer">6</node-type-id>
+        <ident>OSI-0449</ident>
         <project-id type="integer">0</project-id>
         <labels type="array"/>
         <destinations type="array"/>
         <node-attributes type="array"/>
-        <value-formatter-id type="integer">1</value-formatter-id>
-        <default-float type="float">0.01</default-float>
-        <rangemin type="float">0.0</rangemin>
-        <rangemax type="float">0.5</rangemax>
-    </value-double-range>
+        <default-mode-id type="integer" nil="true"/>
+        <default-value-id type="integer" nil="true"/>
+    </mode>
     <value>
         <name>1x1</name>
-        <id type="integer">44</id>
+        <id type="integer">47</id>
         <type>PORISValue</type>
         <node-type-id type="integer">5</node-type-id>
-        <ident>EX-1840</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array"/>
-        <node-attributes type="array"/>
-        <value-formatter-id type="integer" nil="true"/>
-    </value>
-    <value>
-        <name>2x1</name>
-        <id type="integer">45</id>
-        <type>PORISValue</type>
-        <node-type-id type="integer">5</node-type-id>
-        <ident>EX-1841</ident>
+        <ident>OSI-0630</ident>
         <project-id type="integer">0</project-id>
         <labels type="array"/>
         <destinations type="array"/>
@@ -140,10 +53,22 @@
     </value>
     <value>
         <name>1x2</name>
-        <id type="integer">46</id>
+        <id type="integer">48</id>
         <type>PORISValue</type>
         <node-type-id type="integer">5</node-type-id>
-        <ident>EX-1842</ident>
+        <ident>OSI-0631</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array"/>
+        <node-attributes type="array"/>
+        <value-formatter-id type="integer" nil="true"/>
+    </value>
+    <value>
+        <name>2x1</name>
+        <id type="integer">49</id>
+        <type>PORISValue</type>
+        <node-type-id type="integer">5</node-type-id>
+        <ident>OSI-0632</ident>
         <project-id type="integer">0</project-id>
         <labels type="array"/>
         <destinations type="array"/>
@@ -152,226 +77,323 @@
     </value>
     <value>
         <name>2x2</name>
-        <id type="integer">47</id>
+        <id type="integer">50</id>
         <type>PORISValue</type>
         <node-type-id type="integer">5</node-type-id>
-        <ident>EX-1843</ident>
+        <ident>OSI-0633</ident>
         <project-id type="integer">0</project-id>
         <labels type="array"/>
         <destinations type="array"/>
         <node-attributes type="array"/>
         <value-formatter-id type="integer" nil="true"/>
     </value>
-    <value>
-        <name>Red</name>
-        <id type="integer">59</id>
-        <type>PORISValue</type>
-        <node-type-id type="integer">5</node-type-id>
-        <ident>EX-1855</ident>
+    <value-double-range>
+        <name>FullRange</name>
+        <id type="integer">56</id>
+        <type>PORISValueFloat</type>
+        <node-type-id type="integer">0</node-type-id>
+        <ident>OSI-0420</ident>
         <project-id type="integer">0</project-id>
         <labels type="array"/>
         <destinations type="array"/>
         <node-attributes type="array"/>
-        <value-formatter-id type="integer" nil="true"/>
-    </value>
-    <value>
-        <name>Blue</name>
+        <value-formatter-id type="integer">1</value-formatter-id>
+        <default-float type="float">2056.0</default-float>
+        <rangemin type="float">0.0</rangemin>
+        <rangemax type="float">4112.0</rangemax>
+    </value-double-range>
+    <value-double-range>
+        <name>FullRange</name>
+        <id type="integer">58</id>
+        <type>PORISValueFloat</type>
+        <node-type-id type="integer">0</node-type-id>
+        <ident>OSI-0416</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array"/>
+        <node-attributes type="array"/>
+        <value-formatter-id type="integer">1</value-formatter-id>
+        <default-float type="float">2048.0</default-float>
+        <rangemin type="float">0.0</rangemin>
+        <rangemax type="float">4096.0</rangemax>
+    </value-double-range>
+    <value-double-range>
+        <name>FullRange</name>
         <id type="integer">60</id>
-        <type>PORISValue</type>
-        <node-type-id type="integer">5</node-type-id>
-        <ident>EX-1856</ident>
+        <type>PORISValueFloat</type>
+        <node-type-id type="integer">0</node-type-id>
+        <ident>OSI-0418</ident>
         <project-id type="integer">0</project-id>
         <labels type="array"/>
         <destinations type="array"/>
         <node-attributes type="array"/>
-        <value-formatter-id type="integer" nil="true"/>
-    </value>
-    <value-string>
-        <name>userFilter</name>
-        <id type="integer">64</id>
-        <type>PORISValueString</type>
-        <node-type-id type="integer">6</node-type-id>
-        <ident>EX-1860</ident>
+        <value-formatter-id type="integer">1</value-formatter-id>
+        <default-float type="float">1028.0</default-float>
+        <rangemin type="float">0.0</rangemin>
+        <rangemax type="float">4112.0</rangemax>
+    </value-double-range>
+    <value-double-range>
+        <name>FullRange</name>
+        <id type="integer">62</id>
+        <type>PORISValueFloat</type>
+        <node-type-id type="integer">0</node-type-id>
+        <ident>OSI-0422</ident>
         <project-id type="integer">0</project-id>
         <labels type="array"/>
         <destinations type="array"/>
         <node-attributes type="array"/>
-        <value-formatter-id type="integer" nil="true"/>
-        <default-string>mycustomfilter</default-string>
-    </value-string>
+        <value-formatter-id type="integer">1</value-formatter-id>
+        <default-float type="float">1024.0</default-float>
+        <rangemin type="float">0.0</rangemin>
+        <rangemax type="float">4096.0</rangemax>
+    </value-double-range>
     <mode>
-        <name>Spectroscopy</name>
-        <id type="integer">33</id>
+        <name>Disabled</name>
+        <id type="integer">63</id>
         <type>PORISMode</type>
         <node-type-id type="integer">6</node-type-id>
-        <ident>EX-1829</ident>
+        <ident>GEOM-0002</ident>
         <project-id type="integer">0</project-id>
         <labels type="array"/>
-        <destinations type="array">
-            <destination type="PORISValue">
-                <id type="integer">30</id>
-            </destination>
-            <destination type="PORISValue">
-                <id type="integer">32</id>
-            </destination>
-            <destination type="PORISValue">
-                <id type="integer">31</id>
-            </destination>
-        </destinations>
+        <destinations type="array"/>
         <node-attributes type="array"/>
         <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer">30</default-value-id>
+        <default-value-id type="integer" nil="true"/>
     </mode>
-    <mode>
-        <name>FastImg</name>
-        <id type="integer">35</id>
-        <type>PORISMode</type>
-        <node-type-id type="integer">6</node-type-id>
-        <ident>EX-1831</ident>
+    <sub-system>
+        <name>Recomposition</name>
+        <id type="integer">7</id>
+        <type>PORISNode</type>
+        <node-type-id type="integer">4</node-type-id>
+        <ident>OSI-0494</ident>
         <project-id type="integer">0</project-id>
         <labels type="array"/>
         <destinations type="array">
-            <destination type="PORISValue">
-                <id type="integer">34</id>
+            <destination type="PORISMode">
+                <id type="integer">41</id>
             </destination>
-        </destinations>
-        <node-attributes type="array"/>
-        <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer">34</default-value-id>
-    </mode>
-    <mode>
-        <name>Normal</name>
-        <id type="integer">39</id>
-        <type>PORISMode</type>
-        <node-type-id type="integer">6</node-type-id>
-        <ident>EX-1835</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array">
-            <destination type="PORISValue">
-                <id type="integer">36</id>
+            <destination type="PORISMode">
+                <id type="integer">42</id>
             </destination>
-            <destination type="PORISValue">
-                <id type="integer">37</id>
-            </destination>
-            <destination type="PORISValue">
-                <id type="integer">38</id>
-            </destination>
-        </destinations>
-        <node-attributes type="array"/>
-        <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer">36</default-value-id>
-    </mode>
-    <mode>
-        <name>Normal</name>
-        <id type="integer">41</id>
-        <type>PORISMode</type>
-        <node-type-id type="integer">6</node-type-id>
-        <ident>EX-1837</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array">
-            <destination type="PORISValueFloat">
-                <id type="integer">40</id>
-            </destination>
-        </destinations>
-        <node-attributes type="array"/>
-        <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer">40</default-value-id>
-    </mode>
-    <mode>
-        <name>Fast</name>
-        <id type="integer">42</id>
-        <type>PORISMode</type>
-        <node-type-id type="integer">6</node-type-id>
-        <ident>EX-1838</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array">
-            <destination type="PORISValueFloat">
+            <destination type="PORISMode">
                 <id type="integer">43</id>
             </destination>
         </destinations>
         <node-attributes type="array"/>
         <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer">43</default-value-id>
-    </mode>
+    </sub-system>
     <mode>
-        <name>Normal</name>
-        <id type="integer">48</id>
+        <name>0x0</name>
+        <id type="integer">35</id>
         <type>PORISMode</type>
         <node-type-id type="integer">6</node-type-id>
-        <ident>EX-1844</ident>
+        <ident>OSI-0440</ident>
         <project-id type="integer">0</project-id>
         <labels type="array"/>
         <destinations type="array">
-            <destination type="PORISValue">
-                <id type="integer">44</id>
-            </destination>
-            <destination type="PORISValue">
-                <id type="integer">45</id>
-            </destination>
-            <destination type="PORISValue">
-                <id type="integer">46</id>
-            </destination>
-            <destination type="PORISValue">
-                <id type="integer">47</id>
+            <destination type="PORISMode">
+                <id type="integer">41</id>
             </destination>
         </destinations>
         <node-attributes type="array"/>
         <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer">44</default-value-id>
+        <default-value-id type="integer" nil="true"/>
+    </mode>
+    <mode>
+        <name>0x1</name>
+        <id type="integer">36</id>
+        <type>PORISMode</type>
+        <node-type-id type="integer">6</node-type-id>
+        <ident>OSI-0441</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array">
+            <destination type="PORISMode">
+                <id type="integer">41</id>
+            </destination>
+        </destinations>
+        <node-attributes type="array"/>
+        <default-mode-id type="integer" nil="true"/>
+        <default-value-id type="integer" nil="true"/>
+    </mode>
+    <mode>
+        <name>0x2</name>
+        <id type="integer">37</id>
+        <type>PORISMode</type>
+        <node-type-id type="integer">6</node-type-id>
+        <ident>OSI-0442</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array">
+            <destination type="PORISMode">
+                <id type="integer">41</id>
+            </destination>
+        </destinations>
+        <node-attributes type="array"/>
+        <default-mode-id type="integer" nil="true"/>
+        <default-value-id type="integer" nil="true"/>
+    </mode>
+    <mode>
+        <name>0x3</name>
+        <id type="integer">38</id>
+        <type>PORISMode</type>
+        <node-type-id type="integer">6</node-type-id>
+        <ident>OSI-0443</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array">
+            <destination type="PORISMode">
+                <id type="integer">41</id>
+            </destination>
+        </destinations>
+        <node-attributes type="array"/>
+        <default-mode-id type="integer" nil="true"/>
+        <default-value-id type="integer" nil="true"/>
+    </mode>
+    <mode>
+        <name>ALL</name>
+        <id type="integer">39</id>
+        <type>PORISMode</type>
+        <node-type-id type="integer">6</node-type-id>
+        <ident>OSI-0444</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array">
+            <destination type="PORISMode">
+                <id type="integer">43</id>
+            </destination>
+        </destinations>
+        <node-attributes type="array"/>
+        <default-mode-id type="integer" nil="true"/>
+        <default-value-id type="integer" nil="true"/>
+    </mode>
+    <mode>
+        <name>TWO</name>
+        <id type="integer">40</id>
+        <type>PORISMode</type>
+        <node-type-id type="integer">6</node-type-id>
+        <ident>OSI-0445</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array">
+            <destination type="PORISMode">
+                <id type="integer">42</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">43</id>
+            </destination>
+        </destinations>
+        <node-attributes type="array"/>
+        <default-mode-id type="integer" nil="true"/>
+        <default-value-id type="integer" nil="true"/>
+    </mode>
+    <mode>
+        <name>All</name>
+        <id type="integer">51</id>
+        <type>PORISMode</type>
+        <node-type-id type="integer">6</node-type-id>
+        <ident>OSI-0634</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array">
+            <destination type="PORISValue">
+                <id type="integer">47</id>
+            </destination>
+            <destination type="PORISValue">
+                <id type="integer">48</id>
+            </destination>
+            <destination type="PORISValue">
+                <id type="integer">49</id>
+            </destination>
+            <destination type="PORISValue">
+                <id type="integer">50</id>
+            </destination>
+        </destinations>
+        <node-attributes type="array"/>
+        <default-mode-id type="integer" nil="true"/>
+        <default-value-id type="integer">47</default-value-id>
     </mode>
     <mode>
         <name>Square</name>
-        <id type="integer">49</id>
+        <id type="integer">52</id>
         <type>PORISMode</type>
         <node-type-id type="integer">6</node-type-id>
-        <ident>EX-1845</ident>
+        <ident>OSI-0635</ident>
         <project-id type="integer">0</project-id>
         <labels type="array"/>
         <destinations type="array">
             <destination type="PORISValue">
-                <id type="integer">44</id>
+                <id type="integer">47</id>
             </destination>
+            <destination type="PORISValue">
+                <id type="integer">50</id>
+            </destination>
+        </destinations>
+        <node-attributes type="array"/>
+        <default-mode-id type="integer" nil="true"/>
+        <default-value-id type="integer">47</default-value-id>
+    </mode>
+    <mode>
+        <name>Off</name>
+        <id type="integer">53</id>
+        <type>PORISMode</type>
+        <node-type-id type="integer">6</node-type-id>
+        <ident>OSI-0636</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array">
             <destination type="PORISValue">
                 <id type="integer">47</id>
             </destination>
         </destinations>
         <node-attributes type="array"/>
         <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer">44</default-value-id>
+        <default-value-id type="integer">47</default-value-id>
     </mode>
     <mode>
-        <name>Standard</name>
-        <id type="integer">61</id>
+        <name>Normal</name>
+        <id type="integer">55</id>
         <type>PORISMode</type>
         <node-type-id type="integer">6</node-type-id>
-        <ident>EX-1857</ident>
+        <ident>OSI-0419</ident>
         <project-id type="integer">0</project-id>
         <labels type="array"/>
         <destinations type="array">
-            <destination type="PORISValue">
-                <id type="integer">59</id>
-            </destination>
-            <destination type="PORISValue">
-                <id type="integer">60</id>
+            <destination type="PORISValueFloat">
+                <id type="integer">56</id>
             </destination>
         </destinations>
         <node-attributes type="array"/>
         <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer">59</default-value-id>
+        <default-value-id type="integer">56</default-value-id>
     </mode>
     <mode>
-        <name>Blue</name>
-        <id type="integer">62</id>
+        <name>Normal</name>
+        <id type="integer">57</id>
         <type>PORISMode</type>
         <node-type-id type="integer">6</node-type-id>
-        <ident>EX-1858</ident>
+        <ident>OSI-0415</ident>
         <project-id type="integer">0</project-id>
         <labels type="array"/>
         <destinations type="array">
-            <destination type="PORISValue">
+            <destination type="PORISValueFloat">
+                <id type="integer">58</id>
+            </destination>
+        </destinations>
+        <node-attributes type="array"/>
+        <default-mode-id type="integer" nil="true"/>
+        <default-value-id type="integer">58</default-value-id>
+    </mode>
+    <mode>
+        <name>Normal</name>
+        <id type="integer">59</id>
+        <type>PORISMode</type>
+        <node-type-id type="integer">6</node-type-id>
+        <ident>OSI-0417</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array">
+            <destination type="PORISValueFloat">
                 <id type="integer">60</id>
             </destination>
         </destinations>
@@ -380,307 +402,25 @@
         <default-value-id type="integer">60</default-value-id>
     </mode>
     <mode>
-        <name>Red</name>
-        <id type="integer">63</id>
-        <type>PORISMode</type>
-        <node-type-id type="integer">6</node-type-id>
-        <ident>EX-1859</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array">
-            <destination type="PORISValue">
-                <id type="integer">59</id>
-            </destination>
-        </destinations>
-        <node-attributes type="array"/>
-        <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer">59</default-value-id>
-    </mode>
-    <mode>
-        <name>User</name>
-        <id type="integer">65</id>
-        <type>PORISMode</type>
-        <node-type-id type="integer">6</node-type-id>
-        <ident>EX-1861</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array">
-            <destination type="PORISValueString">
-                <id type="integer">64</id>
-            </destination>
-        </destinations>
-        <node-attributes type="array"/>
-        <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer">64</default-value-id>
-    </mode>
-    <sub-system>
-        <name>Masks</name>
-        <id type="integer">4</id>
-        <type>PORISNode</type>
-        <node-type-id type="integer">4</node-type-id>
-        <ident>EX-1863</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array">
-            <destination type="PORISMode">
-                <id type="integer">33</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">35</id>
-            </destination>
-            <destination type="PORISValue">
-                <id type="integer">30</id>
-            </destination>
-            <destination type="PORISValue">
-                <id type="integer">31</id>
-            </destination>
-            <destination type="PORISValue">
-                <id type="integer">32</id>
-            </destination>
-            <destination type="PORISValue">
-                <id type="integer">34</id>
-            </destination>
-        </destinations>
-        <node-attributes type="array"/>
-        <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer" nil="true"/>
-    </sub-system>
-    <sub-system>
-        <name>Dispersion</name>
-        <id type="integer">8</id>
-        <type>PORISNode</type>
-        <node-type-id type="integer">4</node-type-id>
-        <ident>EX-1864</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array">
-            <destination type="PORISMode">
-                <id type="integer">39</id>
-            </destination>
-            <destination type="PORISValue">
-                <id type="integer">36</id>
-            </destination>
-            <destination type="PORISValue">
-                <id type="integer">37</id>
-            </destination>
-            <destination type="PORISValue">
-                <id type="integer">38</id>
-            </destination>
-        </destinations>
-        <node-attributes type="array"/>
-        <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer" nil="true"/>
-    </sub-system>
-    <sub-system>
-        <name>expTime</name>
-        <id type="integer">15</id>
-        <type>PORISNode</type>
-        <node-type-id type="integer">4</node-type-id>
-        <ident>EX-1866</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array">
-            <destination type="PORISMode">
-                <id type="integer">41</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">42</id>
-            </destination>
-            <destination type="PORISValueFloat">
-                <id type="integer">40</id>
-            </destination>
-            <destination type="PORISValueFloat">
-                <id type="integer">43</id>
-            </destination>
-        </destinations>
-        <node-attributes type="array"/>
-        <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer" nil="true"/>
-    </sub-system>
-    <sub-system>
-        <name>Binning</name>
-        <id type="integer">19</id>
-        <type>PORISNode</type>
-        <node-type-id type="integer">4</node-type-id>
-        <ident>EX-1867</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array">
-            <destination type="PORISMode">
-                <id type="integer">48</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">49</id>
-            </destination>
-            <destination type="PORISValue">
-                <id type="integer">44</id>
-            </destination>
-            <destination type="PORISValue">
-                <id type="integer">45</id>
-            </destination>
-            <destination type="PORISValue">
-                <id type="integer">46</id>
-            </destination>
-            <destination type="PORISValue">
-                <id type="integer">47</id>
-            </destination>
-        </destinations>
-        <node-attributes type="array"/>
-        <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer" nil="true"/>
-    </sub-system>
-    <sub-system>
-        <name>ClassicFilters</name>
-        <id type="integer">26</id>
-        <type>PORISNode</type>
-        <node-type-id type="integer">4</node-type-id>
-        <ident>EX-1869</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array">
-            <destination type="PORISMode">
-                <id type="integer">61</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">62</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">63</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">65</id>
-            </destination>
-            <destination type="PORISValue">
-                <id type="integer">59</id>
-            </destination>
-            <destination type="PORISValue">
-                <id type="integer">60</id>
-            </destination>
-            <destination type="PORISValueString">
-                <id type="integer">64</id>
-            </destination>
-        </destinations>
-        <node-attributes type="array"/>
-        <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer" nil="true"/>
-    </sub-system>
-    <mode>
         <name>Normal</name>
-        <id type="integer">50</id>
+        <id type="integer">61</id>
         <type>PORISMode</type>
         <node-type-id type="integer">6</node-type-id>
-        <ident>EX-1846</ident>
+        <ident>OSI-0421</ident>
         <project-id type="integer">0</project-id>
         <labels type="array"/>
         <destinations type="array">
-            <destination type="PORISMode">
-                <id type="integer">41</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">48</id>
-            </destination>
-        </destinations>
-        <node-attributes type="array"/>
-        <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer" nil="true"/>
-    </mode>
-    <mode>
-        <name>Image</name>
-        <id type="integer">51</id>
-        <type>PORISMode</type>
-        <node-type-id type="integer">6</node-type-id>
-        <ident>EX-1847</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array">
-            <destination type="PORISMode">
-                <id type="integer">41</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">49</id>
-            </destination>
-        </destinations>
-        <node-attributes type="array"/>
-        <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer" nil="true"/>
-    </mode>
-    <mode>
-        <name>FastImage</name>
-        <id type="integer">52</id>
-        <type>PORISMode</type>
-        <node-type-id type="integer">6</node-type-id>
-        <ident>EX-1848</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array">
-            <destination type="PORISMode">
-                <id type="integer">42</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">49</id>
-            </destination>
-        </destinations>
-        <node-attributes type="array"/>
-        <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer" nil="true"/>
-    </mode>
-    <mode>
-        <name>Classic</name>
-        <id type="integer">56</id>
-        <type>PORISMode</type>
-        <node-type-id type="integer">6</node-type-id>
-        <ident>EX-1852</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array">
-            <destination type="PORISMode">
-                <id type="integer">61</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">65</id>
-            </destination>
-        </destinations>
-        <node-attributes type="array"/>
-        <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer" nil="true"/>
-    </mode>
-    <mode>
-        <name>TFBlue</name>
-        <id type="integer">57</id>
-        <type>PORISMode</type>
-        <node-type-id type="integer">6</node-type-id>
-        <ident>EX-1853</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array">
-            <destination type="PORISMode">
+            <destination type="PORISValueFloat">
                 <id type="integer">62</id>
             </destination>
         </destinations>
         <node-attributes type="array"/>
         <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer" nil="true"/>
-    </mode>
-    <mode>
-        <name>TFRed</name>
-        <id type="integer">58</id>
-        <type>PORISMode</type>
-        <node-type-id type="integer">6</node-type-id>
-        <ident>EX-1854</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array">
-            <destination type="PORISMode">
-                <id type="integer">63</id>
-            </destination>
-        </destinations>
-        <node-attributes type="array"/>
-        <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer" nil="true"/>
+        <default-value-id type="integer">62</default-value-id>
     </mode>
     <mode>
         <name>Engineering</name>
-        <id type="integer">67</id>
+        <id type="integer">65</id>
         <type>PORISMode</type>
         <node-type-id type="integer">6</node-type-id>
         <ident>ENG-2</ident>
@@ -694,36 +434,7 @@
                 <id type="integer">42</id>
             </destination>
             <destination type="PORISMode">
-                <id type="integer">48</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">49</id>
-            </destination>
-        </destinations>
-        <node-attributes type="array"/>
-        <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer" nil="true"/>
-    </mode>
-    <mode>
-        <name>Engineering</name>
-        <id type="integer">68</id>
-        <type>PORISMode</type>
-        <node-type-id type="integer">6</node-type-id>
-        <ident>ENG-3</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array">
-            <destination type="PORISMode">
-                <id type="integer">61</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">62</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">63</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">65</id>
+                <id type="integer">43</id>
             </destination>
         </destinations>
         <node-attributes type="array"/>
@@ -731,128 +442,11 @@
         <default-value-id type="integer" nil="true"/>
     </mode>
     <sub-system>
-        <name>Detector</name>
-        <id type="integer">12</id>
+        <name>OutputSource</name>
+        <id type="integer">4</id>
         <type>PORISNode</type>
         <node-type-id type="integer">4</node-type-id>
-        <ident>EX-1865</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array">
-            <destination type="PORISMode">
-                <id type="integer">50</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">51</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">52</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">67</id>
-            </destination>
-            <destination type="PORISNode">
-                <id type="integer">15</id>
-            </destination>
-            <destination type="PORISNode">
-                <id type="integer">19</id>
-            </destination>
-        </destinations>
-        <node-attributes type="array"/>
-        <default-mode-id type="integer" nil="true"/>
-    </sub-system>
-    <sub-system>
-        <name>Filter</name>
-        <id type="integer">23</id>
-        <type>PORISNode</type>
-        <node-type-id type="integer">4</node-type-id>
-        <ident>EX-1868</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array">
-            <destination type="PORISMode">
-                <id type="integer">56</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">57</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">58</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">68</id>
-            </destination>
-            <destination type="PORISNode">
-                <id type="integer">26</id>
-            </destination>
-        </destinations>
-        <node-attributes type="array"/>
-        <default-mode-id type="integer" nil="true"/>
-    </sub-system>
-    <mode>
-        <name>Photometry</name>
-        <id type="integer">53</id>
-        <type>PORISMode</type>
-        <node-type-id type="integer">6</node-type-id>
-        <ident>EX-1849</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array">
-            <destination type="PORISMode">
-                <id type="integer">51</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">58</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">57</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">56</id>
-            </destination>
-        </destinations>
-        <node-attributes type="array"/>
-        <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer" nil="true"/>
-    </mode>
-    <mode>
-        <name>Spectroscopy</name>
-        <id type="integer">54</id>
-        <type>PORISMode</type>
-        <node-type-id type="integer">6</node-type-id>
-        <ident>EX-1850</ident>
-        <project-id type="integer">0</project-id>
-        <labels type="array"/>
-        <destinations type="array">
-            <destination type="PORISMode">
-                <id type="integer">33</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">39</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">50</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">56</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">58</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">57</id>
-            </destination>
-        </destinations>
-        <node-attributes type="array"/>
-        <default-mode-id type="integer" nil="true"/>
-        <default-value-id type="integer" nil="true"/>
-    </mode>
-    <mode>
-        <name>FastPhotometry</name>
-        <id type="integer">55</id>
-        <type>PORISMode</type>
-        <node-type-id type="integer">6</node-type-id>
-        <ident>EX-1851</ident>
+        <ident>OSI-0493</ident>
         <project-id type="integer">0</project-id>
         <labels type="array"/>
         <destinations type="array">
@@ -860,10 +454,235 @@
                 <id type="integer">35</id>
             </destination>
             <destination type="PORISMode">
+                <id type="integer">36</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">37</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">38</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">39</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">40</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">65</id>
+            </destination>
+            <destination type="PORISNode">
+                <id type="integer">7</id>
+            </destination>
+        </destinations>
+        <node-attributes type="array"/>
+        <default-mode-id type="integer" nil="true"/>
+    </sub-system>
+    <sub-system>
+        <name>Binning</name>
+        <id type="integer">10</id>
+        <type>PORISNode</type>
+        <node-type-id type="integer">4</node-type-id>
+        <ident>OSI-0641</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array">
+            <destination type="PORISMode">
+                <id type="integer">51</id>
+            </destination>
+            <destination type="PORISMode">
                 <id type="integer">52</id>
             </destination>
             <destination type="PORISMode">
+                <id type="integer">53</id>
+            </destination>
+            <destination type="PORISValue">
+                <id type="integer">47</id>
+            </destination>
+            <destination type="PORISValue">
+                <id type="integer">48</id>
+            </destination>
+            <destination type="PORISValue">
+                <id type="integer">49</id>
+            </destination>
+            <destination type="PORISValue">
+                <id type="integer">50</id>
+            </destination>
+        </destinations>
+        <node-attributes type="array"/>
+        <default-mode-id type="integer" nil="true"/>
+        <default-value-id type="integer" nil="true"/>
+    </sub-system>
+    <sub-system>
+        <name>Rows</name>
+        <id type="integer">17</id>
+        <type>PORISNode</type>
+        <node-type-id type="integer">4</node-type-id>
+        <ident>OSI-0484</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array">
+            <destination type="PORISMode">
+                <id type="integer">55</id>
+            </destination>
+            <destination type="PORISValueFloat">
                 <id type="integer">56</id>
+            </destination>
+        </destinations>
+        <node-attributes type="array"/>
+        <default-mode-id type="integer" nil="true"/>
+        <default-value-id type="integer" nil="true"/>
+    </sub-system>
+    <sub-system>
+        <name>Cols</name>
+        <id type="integer">21</id>
+        <type>PORISNode</type>
+        <node-type-id type="integer">4</node-type-id>
+        <ident>OSI-0482</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array">
+            <destination type="PORISMode">
+                <id type="integer">57</id>
+            </destination>
+            <destination type="PORISValueFloat">
+                <id type="integer">58</id>
+            </destination>
+        </destinations>
+        <node-attributes type="array"/>
+        <default-mode-id type="integer" nil="true"/>
+        <default-value-id type="integer" nil="true"/>
+    </sub-system>
+    <sub-system>
+        <name>offsetRow</name>
+        <id type="integer">25</id>
+        <type>PORISNode</type>
+        <node-type-id type="integer">4</node-type-id>
+        <ident>OSI-0483</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array">
+            <destination type="PORISMode">
+                <id type="integer">59</id>
+            </destination>
+            <destination type="PORISValueFloat">
+                <id type="integer">60</id>
+            </destination>
+        </destinations>
+        <node-attributes type="array"/>
+        <default-mode-id type="integer" nil="true"/>
+        <default-value-id type="integer" nil="true"/>
+    </sub-system>
+    <sub-system>
+        <name>offsetCol</name>
+        <id type="integer">29</id>
+        <type>PORISNode</type>
+        <node-type-id type="integer">4</node-type-id>
+        <ident>OSI-0485</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array">
+            <destination type="PORISMode">
+                <id type="integer">61</id>
+            </destination>
+            <destination type="PORISValueFloat">
+                <id type="integer">62</id>
+            </destination>
+        </destinations>
+        <node-attributes type="array"/>
+        <default-mode-id type="integer" nil="true"/>
+        <default-value-id type="integer" nil="true"/>
+    </sub-system>
+    <mode>
+        <name>FullDetector</name>
+        <id type="integer">44</id>
+        <type>PORISMode</type>
+        <node-type-id type="integer">6</node-type-id>
+        <ident>OSI-0413</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array">
+            <destination type="PORISMode">
+                <id type="integer">35</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">36</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">37</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">38</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">39</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">51</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">63</id>
+            </destination>
+        </destinations>
+        <node-attributes type="array"/>
+        <default-mode-id type="integer" nil="true"/>
+        <default-value-id type="integer" nil="true"/>
+    </mode>
+    <mode>
+        <name>FullDetectorSq</name>
+        <id type="integer">46</id>
+        <type>PORISMode</type>
+        <node-type-id type="integer">6</node-type-id>
+        <ident>OSI-0629</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array">
+            <destination type="PORISMode">
+                <id type="integer">35</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">36</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">37</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">38</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">39</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">52</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">63</id>
+            </destination>
+        </destinations>
+        <node-attributes type="array"/>
+        <default-mode-id type="integer" nil="true"/>
+        <default-value-id type="integer" nil="true"/>
+    </mode>
+    <mode>
+        <name>Enabled</name>
+        <id type="integer">54</id>
+        <type>PORISMode</type>
+        <node-type-id type="integer">6</node-type-id>
+        <ident>OSI-0460</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array">
+            <destination type="PORISMode">
+                <id type="integer">55</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">57</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">59</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">61</id>
             </destination>
         </destinations>
         <node-attributes type="array"/>
@@ -875,21 +694,165 @@
         <id type="integer">66</id>
         <type>PORISMode</type>
         <node-type-id type="integer">6</node-type-id>
-        <ident>ENG-1</ident>
+        <ident>ENG-3</ident>
         <project-id type="integer">0</project-id>
         <labels type="array"/>
         <destinations type="array">
             <destination type="PORISMode">
-                <id type="integer">33</id>
+                <id type="integer">55</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">57</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">59</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">61</id>
+            </destination>
+        </destinations>
+        <node-attributes type="array"/>
+        <default-mode-id type="integer" nil="true"/>
+        <default-value-id type="integer" nil="true"/>
+    </mode>
+    <sub-system>
+        <name>Window</name>
+        <id type="integer">14</id>
+        <type>PORISNode</type>
+        <node-type-id type="integer">4</node-type-id>
+        <ident>OSI-0640</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array">
+            <destination type="PORISMode">
+                <id type="integer">54</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">63</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">66</id>
+            </destination>
+            <destination type="PORISNode">
+                <id type="integer">17</id>
+            </destination>
+            <destination type="PORISNode">
+                <id type="integer">21</id>
+            </destination>
+            <destination type="PORISNode">
+                <id type="integer">25</id>
+            </destination>
+            <destination type="PORISNode">
+                <id type="integer">29</id>
+            </destination>
+        </destinations>
+        <node-attributes type="array"/>
+        <default-mode-id type="integer" nil="true"/>
+    </sub-system>
+    <mode>
+        <name>FT</name>
+        <id type="integer">33</id>
+        <type>PORISMode</type>
+        <node-type-id type="integer">6</node-type-id>
+        <ident>OSI-0606</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array">
+            <destination type="PORISMode">
+                <id type="integer">40</id>
             </destination>
             <destination type="PORISMode">
                 <id type="integer">35</id>
             </destination>
             <destination type="PORISMode">
+                <id type="integer">52</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">63</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">54</id>
+            </destination>
+        </destinations>
+        <node-attributes type="array"/>
+        <default-mode-id type="integer" nil="true"/>
+        <default-value-id type="integer" nil="true"/>
+    </mode>
+    <mode>
+        <name>Window</name>
+        <id type="integer">34</id>
+        <type>PORISMode</type>
+        <node-type-id type="integer">6</node-type-id>
+        <ident>OSI-0414</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array">
+            <destination type="PORISMode">
+                <id type="integer">35</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">51</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">54</id>
+            </destination>
+        </destinations>
+        <node-attributes type="array"/>
+        <default-mode-id type="integer" nil="true"/>
+        <default-value-id type="integer" nil="true"/>
+    </mode>
+    <mode>
+        <name>WindowSq</name>
+        <id type="integer">45</id>
+        <type>PORISMode</type>
+        <node-type-id type="integer">6</node-type-id>
+        <ident>OSI-0628</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array">
+            <destination type="PORISMode">
+                <id type="integer">35</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">52</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">54</id>
+            </destination>
+        </destinations>
+        <node-attributes type="array"/>
+        <default-mode-id type="integer" nil="true"/>
+        <default-value-id type="integer" nil="true"/>
+    </mode>
+    <mode>
+        <name>Engineering</name>
+        <id type="integer">64</id>
+        <type>PORISMode</type>
+        <node-type-id type="integer">6</node-type-id>
+        <ident>ENG-1</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array">
+            <destination type="PORISMode">
+                <id type="integer">35</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">36</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">37</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">38</id>
+            </destination>
+            <destination type="PORISMode">
                 <id type="integer">39</id>
             </destination>
             <destination type="PORISMode">
-                <id type="integer">50</id>
+                <id type="integer">40</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">65</id>
             </destination>
             <destination type="PORISMode">
                 <id type="integer">51</id>
@@ -898,19 +861,16 @@
                 <id type="integer">52</id>
             </destination>
             <destination type="PORISMode">
-                <id type="integer">67</id>
+                <id type="integer">53</id>
             </destination>
             <destination type="PORISMode">
-                <id type="integer">56</id>
+                <id type="integer">54</id>
             </destination>
             <destination type="PORISMode">
-                <id type="integer">57</id>
+                <id type="integer">63</id>
             </destination>
             <destination type="PORISMode">
-                <id type="integer">58</id>
-            </destination>
-            <destination type="PORISMode">
-                <id type="integer">68</id>
+                <id type="integer">66</id>
             </destination>
         </destinations>
         <node-attributes type="array"/>
@@ -918,37 +878,40 @@
         <default-value-id type="integer" nil="true"/>
     </mode>
     <sub-system>
-        <name>Instrument</name>
+        <name>Detector</name>
         <id type="integer">1</id>
         <type>PORISNode</type>
         <node-type-id type="integer">4</node-type-id>
-        <ident>EX-1862</ident>
+        <ident>OSI-0481</ident>
         <project-id type="integer">0</project-id>
         <labels type="array"/>
         <destinations type="array">
             <destination type="PORISMode">
-                <id type="integer">53</id>
+                <id type="integer">33</id>
             </destination>
             <destination type="PORISMode">
-                <id type="integer">54</id>
+                <id type="integer">34</id>
             </destination>
             <destination type="PORISMode">
-                <id type="integer">55</id>
+                <id type="integer">44</id>
             </destination>
             <destination type="PORISMode">
-                <id type="integer">66</id>
+                <id type="integer">45</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">46</id>
+            </destination>
+            <destination type="PORISMode">
+                <id type="integer">64</id>
+            </destination>
+            <destination type="PORISNode">
+                <id type="integer">10</id>
             </destination>
             <destination type="PORISNode">
                 <id type="integer">4</id>
             </destination>
             <destination type="PORISNode">
-                <id type="integer">8</id>
-            </destination>
-            <destination type="PORISNode">
-                <id type="integer">12</id>
-            </destination>
-            <destination type="PORISNode">
-                <id type="integer">23</id>
+                <id type="integer">14</id>
             </destination>
         </destinations>
         <node-attributes type="array"/>
