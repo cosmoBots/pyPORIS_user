@@ -26,6 +26,7 @@ class examplePORIS(PORISDoc):
         self.mdexpTimeMode_Normal = PORISMode("expTimeMode_Normal")
         self.mdexpTimeMode_Fast = PORISMode("expTimeMode_Fast")
         self.vlexpTime_FastRange = PORISValueFloat("expTime_FastRange",0.0,0.01,0.5)
+        self.mdexpTimeMode_Auto = PORISMode("expTimeMode_Auto")
         self.vlBinning_1x1 = PORISValue("Binning_1x1")
         self.vlBinning_2x1 = PORISValue("Binning_2x1")
         self.vlBinning_1x2 = PORISValue("Binning_1x2")
@@ -160,6 +161,11 @@ class examplePORIS(PORISDoc):
         self.vlexpTime_FastRange.setXMLName('FastRange')
         self.vlexpTime_FastRange.description = ""
         self.prexpTime.addValue(self.vlexpTime_FastRange)
+        self.addItem(self.mdexpTimeMode_Auto)
+        self.mdexpTimeMode_Auto.ident = "n0::n2::n0::n4"
+        self.mdexpTimeMode_Auto.setXMLName('Auto')
+        self.mdexpTimeMode_Auto.description = ""
+        self.prexpTime.addMode(self.mdexpTimeMode_Auto)
         self.addItem(self.vlBinning_1x1)
         self.vlBinning_1x1.ident = "EX-1840"
         self.vlBinning_1x1.setXMLName('1x1')
@@ -329,12 +335,16 @@ class examplePORIS(PORISDoc):
         self.mdDetectorMode_Normal.addSubMode(self.mdexpTimeMode_Normal)
         # Marcamos expTimeMode_Normal como elegible para DetectorMode_Image
         self.mdDetectorMode_Image.addSubMode(self.mdexpTimeMode_Normal)
+        # Marcamos expTimeMode_Auto como elegible para DetectorMode_Image
+        self.mdDetectorMode_Image.addSubMode(self.mdexpTimeMode_Auto)
         # Marcamos expTimeMode_Fast como elegible para DetectorMode_FastImage
         self.mdDetectorMode_FastImage.addSubMode(self.mdexpTimeMode_Fast)
         # Marcamos expTimeMode_Normal como elegible para DetectorMode_Engineering
         self.mdDetectorMode_Engineering.addSubMode(self.mdexpTimeMode_Normal)
         # Marcamos expTimeMode_Fast como elegible para DetectorMode_Engineering
         self.mdDetectorMode_Engineering.addSubMode(self.mdexpTimeMode_Fast)
+        # Marcamos expTimeMode_Auto como elegible para DetectorMode_Engineering
+        self.mdDetectorMode_Engineering.addSubMode(self.mdexpTimeMode_Auto)
         # Marcamos expTime_NormalRange como elegible para expTimeMode_Normal
         self.mdexpTimeMode_Normal.addValue(self.vlexpTime_NormalRange)
         # Marcamos expTime_FastRange como elegible para expTimeMode_Fast
