@@ -145,6 +145,17 @@
         <rangemin type="float">-60.0</rangemin>
         <rangemax type="float">40.0</rangemax>
     </value-double-range>
+    <command>
+        <name>command</name>
+        <id type="integer">42</id>
+        <type>PORISCmd</type>
+        <node-type-id type="integer">0</node-type-id>
+        <ident>n0::n2::n7</ident>
+        <project-id type="integer">0</project-id>
+        <labels type="array"/>
+        <destinations type="array"/>
+        <node-attributes type="array"/>
+    </command>
     <mode>
         <name>Homing</name>
         <id type="integer">21</id>
@@ -505,7 +516,7 @@
     </mode>
     <mode>
         <name>Engineering</name>
-        <id type="integer">44</id>
+        <id type="integer">45</id>
         <type>PORISMode</type>
         <node-type-id type="integer">6</node-type-id>
         <ident>ENG-2</ident>
@@ -572,13 +583,16 @@
                 <id type="integer">41</id>
             </destination>
             <destination type="PORISMode">
-                <id type="integer">44</id>
+                <id type="integer">45</id>
             </destination>
             <destination type="PORISNode">
                 <id type="integer">7</id>
             </destination>
             <destination type="PORISNode">
                 <id type="integer">11</id>
+            </destination>
+            <destination type="PORISCmd">
+                <id type="integer">42</id>
             </destination>
         </destinations>
         <node-attributes type="array"/>
@@ -609,7 +623,7 @@
     </mode>
     <mode>
         <name>Technical</name>
-        <id type="integer">42</id>
+        <id type="integer">43</id>
         <type>PORISMode</type>
         <node-type-id type="integer">6</node-type-id>
         <ident>n0::n3</ident>
@@ -635,7 +649,7 @@
     </mode>
     <mode>
         <name>Engineering</name>
-        <id type="integer">43</id>
+        <id type="integer">44</id>
         <type>PORISMode</type>
         <node-type-id type="integer">6</node-type-id>
         <ident>ENG-1</ident>
@@ -658,7 +672,7 @@
                 <id type="integer">41</id>
             </destination>
             <destination type="PORISMode">
-                <id type="integer">44</id>
+                <id type="integer">45</id>
             </destination>
         </destinations>
         <node-attributes type="array"/>
@@ -681,10 +695,10 @@
                 <id type="integer">16</id>
             </destination>
             <destination type="PORISMode">
-                <id type="integer">42</id>
+                <id type="integer">43</id>
             </destination>
             <destination type="PORISMode">
-                <id type="integer">43</id>
+                <id type="integer">44</id>
             </destination>
             <destination type="PORISNode">
                 <id type="integer">4</id>

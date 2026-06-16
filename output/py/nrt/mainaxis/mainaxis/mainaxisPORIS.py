@@ -35,6 +35,7 @@ class mainaxisPORIS(PORISDoc):
         self.mdPitchMode_PointingTech = PORISMode("PitchMode_PointingTech")
         self.vlPitch_P_angle_unbound = PORISValueFloat("Pitch_P_angle_unbound",-60.0,0.0,40.0)
         self.mdMainAxisSysMode_PointingTech = PORISMode("MainAxisSysMode_PointingTech")
+        self.cmdMainAxisSys_command = PORISCmd("MainAxisSys_command")
         self.mdMainAxisMode_Technical = PORISMode("MainAxisMode_Technical")
         self.mdMainAxisMode_Engineering = PORISMode("MainAxisMode_Engineering")
         self.mdMainAxisSysMode_Engineering = PORISMode("MainAxisSysMode_Engineering")
@@ -192,6 +193,14 @@ class mainaxisPORIS(PORISDoc):
         self.mdMainAxisSysMode_PointingTech.setXMLName('PointingTech')
         self.mdMainAxisSysMode_PointingTech.description = ""
         self.sysMainAxisSys.addMode(self.mdMainAxisSysMode_PointingTech)
+        self.addItem(self.cmdMainAxisSys_command)
+        self.cmdMainAxisSys_command.setActionName("command")
+        self.cmdMainAxisSys_command.setHandlerName("execMainAxisSys_command")
+        self.cmdMainAxisSys_command.setTracePath("sysMainAxisSys.command")
+        self.cmdMainAxisSys_command.ident = "n0::n2::n7"
+        self.cmdMainAxisSys_command.setXMLName('command')
+        self.cmdMainAxisSys_command.description = ""
+        self.sysMainAxisSys.addCommand(self.cmdMainAxisSys_command)
         self.addItem(self.mdMainAxisMode_Technical)
         self.mdMainAxisMode_Technical.ident = "n0::n3"
         self.mdMainAxisMode_Technical.setXMLName('Technical')
@@ -397,4 +406,9 @@ class mainaxisPORIS(PORISDoc):
 
     def set_PitchDouble(self, data: float)-> float :
         return self.prPitch.getSelectedValue().setData(data)
+
+
+    ## Action trigger MainAxisSys_command ##
+    def execMainAxisSys_command(self, *args, **kwargs) -> bool:
+        return self.cmdMainAxisSys_command.defaultExecute(*args, **kwargs)
 
