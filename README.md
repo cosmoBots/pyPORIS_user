@@ -20,6 +20,7 @@ The direct XML-from-parser path is kept only as an optional comparison tool.
 
 - Python 3
 - Java, for the Swing-based `AstroPorisPlayer`
+- Node.js and npm, for the optional Vue web viewer
 - Python packages from `requirements.txt`
 
 Recommended setup:
@@ -37,6 +38,13 @@ On Debian/Ubuntu-like systems, a suitable Java installation is:
 
 ```bash
 sudo apt install openjdk-17-jdk
+```
+
+The web viewer dependencies live under `pyPORIS/porisViewer`. Install them with:
+
+```bash
+cd pyPORIS/porisViewer
+npm ci
 ```
 
 ## First Checkout
@@ -77,6 +85,13 @@ To generate without opening the panel:
 pyPORIS/porispanel.sh --no-panel nrt/mainaxis
 ```
 
+To open the generated XML with the Vue web viewer instead of the Java Swing
+panel:
+
+```bash
+pyPORIS/porispanel.sh --web nrt/mainaxis
+```
+
 To also write the ODS spreadsheet product:
 
 ```bash
@@ -109,13 +124,36 @@ Single GraphML model:
 
 ```bash
 pyPORIS/porispanel.sh [--ods] [--parser-xml] [--no-panel] <model>
+pyPORIS/porispanel.sh [--ods] [--parser-xml] [--web] <model>
+pyPORIS/odsporispanel.sh [--parser-xml] [--web] [--no-panel] <model>
 ```
 
 Fragmented directory model:
 
 ```bash
 pyPORIS/porispanel_dir.sh [--ods] [--parser-xml] [--no-panel] <model-dir>
+pyPORIS/porispanel_dir.sh [--ods] [--parser-xml] [--web] <model-dir>
 ```
+
+Directory models define an explicit cluster name in
+`models/<model-dir>/cluster.yaml`. If it does not exist, `porispanel_dir.sh`
+stops and tells you how to create it:
+
+```bash
+pyPORIS/porispanel_dir.sh --cluster osi osiris
+```
+
+This creates:
+
+```yaml
+cluster: osi
+root: osiris
+```
+
+Subsequent runs of `pyPORIS/porispanel_dir.sh osiris` generate the composed
+model as `output/py/osiris/osi/osiPORIS.py`, while
+`pyPORIS/porispanel.sh osiris/osiris` can still generate the single
+`osirisPORIS` subsystem.
 
 cosmoSys variants:
 
@@ -128,6 +166,7 @@ Open an existing XML directly:
 
 ```bash
 pyPORIS/xmlporispanel.sh output/xml/nrt/mainaxis.xml
+pyPORIS/xmlporispanel.sh --web output/xml/nrt/mainaxis.xml
 ```
 
 Generate or run the Python physical model:

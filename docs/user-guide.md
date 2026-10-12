@@ -47,6 +47,12 @@ Generate without opening the panel:
 pyPORIS/porispanel.sh --no-panel nrt/mainaxis
 ```
 
+Generate Python and XML, then open the Vue web viewer:
+
+```bash
+pyPORIS/porispanel.sh --web nrt/mainaxis
+```
+
 Also generate the ODS product:
 
 ```bash
@@ -62,6 +68,12 @@ The primary XML is generated from the generated Python PORIS model:
 
 ```text
 GraphML -> generated Python -> XML -> AstroPorisPlayer
+```
+
+Use `--web` to replace the final Swing panel with the Vue viewer:
+
+```text
+GraphML -> generated Python -> XML -> porisViewer
 ```
 
 The parser XML path is still available for comparison:
@@ -87,7 +99,35 @@ To inspect an XML that already exists:
 
 ```bash
 pyPORIS/xmlporispanel.sh output/xml/nrt/mainaxis.xml
+pyPORIS/xmlporispanel.sh --web output/xml/nrt/mainaxis.xml
 ```
+
+## Vue Web Viewer
+
+The `--web` option opens the generated XML with the Vue viewer in
+`pyPORIS/porisViewer` instead of launching the Java Swing panel:
+
+```bash
+pyPORIS/porispanel.sh --web nrt/mainaxis
+pyPORIS/porispanel_dir.sh --web osiris
+pyPORIS/odsporispanel.sh --web nrt/mainaxis
+pyPORIS/xmlporispanel.sh --web output/xml/nrt/mainaxis.xml
+```
+
+Requirements:
+
+- Node.js and npm must be installed.
+- The viewer dependencies must be installed once:
+
+```bash
+cd pyPORIS/porisViewer
+npm ci
+```
+
+When `--web` runs, it copies the generated XML to
+`pyPORIS/porisViewer/public/runtime/`, starts the Vite development server on
+`127.0.0.1:5173` if needed, and tries to open the default browser. The runtime
+copy is ignored by git.
 
 ## Visual Validation
 
@@ -105,6 +145,7 @@ Useful variants:
 ```bash
 pyPORIS/test_porispanels.sh --with-csys
 pyPORIS/test_porispanels.sh --ods
+pyPORIS/test_porispanels.sh --web
 pyPORIS/test_porispanels.sh --no-prompt
 pyPORIS/test_porispanels.sh --no-panel --no-prompt
 ```
@@ -155,6 +196,34 @@ Generate it without opening the panel:
 pyPORIS/porispanel_dir.sh --no-panel osiris
 ```
 
+Directory models may define a cluster descriptor:
+
+```text
+models/osiris/cluster.yaml
+```
+
+with:
+
+```yaml
+cluster: osi
+root: osiris
+```
+
+`cluster` is the generated composed product name, so the Python class becomes
+`osiPORIS` and is written to `output/py/osiris/osi/osiPORIS.py`. `root` is the
+GraphML file stem that acts as the root of the composed model, for example
+`models/osiris/osiris.graphml`.
+
+If `cluster.yaml` is missing, the command stops and tells you how to create the
+descriptor automatically:
+
+```bash
+pyPORIS/porispanel_dir.sh --cluster osi osiris
+```
+
+If `cluster.yaml` already exists, `--cluster` aborts; edit the descriptor or run
+without `--cluster`.
+
 The important idea is that each file is both an independent project fragment and
 part of a larger root model. The generator reads all `.graphml` files in the
 directory, normalizes node paths, resolves external references, and emits a
@@ -163,8 +232,11 @@ single Python/XML model.
 For a directory to behave as a supramodel:
 
 - The directory name is the root model name passed to `porispanel_dir.sh`.
-- One GraphML file should normally share that root name, for example
-  `models/osiris/osiris.graphml`.
+- In legacy mode, one GraphML file should normally share that root name, for
+  example `models/osiris/osiris.graphml`.
+- With `cluster.yaml`, the directory name, generated cluster name and root
+  GraphML file can differ. For example, `cluster: osi` and `root: osiris`
+  generate `osiPORIS` from the root file `models/osiris/osiris.graphml`.
 - Each GraphML graph declares an `identifier` value. In `osiris`, files declare
   identifiers such as `osiris`, `osiopt`, `osidas`, `osifp`, `osifilt` and
   `osigeom`.
