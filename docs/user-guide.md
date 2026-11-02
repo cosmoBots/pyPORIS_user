@@ -19,6 +19,29 @@ output/ods/<path>/<model>.ods
 The generated `*PORIS.py` file is automatic code. The `*_physical.py` file is
 the editable companion where user behavior can live.
 
+## Bash Model Completion
+
+Enable model completion in the current Bash terminal, from the repository root:
+
+```bash
+source pyPORIS/scripts/poris-completion.bash
+```
+
+Typing `pyPORIS/porispanel.sh osi` and pressing Tab completes `osiris/`.
+Continue typing and pressing Tab to explore its GraphML models; file names
+are completed without `.graphml`. Press Tab twice to list ambiguous choices.
+Directories keep their trailing slash so you can continue browsing, or press
+Enter to generate the directory model using its `cluster.yaml`.
+
+Completion also works for `porispanel_csys.sh`, `porispanel_dir.sh` and
+`porispanel_dir_csys.sh`, including options such as `--no-panel`. Directory
+variants suggest only directories. Candidates come from `models/` under the
+current working directory, not from generated outputs or cluster names.
+
+To enable it in future Bash terminals, add a `source` command using the absolute
+path to `pyPORIS/scripts/poris-completion.bash` to your `~/.bashrc`.
+No additional completion package is required.
+
 ## Single GraphML Models
 
 A single model is a `.graphml` file under `models/`.
