@@ -10,8 +10,8 @@ Source models are kept in `models/`.
 Generated products are kept in `output/`:
 
 ```text
-output/py/<model>/<model>/<model>PORIS.py
-output/py/<model>/<model>_physical/<model>_physical.py
+output/py/<source-directory>/<model>PORIS.py
+output/py/<source-directory>/<model>_physical/<model>_physical.py
 output/xml/<path>/<model>.xml
 output/ods/<path>/<model>.ods
 ```
@@ -233,7 +233,7 @@ root: osiris
 ```
 
 `cluster` is the generated composed product name, so the Python class becomes
-`osiPORIS` and is written to `output/py/osiris/osi/osiPORIS.py`. `root` is the
+`osiPORIS` and is written to `output/py/osiris/osiPORIS.py`. `root` is the
 GraphML file stem that acts as the root of the composed model, for example
 `models/osiris/osiris.graphml`.
 
@@ -395,3 +395,19 @@ pyPORIS/porispanel.sh --csys localhost:3001 --no-panel nrt/mainaxis
 The old Python credential files are not read by these commands. Synchronization
 writes to cosmoSys, unlike the remote-panel command. When calling Python importers
 directly, set `PORIS_CSYS_INSTANCE` to the configured instance name.
+
+## Shared Python Output Directory
+
+Python products mirror the source directory, without per-model wrapper folders.
+For `models/osiris/osiris.graphml` and the `cluster: osi` descriptor in
+`models/osiris/cluster.yaml`, the products coexist:
+
+```text
+output/py/osiris/osirisPORIS.py
+output/py/osiris/osiPORIS.py
+```
+
+Regenerating a model replaces only its own generated Python file. Other models
+and editable physical companions are preserved. Physical companions live in
+`output/py/<source-directory>/<model>_physical/`. GraphML panel commands, the
+ODS panel command and the Python generation/run shell commands use this layout.

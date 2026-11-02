@@ -75,7 +75,7 @@ models/nrt/mainaxis.graphml
 and produces:
 
 ```text
-output/py/mainaxis/mainaxis/mainaxisPORIS.py
+output/py/nrt/mainaxisPORIS.py
 output/xml/nrt/mainaxis.xml
 ```
 
@@ -151,7 +151,7 @@ root: osiris
 ```
 
 Subsequent runs of `pyPORIS/porispanel_dir.sh osiris` generate the composed
-model as `output/py/osiris/osi/osiPORIS.py`, while
+model as `output/py/osiris/osiPORIS.py`, while
 `pyPORIS/porispanel.sh osiris/osiris` can still generate the single
 `osirisPORIS` subsystem.
 
