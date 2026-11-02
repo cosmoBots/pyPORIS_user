@@ -166,7 +166,7 @@ current `AstroPorisPlayer` window to continue with the next model.
 Useful variants:
 
 ```bash
-pyPORIS/test_porispanels.sh --with-csys
+pyPORIS/test_porispanels.sh --with-csys <instance>
 pyPORIS/test_porispanels.sh --ods
 pyPORIS/test_porispanels.sh --web
 pyPORIS/test_porispanels.sh --no-prompt
@@ -287,12 +287,13 @@ with `porispanel.sh example/<name>`, not with `porispanel_dir.sh example`.
 The `*_csys.sh` commands enable cosmoSys synchronization:
 
 ```bash
-pyPORIS/porispanel_csys.sh nrt/mainaxis
-pyPORIS/porispanel_dir_csys.sh osiris
+pyPORIS/porispanel_csys.sh <instance> nrt/mainaxis
+pyPORIS/porispanel_dir_csys.sh <instance> osiris
 ```
 
-Before using them, configure the cosmoSys credentials from the provided example
-configuration files under `pyPORIS/`.
+Configure named instances in `pyPORIS/csys.yaml`, as described below. The old
+`config_csys.py` and `config_csys_enabled.py` connection files are no longer read
+by the Python tools; no automatic credential migration is performed.
 
 ## Generated Product Policy
 
@@ -321,3 +322,76 @@ folder of independent examples. The fragments should have coherent `identifier`,
 
 If parser XML comparison fails because an ODS file is missing, rerun with
 `--ods --parser-xml`.
+
+## Named cosmoSys Instances and Remote Panels
+
+Install the requirements (including PyYAML), then copy `pyPORIS/csys.yaml.example`
+to `pyPORIS/csys.yaml` and edit it. Paths here are relative to the user repository.
+The real configuration is ignored by Git; do not put credentials in the example.
+
+```yaml
+cosmobots.eu:
+  url: https://cosmobots.eu
+  ignorecert: false
+  key: "YOUR_API_KEY"
+localhost:3001:
+  url: http://localhost:3001
+  ignorecert: false
+  key: "YOUR_LOCAL_API_KEY"
+```
+
+URLs must include `http://` or `https://`. An empty key allows anonymous access.
+Use `PORIS_CSYS_CONFIG=/absolute/path/csys.yaml` to select another configuration;
+the remote viewer also accepts `--config PATH`.
+
+Download and open a remote project or item:
+
+```bash
+pyPORIS/poriscsyspanel.sh localhost:3001 osiris
+pyPORIS/poriscsyspanel.sh localhost:3001 osiris OSIRIS-0006
+pyPORIS/poriscsyspanel.sh localhost:3001 osiris 22202
+pyPORIS/poriscsyspanel.sh http://localhost:3001/projects/osiris/poris
+pyPORIS/poriscsyspanel.sh http://localhost:3001/issues/22202
+pyPORIS/poriscsyspanel.sh --web --scope node localhost:3001 osiris 22202
+```
+
+The command name is `poriscsyspanel.sh` in both argument forms. URL input selects
+credentials by matching the configured server URL (including an installation
+subpath); unknown or ambiguous instances are rejected. Query-string `scope` and
+`issue_id` are supported on project/PORIS URLs. `--scope` overrides the URL scope.
+Credentials in pasted URLs are not used. Redirects are not followed.
+
+Scopes match the server viewer:
+
+- `project`: project and its visible subprojects; default for project input.
+- `node_down`: item and descendants; default for item input, including item URLs.
+- `node`: the server's focused node view.
+
+CSIDs and numeric issue IDs are resolved through the native item API. For an
+item URL, the standard Redmine issue API supplies its project. Both require the
+corresponding read permissions. The XML endpoint must support API authentication.
+An item in a child project is opened using that item's own project.
+
+The default viewer is Java Swing; `--web` opens the local web viewer. For Java, downloaded
+XML is ordered with destinations before their referring elements and the system
+root last, as required by the Java loader. IDs and model relationships are preserved. With `--web`, the original XML is
+validated and passed unchanged to porisViewer, without reordering. The command
+only reads cosmoSys and does not synchronize edits or preserve server UI sessions.
+XML is temporary unless `--output FILE` is supplied. Download without launching:
+
+```bash
+pyPORIS/poriscsyspanel.sh --no-panel --output /tmp/osiris.xml localhost:3001 osiris
+```
+
+Local GraphML synchronization uses the same named configuration:
+
+```bash
+pyPORIS/porispanel_csys.sh localhost:3001 --no-panel nrt/mainaxis
+pyPORIS/porispanel_dir_csys.sh localhost:3001 --no-panel osiris
+# Equivalent direct form:
+pyPORIS/porispanel.sh --csys localhost:3001 --no-panel nrt/mainaxis
+```
+
+The old Python credential files are not read by these commands. Synchronization
+writes to cosmoSys, unlike the remote-panel command. When calling Python importers
+directly, set `PORIS_CSYS_INSTANCE` to the configured instance name.

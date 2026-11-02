@@ -158,8 +158,8 @@ model as `output/py/osiris/osi/osiPORIS.py`, while
 cosmoSys variants:
 
 ```bash
-pyPORIS/porispanel_csys.sh <model>
-pyPORIS/porispanel_dir_csys.sh <model-dir>
+pyPORIS/porispanel_csys.sh <instance> <model>
+pyPORIS/porispanel_dir_csys.sh <instance> <model-dir>
 ```
 
 Open an existing XML directly:
