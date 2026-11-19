@@ -20,7 +20,7 @@ The direct XML-from-parser path is kept only as an optional comparison tool.
 
 - Python 3
 - Java, for the Swing-based `AstroPorisPlayer`
-- Node.js and npm, for the optional Vue web viewer
+- Node.js 22.12 or newer and npm, for the optional Vue web viewer
 - Python packages from `requirements.txt`
 
 Recommended setup:
@@ -40,11 +40,12 @@ On Debian/Ubuntu-like systems, a suitable Java installation is:
 sudo apt install openjdk-17-jdk
 ```
 
-The web viewer dependencies live under `pyPORIS/porisViewer`. Install them with:
+The web viewer dependencies live under `pyPORIS/porisViewer`. Initialize that
+submodule before installing them (run from this repository root):
 
 ```bash
-cd pyPORIS/porisViewer
-npm ci
+git -C pyPORIS submodule update --init -- porisViewer
+npm --prefix pyPORIS/porisViewer ci
 ```
 
 ## First Checkout
@@ -58,6 +59,12 @@ git submodule update --init --recursive
 This populates `pyPORIS/` and the bundled `AstroPorisPlayer` binaries.
 
 ## Quick Start
+
+Run commands from this repository root. Each conversion always writes the
+model XML under `output/xml/` and its YAML `.poris` under `output/poris/`,
+preserving model subdirectories. Automatically generated engineering modes
+are excluded by default; add `--eng` to include them in the generated products.
+User-declared modes are retained regardless of their name.
 
 Open a generated panel for a single GraphML model:
 
