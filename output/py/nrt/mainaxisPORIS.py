@@ -6,190 +6,182 @@ class mainaxisPORIS(PORISDoc):
         self.sysMainAxis = PORISSys("MainAxis")
         self.setRoot(self.sysMainAxis)
         self.sysMainAxisSys = PORISSys("MainAxisSys")
-        self.prYaw = PORISParam("Yaw")
-        self.prPitch = PORISParam("Pitch")
-        self.mdMainAxisMode_Disabled = PORISMode("MainAxisMode_Disabled")
+        self.prAzimuth = PORISParam("Azimuth")
+        self.prElevation = PORISParam("Elevation")
         self.mdMainAxisMode_Operation = PORISMode("MainAxisMode_Operation")
-        self.vlYaw_Y_HOME = PORISValue("Yaw_Y_HOME")
-        self.vlYaw_Y_PARK = PORISValue("Yaw_Y_PARK")
-        self.vlYaw_Y_TECH = PORISValue("Yaw_Y_TECH")
-        self.vlYaw_Y_angle = PORISValueFloat("Yaw_Y_angle",-270.0,0.0,270.0)
-        self.mdYawMode_Homing = PORISMode("YawMode_Homing")
-        self.mdYawMode_Parking = PORISMode("YawMode_Parking")
-        self.mdYawMode_Technical = PORISMode("YawMode_Technical")
-        self.mdYawMode_Pointing = PORISMode("YawMode_Pointing")
-        self.mdYawMode_PointingTech = PORISMode("YawMode_PointingTech")
-        self.vlYaw_Y_angle_unbound = PORISValueFloat("Yaw_Y_angle_unbound",-370.0,0.0,370.0)
+        self.vlAzimuth_Y_HOME = PORISValue("Azimuth_Y_HOME")
+        self.vlAzimuth_Y_PARK = PORISValue("Azimuth_Y_PARK")
+        self.vlAzimuth_Y_MAINT = PORISValue("Azimuth_Y_MAINT")
+        self.vlAzimuth_Y_angle = PORISValueFloat("Azimuth_Y_angle",-270.0,0.0,270.0)
+        self.mdAzimuthMode_Homing = PORISMode("AzimuthMode_Homing")
+        self.mdAzimuthMode_Parking = PORISMode("AzimuthMode_Parking")
+        self.mdAzimuthMode_Maintenance = PORISMode("AzimuthMode_Maintenance")
+        self.mdAzimuthMode_Pointing = PORISMode("AzimuthMode_Pointing")
+        self.mdAzimuthMode_PointingTech = PORISMode("AzimuthMode_PointingTech")
+        self.vlAzimuth_Y_angle_unbound = PORISValueFloat("Azimuth_Y_angle_unbound",-300.0,0.0,300.0)
         self.mdMainAxisSysMode_Homing = PORISMode("MainAxisSysMode_Homing")
         self.mdMainAxisSysMode_Parking = PORISMode("MainAxisSysMode_Parking")
-        self.mdMainAxisSysMode_Technical = PORISMode("MainAxisSysMode_Technical")
+        self.mdMainAxisSysMode_Maintenance = PORISMode("MainAxisSysMode_Maintenance")
         self.mdMainAxisSysMode_Pointing = PORISMode("MainAxisSysMode_Pointing")
-        self.vlPitch_P_HOME = PORISValue("Pitch_P_HOME")
-        self.vlPitch_P_PARK = PORISValue("Pitch_P_PARK")
-        self.vlPitch_P_TECH = PORISValue("Pitch_P_TECH")
-        self.vlPitch_P_angle = PORISValueFloat("Pitch_P_angle",-45.0,0.0,22.0)
-        self.mdPitchMode_Homing = PORISMode("PitchMode_Homing")
-        self.mdPitchMode_Parking = PORISMode("PitchMode_Parking")
-        self.mdPitchMode_Technical = PORISMode("PitchMode_Technical")
-        self.mdPitchMode_Pointing = PORISMode("PitchMode_Pointing")
-        self.mdPitchMode_PointingTech = PORISMode("PitchMode_PointingTech")
-        self.vlPitch_P_angle_unbound = PORISValueFloat("Pitch_P_angle_unbound",-60.0,0.0,40.0)
+        self.vlElevation_P_HOME = PORISValue("Elevation_P_HOME")
+        self.vlElevation_P_PARK = PORISValue("Elevation_P_PARK")
+        self.vlElevation_P_MAINT = PORISValue("Elevation_P_MAINT")
+        self.vlElevation_P_angle = PORISValueFloat("Elevation_P_angle",0.0,0.0,90.0)
+        self.mdElevationMode_Homing = PORISMode("ElevationMode_Homing")
+        self.mdElevationMode_Parking = PORISMode("ElevationMode_Parking")
+        self.mdElevationMode_Maintenance = PORISMode("ElevationMode_Maintenance")
+        self.mdElevationMode_Pointing = PORISMode("ElevationMode_Pointing")
+        self.mdElevationMode_PointingTech = PORISMode("ElevationMode_PointingTech")
+        self.vlElevation_P_angle_unbound = PORISValueFloat("Elevation_P_angle_unbound",-18.0,0.0,90.0)
         self.mdMainAxisSysMode_PointingTech = PORISMode("MainAxisSysMode_PointingTech")
         self.cmdMainAxisSys_command = PORISCmd("MainAxisSys_command")
         self.mdMainAxisMode_Technical = PORISMode("MainAxisMode_Technical")
-        self.mdMainAxisMode_Engineering = PORISMode("MainAxisMode_Engineering")
-        self.mdMainAxisSysMode_Engineering = PORISMode("MainAxisSysMode_Engineering")
         self.addItem(self.sysMainAxis)
         self.sysMainAxis.ident = "n0"
         self.sysMainAxis.setXMLName('MainAxis')
         self.sysMainAxis.description = ""
         self.addItem(self.sysMainAxisSys)
-        self.sysMainAxisSys.ident = "n0::n2"
+        self.sysMainAxisSys.ident = "n0::n1"
         self.sysMainAxisSys.setXMLName('MainAxisSys')
         self.sysMainAxisSys.description = ""
         self.sysMainAxis.addSubsystem(self.sysMainAxisSys)
-        self.addItem(self.prYaw)
-        self.prYaw.ident = "n0::n2::n0"
-        self.prYaw.setXMLName('Yaw')
-        self.prYaw.description = ""
-        self.sysMainAxisSys.addParam(self.prYaw)
-        self.addItem(self.prPitch)
-        self.prPitch.ident = "n0::n2::n5"
-        self.prPitch.setXMLName('Pitch')
-        self.prPitch.description = ""
-        self.sysMainAxisSys.addParam(self.prPitch)
-        self.addItem(self.mdMainAxisMode_Disabled)
-        self.mdMainAxisMode_Disabled.ident = "n0::n0"
-        self.mdMainAxisMode_Disabled.setXMLName('Disabled')
-        self.mdMainAxisMode_Disabled.description = ""
-        self.sysMainAxis.addMode(self.mdMainAxisMode_Disabled)
+        self.addItem(self.prAzimuth)
+        self.prAzimuth.ident = "n0::n1::n0"
+        self.prAzimuth.setXMLName('Azimuth')
+        self.prAzimuth.description = ""
+        self.sysMainAxisSys.addParam(self.prAzimuth)
+        self.addItem(self.prElevation)
+        self.prElevation.ident = "n0::n1::n5"
+        self.prElevation.setXMLName('Elevation')
+        self.prElevation.description = ""
+        self.sysMainAxisSys.addParam(self.prElevation)
         self.addItem(self.mdMainAxisMode_Operation)
-        self.mdMainAxisMode_Operation.ident = "n0::n1"
+        self.mdMainAxisMode_Operation.ident = "n0::n0"
         self.mdMainAxisMode_Operation.setXMLName('Operation')
         self.mdMainAxisMode_Operation.description = ""
         self.sysMainAxis.addMode(self.mdMainAxisMode_Operation)
-        self.addItem(self.vlYaw_Y_HOME)
-        self.vlYaw_Y_HOME.ident = "n0::n2::n0::n0"
-        self.vlYaw_Y_HOME.setXMLName('Y_HOME')
-        self.vlYaw_Y_HOME.description = ""
-        self.prYaw.addValue(self.vlYaw_Y_HOME)
-        self.addItem(self.vlYaw_Y_PARK)
-        self.vlYaw_Y_PARK.ident = "n0::n2::n0::n1"
-        self.vlYaw_Y_PARK.setXMLName('Y_PARK')
-        self.vlYaw_Y_PARK.description = ""
-        self.prYaw.addValue(self.vlYaw_Y_PARK)
-        self.addItem(self.vlYaw_Y_TECH)
-        self.vlYaw_Y_TECH.ident = "n0::n2::n0::n2"
-        self.vlYaw_Y_TECH.setXMLName('Y_TECH')
-        self.vlYaw_Y_TECH.description = ""
-        self.prYaw.addValue(self.vlYaw_Y_TECH)
-        self.addItem(self.vlYaw_Y_angle)
-        self.vlYaw_Y_angle.ident = "n0::n2::n0::n3"
-        self.vlYaw_Y_angle.setXMLName('Y_angle')
-        self.vlYaw_Y_angle.description = ""
-        self.prYaw.addValue(self.vlYaw_Y_angle)
-        self.addItem(self.mdYawMode_Homing)
-        self.mdYawMode_Homing.ident = "n0::n2::n0::n4"
-        self.mdYawMode_Homing.setXMLName('Homing')
-        self.mdYawMode_Homing.description = ""
-        self.prYaw.addMode(self.mdYawMode_Homing)
-        self.addItem(self.mdYawMode_Parking)
-        self.mdYawMode_Parking.ident = "n0::n2::n0::n5"
-        self.mdYawMode_Parking.setXMLName('Parking')
-        self.mdYawMode_Parking.description = ""
-        self.prYaw.addMode(self.mdYawMode_Parking)
-        self.addItem(self.mdYawMode_Technical)
-        self.mdYawMode_Technical.ident = "n0::n2::n0::n6"
-        self.mdYawMode_Technical.setXMLName('Technical')
-        self.mdYawMode_Technical.description = ""
-        self.prYaw.addMode(self.mdYawMode_Technical)
-        self.addItem(self.mdYawMode_Pointing)
-        self.mdYawMode_Pointing.ident = "n0::n2::n0::n7"
-        self.mdYawMode_Pointing.setXMLName('Pointing')
-        self.mdYawMode_Pointing.description = ""
-        self.prYaw.addMode(self.mdYawMode_Pointing)
-        self.addItem(self.mdYawMode_PointingTech)
-        self.mdYawMode_PointingTech.ident = "n0::n2::n0::n8"
-        self.mdYawMode_PointingTech.setXMLName('PointingTech')
-        self.mdYawMode_PointingTech.description = ""
-        self.prYaw.addMode(self.mdYawMode_PointingTech)
-        self.addItem(self.vlYaw_Y_angle_unbound)
-        self.vlYaw_Y_angle_unbound.ident = "n0::n2::n0::n9"
-        self.vlYaw_Y_angle_unbound.setXMLName('Y_angle_unbound')
-        self.vlYaw_Y_angle_unbound.description = ""
-        self.prYaw.addValue(self.vlYaw_Y_angle_unbound)
+        self.addItem(self.vlAzimuth_Y_HOME)
+        self.vlAzimuth_Y_HOME.ident = "n0::n1::n0::n0"
+        self.vlAzimuth_Y_HOME.setXMLName('Y_HOME')
+        self.vlAzimuth_Y_HOME.description = ""
+        self.prAzimuth.addValue(self.vlAzimuth_Y_HOME)
+        self.addItem(self.vlAzimuth_Y_PARK)
+        self.vlAzimuth_Y_PARK.ident = "n0::n1::n0::n1"
+        self.vlAzimuth_Y_PARK.setXMLName('Y_PARK')
+        self.vlAzimuth_Y_PARK.description = ""
+        self.prAzimuth.addValue(self.vlAzimuth_Y_PARK)
+        self.addItem(self.vlAzimuth_Y_MAINT)
+        self.vlAzimuth_Y_MAINT.ident = "n0::n1::n0::n2"
+        self.vlAzimuth_Y_MAINT.setXMLName('Y_MAINT')
+        self.vlAzimuth_Y_MAINT.description = ""
+        self.prAzimuth.addValue(self.vlAzimuth_Y_MAINT)
+        self.addItem(self.vlAzimuth_Y_angle)
+        self.vlAzimuth_Y_angle.ident = "n0::n1::n0::n3"
+        self.vlAzimuth_Y_angle.setXMLName('Y_angle')
+        self.vlAzimuth_Y_angle.description = ""
+        self.prAzimuth.addValue(self.vlAzimuth_Y_angle)
+        self.addItem(self.mdAzimuthMode_Homing)
+        self.mdAzimuthMode_Homing.ident = "n0::n1::n0::n4"
+        self.mdAzimuthMode_Homing.setXMLName('Homing')
+        self.mdAzimuthMode_Homing.description = ""
+        self.prAzimuth.addMode(self.mdAzimuthMode_Homing)
+        self.addItem(self.mdAzimuthMode_Parking)
+        self.mdAzimuthMode_Parking.ident = "n0::n1::n0::n5"
+        self.mdAzimuthMode_Parking.setXMLName('Parking')
+        self.mdAzimuthMode_Parking.description = ""
+        self.prAzimuth.addMode(self.mdAzimuthMode_Parking)
+        self.addItem(self.mdAzimuthMode_Maintenance)
+        self.mdAzimuthMode_Maintenance.ident = "n0::n1::n0::n6"
+        self.mdAzimuthMode_Maintenance.setXMLName('Maintenance')
+        self.mdAzimuthMode_Maintenance.description = ""
+        self.prAzimuth.addMode(self.mdAzimuthMode_Maintenance)
+        self.addItem(self.mdAzimuthMode_Pointing)
+        self.mdAzimuthMode_Pointing.ident = "n0::n1::n0::n7"
+        self.mdAzimuthMode_Pointing.setXMLName('Pointing')
+        self.mdAzimuthMode_Pointing.description = ""
+        self.prAzimuth.addMode(self.mdAzimuthMode_Pointing)
+        self.addItem(self.mdAzimuthMode_PointingTech)
+        self.mdAzimuthMode_PointingTech.ident = "n0::n1::n0::n8"
+        self.mdAzimuthMode_PointingTech.setXMLName('PointingTech')
+        self.mdAzimuthMode_PointingTech.description = ""
+        self.prAzimuth.addMode(self.mdAzimuthMode_PointingTech)
+        self.addItem(self.vlAzimuth_Y_angle_unbound)
+        self.vlAzimuth_Y_angle_unbound.ident = "n0::n1::n0::n9"
+        self.vlAzimuth_Y_angle_unbound.setXMLName('Y_angle_unbound')
+        self.vlAzimuth_Y_angle_unbound.description = ""
+        self.prAzimuth.addValue(self.vlAzimuth_Y_angle_unbound)
         self.addItem(self.mdMainAxisSysMode_Homing)
-        self.mdMainAxisSysMode_Homing.ident = "n0::n2::n1"
+        self.mdMainAxisSysMode_Homing.ident = "n0::n1::n1"
         self.mdMainAxisSysMode_Homing.setXMLName('Homing')
         self.mdMainAxisSysMode_Homing.description = ""
         self.sysMainAxisSys.addMode(self.mdMainAxisSysMode_Homing)
         self.addItem(self.mdMainAxisSysMode_Parking)
-        self.mdMainAxisSysMode_Parking.ident = "n0::n2::n2"
+        self.mdMainAxisSysMode_Parking.ident = "n0::n1::n2"
         self.mdMainAxisSysMode_Parking.setXMLName('Parking')
         self.mdMainAxisSysMode_Parking.description = ""
         self.sysMainAxisSys.addMode(self.mdMainAxisSysMode_Parking)
-        self.addItem(self.mdMainAxisSysMode_Technical)
-        self.mdMainAxisSysMode_Technical.ident = "n0::n2::n3"
-        self.mdMainAxisSysMode_Technical.setXMLName('Technical')
-        self.mdMainAxisSysMode_Technical.description = ""
-        self.sysMainAxisSys.addMode(self.mdMainAxisSysMode_Technical)
+        self.addItem(self.mdMainAxisSysMode_Maintenance)
+        self.mdMainAxisSysMode_Maintenance.ident = "n0::n1::n3"
+        self.mdMainAxisSysMode_Maintenance.setXMLName('Maintenance')
+        self.mdMainAxisSysMode_Maintenance.description = ""
+        self.sysMainAxisSys.addMode(self.mdMainAxisSysMode_Maintenance)
         self.addItem(self.mdMainAxisSysMode_Pointing)
-        self.mdMainAxisSysMode_Pointing.ident = "n0::n2::n4"
+        self.mdMainAxisSysMode_Pointing.ident = "n0::n1::n4"
         self.mdMainAxisSysMode_Pointing.setXMLName('Pointing')
         self.mdMainAxisSysMode_Pointing.description = ""
         self.sysMainAxisSys.addMode(self.mdMainAxisSysMode_Pointing)
-        self.addItem(self.vlPitch_P_HOME)
-        self.vlPitch_P_HOME.ident = "n0::n2::n5::n0"
-        self.vlPitch_P_HOME.setXMLName('P_HOME')
-        self.vlPitch_P_HOME.description = ""
-        self.prPitch.addValue(self.vlPitch_P_HOME)
-        self.addItem(self.vlPitch_P_PARK)
-        self.vlPitch_P_PARK.ident = "n0::n2::n5::n1"
-        self.vlPitch_P_PARK.setXMLName('P_PARK')
-        self.vlPitch_P_PARK.description = ""
-        self.prPitch.addValue(self.vlPitch_P_PARK)
-        self.addItem(self.vlPitch_P_TECH)
-        self.vlPitch_P_TECH.ident = "n0::n2::n5::n2"
-        self.vlPitch_P_TECH.setXMLName('P_TECH')
-        self.vlPitch_P_TECH.description = ""
-        self.prPitch.addValue(self.vlPitch_P_TECH)
-        self.addItem(self.vlPitch_P_angle)
-        self.vlPitch_P_angle.ident = "n0::n2::n5::n3"
-        self.vlPitch_P_angle.setXMLName('P_angle')
-        self.vlPitch_P_angle.description = ""
-        self.prPitch.addValue(self.vlPitch_P_angle)
-        self.addItem(self.mdPitchMode_Homing)
-        self.mdPitchMode_Homing.ident = "n0::n2::n5::n4"
-        self.mdPitchMode_Homing.setXMLName('Homing')
-        self.mdPitchMode_Homing.description = ""
-        self.prPitch.addMode(self.mdPitchMode_Homing)
-        self.addItem(self.mdPitchMode_Parking)
-        self.mdPitchMode_Parking.ident = "n0::n2::n5::n5"
-        self.mdPitchMode_Parking.setXMLName('Parking')
-        self.mdPitchMode_Parking.description = ""
-        self.prPitch.addMode(self.mdPitchMode_Parking)
-        self.addItem(self.mdPitchMode_Technical)
-        self.mdPitchMode_Technical.ident = "n0::n2::n5::n6"
-        self.mdPitchMode_Technical.setXMLName('Technical')
-        self.mdPitchMode_Technical.description = ""
-        self.prPitch.addMode(self.mdPitchMode_Technical)
-        self.addItem(self.mdPitchMode_Pointing)
-        self.mdPitchMode_Pointing.ident = "n0::n2::n5::n7"
-        self.mdPitchMode_Pointing.setXMLName('Pointing')
-        self.mdPitchMode_Pointing.description = ""
-        self.prPitch.addMode(self.mdPitchMode_Pointing)
-        self.addItem(self.mdPitchMode_PointingTech)
-        self.mdPitchMode_PointingTech.ident = "n0::n2::n5::n8"
-        self.mdPitchMode_PointingTech.setXMLName('PointingTech')
-        self.mdPitchMode_PointingTech.description = ""
-        self.prPitch.addMode(self.mdPitchMode_PointingTech)
-        self.addItem(self.vlPitch_P_angle_unbound)
-        self.vlPitch_P_angle_unbound.ident = "n0::n2::n5::n9"
-        self.vlPitch_P_angle_unbound.setXMLName('P_angle_unbound')
-        self.vlPitch_P_angle_unbound.description = ""
-        self.prPitch.addValue(self.vlPitch_P_angle_unbound)
+        self.addItem(self.vlElevation_P_HOME)
+        self.vlElevation_P_HOME.ident = "n0::n1::n5::n0"
+        self.vlElevation_P_HOME.setXMLName('P_HOME')
+        self.vlElevation_P_HOME.description = ""
+        self.prElevation.addValue(self.vlElevation_P_HOME)
+        self.addItem(self.vlElevation_P_PARK)
+        self.vlElevation_P_PARK.ident = "n0::n1::n5::n1"
+        self.vlElevation_P_PARK.setXMLName('P_PARK')
+        self.vlElevation_P_PARK.description = ""
+        self.prElevation.addValue(self.vlElevation_P_PARK)
+        self.addItem(self.vlElevation_P_MAINT)
+        self.vlElevation_P_MAINT.ident = "n0::n1::n5::n2"
+        self.vlElevation_P_MAINT.setXMLName('P_MAINT')
+        self.vlElevation_P_MAINT.description = ""
+        self.prElevation.addValue(self.vlElevation_P_MAINT)
+        self.addItem(self.vlElevation_P_angle)
+        self.vlElevation_P_angle.ident = "n0::n1::n5::n3"
+        self.vlElevation_P_angle.setXMLName('P_angle')
+        self.vlElevation_P_angle.description = ""
+        self.prElevation.addValue(self.vlElevation_P_angle)
+        self.addItem(self.mdElevationMode_Homing)
+        self.mdElevationMode_Homing.ident = "n0::n1::n5::n4"
+        self.mdElevationMode_Homing.setXMLName('Homing')
+        self.mdElevationMode_Homing.description = ""
+        self.prElevation.addMode(self.mdElevationMode_Homing)
+        self.addItem(self.mdElevationMode_Parking)
+        self.mdElevationMode_Parking.ident = "n0::n1::n5::n5"
+        self.mdElevationMode_Parking.setXMLName('Parking')
+        self.mdElevationMode_Parking.description = ""
+        self.prElevation.addMode(self.mdElevationMode_Parking)
+        self.addItem(self.mdElevationMode_Maintenance)
+        self.mdElevationMode_Maintenance.ident = "n0::n1::n5::n6"
+        self.mdElevationMode_Maintenance.setXMLName('Maintenance')
+        self.mdElevationMode_Maintenance.description = ""
+        self.prElevation.addMode(self.mdElevationMode_Maintenance)
+        self.addItem(self.mdElevationMode_Pointing)
+        self.mdElevationMode_Pointing.ident = "n0::n1::n5::n7"
+        self.mdElevationMode_Pointing.setXMLName('Pointing')
+        self.mdElevationMode_Pointing.description = ""
+        self.prElevation.addMode(self.mdElevationMode_Pointing)
+        self.addItem(self.mdElevationMode_PointingTech)
+        self.mdElevationMode_PointingTech.ident = "n0::n1::n5::n8"
+        self.mdElevationMode_PointingTech.setXMLName('PointingTech')
+        self.mdElevationMode_PointingTech.description = ""
+        self.prElevation.addMode(self.mdElevationMode_PointingTech)
+        self.addItem(self.vlElevation_P_angle_unbound)
+        self.vlElevation_P_angle_unbound.ident = "n0::n1::n5::n9"
+        self.vlElevation_P_angle_unbound.setXMLName('P_angle_unbound')
+        self.vlElevation_P_angle_unbound.description = ""
+        self.prElevation.addValue(self.vlElevation_P_angle_unbound)
         self.addItem(self.mdMainAxisSysMode_PointingTech)
-        self.mdMainAxisSysMode_PointingTech.ident = "n0::n2::n6"
+        self.mdMainAxisSysMode_PointingTech.ident = "n0::n1::n6"
         self.mdMainAxisSysMode_PointingTech.setXMLName('PointingTech')
         self.mdMainAxisSysMode_PointingTech.description = ""
         self.sysMainAxisSys.addMode(self.mdMainAxisSysMode_PointingTech)
@@ -197,25 +189,15 @@ class mainaxisPORIS(PORISDoc):
         self.cmdMainAxisSys_command.setActionName("command")
         self.cmdMainAxisSys_command.setHandlerName("execMainAxisSys_command")
         self.cmdMainAxisSys_command.setTracePath("sysMainAxisSys.command")
-        self.cmdMainAxisSys_command.ident = "n0::n2::n7"
+        self.cmdMainAxisSys_command.ident = "n0::n1::n7"
         self.cmdMainAxisSys_command.setXMLName('command')
         self.cmdMainAxisSys_command.description = ""
         self.sysMainAxisSys.addCommand(self.cmdMainAxisSys_command)
         self.addItem(self.mdMainAxisMode_Technical)
-        self.mdMainAxisMode_Technical.ident = "n0::n3"
+        self.mdMainAxisMode_Technical.ident = "n0::n2"
         self.mdMainAxisMode_Technical.setXMLName('Technical')
         self.mdMainAxisMode_Technical.description = ""
         self.sysMainAxis.addMode(self.mdMainAxisMode_Technical)
-        self.addItem(self.mdMainAxisMode_Engineering)
-        self.mdMainAxisMode_Engineering.ident = "ENG-1"
-        self.mdMainAxisMode_Engineering.setXMLName('Engineering')
-        self.mdMainAxisMode_Engineering.description = "MainAxis_engineering_mode"
-        self.sysMainAxis.addMode(self.mdMainAxisMode_Engineering)
-        self.addItem(self.mdMainAxisSysMode_Engineering)
-        self.mdMainAxisSysMode_Engineering.ident = "ENG-2"
-        self.mdMainAxisSysMode_Engineering.setXMLName('Engineering')
-        self.mdMainAxisSysMode_Engineering.description = "MainAxisSys_engineering_mode"
-        self.sysMainAxisSys.addMode(self.mdMainAxisSysMode_Engineering)
         # Marcamos MainAxisSysMode_Homing como elegible para MainAxisMode_Operation
         self.mdMainAxisMode_Operation.addSubMode(self.mdMainAxisSysMode_Homing)
         # Marcamos MainAxisSysMode_Parking como elegible para MainAxisMode_Operation
@@ -226,82 +208,50 @@ class mainaxisPORIS(PORISDoc):
         self.mdMainAxisMode_Technical.addSubMode(self.mdMainAxisSysMode_Homing)
         # Marcamos MainAxisSysMode_Parking como elegible para MainAxisMode_Technical
         self.mdMainAxisMode_Technical.addSubMode(self.mdMainAxisSysMode_Parking)
-        # Marcamos MainAxisSysMode_Technical como elegible para MainAxisMode_Technical
-        self.mdMainAxisMode_Technical.addSubMode(self.mdMainAxisSysMode_Technical)
+        # Marcamos MainAxisSysMode_Maintenance como elegible para MainAxisMode_Technical
+        self.mdMainAxisMode_Technical.addSubMode(self.mdMainAxisSysMode_Maintenance)
         # Marcamos MainAxisSysMode_PointingTech como elegible para MainAxisMode_Technical
         self.mdMainAxisMode_Technical.addSubMode(self.mdMainAxisSysMode_PointingTech)
-        # Marcamos MainAxisSysMode_Homing como elegible para MainAxisMode_Engineering
-        self.mdMainAxisMode_Engineering.addSubMode(self.mdMainAxisSysMode_Homing)
-        # Marcamos MainAxisSysMode_Parking como elegible para MainAxisMode_Engineering
-        self.mdMainAxisMode_Engineering.addSubMode(self.mdMainAxisSysMode_Parking)
-        # Marcamos MainAxisSysMode_Technical como elegible para MainAxisMode_Engineering
-        self.mdMainAxisMode_Engineering.addSubMode(self.mdMainAxisSysMode_Technical)
-        # Marcamos MainAxisSysMode_Pointing como elegible para MainAxisMode_Engineering
-        self.mdMainAxisMode_Engineering.addSubMode(self.mdMainAxisSysMode_Pointing)
-        # Marcamos MainAxisSysMode_PointingTech como elegible para MainAxisMode_Engineering
-        self.mdMainAxisMode_Engineering.addSubMode(self.mdMainAxisSysMode_PointingTech)
-        # Marcamos MainAxisSysMode_Engineering como elegible para MainAxisMode_Engineering
-        self.mdMainAxisMode_Engineering.addSubMode(self.mdMainAxisSysMode_Engineering)
-        # Marcamos YawMode_Homing como elegible para MainAxisSysMode_Homing
-        self.mdMainAxisSysMode_Homing.addSubMode(self.mdYawMode_Homing)
-        # Marcamos YawMode_Parking como elegible para MainAxisSysMode_Parking
-        self.mdMainAxisSysMode_Parking.addSubMode(self.mdYawMode_Parking)
-        # Marcamos YawMode_Technical como elegible para MainAxisSysMode_Technical
-        self.mdMainAxisSysMode_Technical.addSubMode(self.mdYawMode_Technical)
-        # Marcamos YawMode_Pointing como elegible para MainAxisSysMode_Pointing
-        self.mdMainAxisSysMode_Pointing.addSubMode(self.mdYawMode_Pointing)
-        # Marcamos YawMode_PointingTech como elegible para MainAxisSysMode_PointingTech
-        self.mdMainAxisSysMode_PointingTech.addSubMode(self.mdYawMode_PointingTech)
-        # Marcamos YawMode_Homing como elegible para MainAxisSysMode_Engineering
-        self.mdMainAxisSysMode_Engineering.addSubMode(self.mdYawMode_Homing)
-        # Marcamos YawMode_Parking como elegible para MainAxisSysMode_Engineering
-        self.mdMainAxisSysMode_Engineering.addSubMode(self.mdYawMode_Parking)
-        # Marcamos YawMode_Technical como elegible para MainAxisSysMode_Engineering
-        self.mdMainAxisSysMode_Engineering.addSubMode(self.mdYawMode_Technical)
-        # Marcamos YawMode_Pointing como elegible para MainAxisSysMode_Engineering
-        self.mdMainAxisSysMode_Engineering.addSubMode(self.mdYawMode_Pointing)
-        # Marcamos YawMode_PointingTech como elegible para MainAxisSysMode_Engineering
-        self.mdMainAxisSysMode_Engineering.addSubMode(self.mdYawMode_PointingTech)
-        # Marcamos Yaw_Y_HOME como elegible para YawMode_Homing
-        self.mdYawMode_Homing.addValue(self.vlYaw_Y_HOME)
-        # Marcamos Yaw_Y_PARK como elegible para YawMode_Parking
-        self.mdYawMode_Parking.addValue(self.vlYaw_Y_PARK)
-        # Marcamos Yaw_Y_TECH como elegible para YawMode_Technical
-        self.mdYawMode_Technical.addValue(self.vlYaw_Y_TECH)
-        # Marcamos Yaw_Y_angle como elegible para YawMode_Pointing
-        self.mdYawMode_Pointing.addValue(self.vlYaw_Y_angle)
-        # Marcamos Yaw_Y_angle_unbound como elegible para YawMode_PointingTech
-        self.mdYawMode_PointingTech.addValue(self.vlYaw_Y_angle_unbound)
-        # Marcamos PitchMode_Homing como elegible para MainAxisSysMode_Homing
-        self.mdMainAxisSysMode_Homing.addSubMode(self.mdPitchMode_Homing)
-        # Marcamos PitchMode_Parking como elegible para MainAxisSysMode_Parking
-        self.mdMainAxisSysMode_Parking.addSubMode(self.mdPitchMode_Parking)
-        # Marcamos PitchMode_Technical como elegible para MainAxisSysMode_Technical
-        self.mdMainAxisSysMode_Technical.addSubMode(self.mdPitchMode_Technical)
-        # Marcamos PitchMode_Pointing como elegible para MainAxisSysMode_Pointing
-        self.mdMainAxisSysMode_Pointing.addSubMode(self.mdPitchMode_Pointing)
-        # Marcamos PitchMode_PointingTech como elegible para MainAxisSysMode_PointingTech
-        self.mdMainAxisSysMode_PointingTech.addSubMode(self.mdPitchMode_PointingTech)
-        # Marcamos PitchMode_Homing como elegible para MainAxisSysMode_Engineering
-        self.mdMainAxisSysMode_Engineering.addSubMode(self.mdPitchMode_Homing)
-        # Marcamos PitchMode_Parking como elegible para MainAxisSysMode_Engineering
-        self.mdMainAxisSysMode_Engineering.addSubMode(self.mdPitchMode_Parking)
-        # Marcamos PitchMode_Technical como elegible para MainAxisSysMode_Engineering
-        self.mdMainAxisSysMode_Engineering.addSubMode(self.mdPitchMode_Technical)
-        # Marcamos PitchMode_Pointing como elegible para MainAxisSysMode_Engineering
-        self.mdMainAxisSysMode_Engineering.addSubMode(self.mdPitchMode_Pointing)
-        # Marcamos PitchMode_PointingTech como elegible para MainAxisSysMode_Engineering
-        self.mdMainAxisSysMode_Engineering.addSubMode(self.mdPitchMode_PointingTech)
-        # Marcamos Pitch_P_HOME como elegible para PitchMode_Homing
-        self.mdPitchMode_Homing.addValue(self.vlPitch_P_HOME)
-        # Marcamos Pitch_P_PARK como elegible para PitchMode_Parking
-        self.mdPitchMode_Parking.addValue(self.vlPitch_P_PARK)
-        # Marcamos Pitch_P_TECH como elegible para PitchMode_Technical
-        self.mdPitchMode_Technical.addValue(self.vlPitch_P_TECH)
-        # Marcamos Pitch_P_angle como elegible para PitchMode_Pointing
-        self.mdPitchMode_Pointing.addValue(self.vlPitch_P_angle)
-        # Marcamos Pitch_P_angle_unbound como elegible para PitchMode_PointingTech
-        self.mdPitchMode_PointingTech.addValue(self.vlPitch_P_angle_unbound)
+        # Marcamos AzimuthMode_Homing como elegible para MainAxisSysMode_Homing
+        self.mdMainAxisSysMode_Homing.addSubMode(self.mdAzimuthMode_Homing)
+        # Marcamos AzimuthMode_Parking como elegible para MainAxisSysMode_Parking
+        self.mdMainAxisSysMode_Parking.addSubMode(self.mdAzimuthMode_Parking)
+        # Marcamos AzimuthMode_Maintenance como elegible para MainAxisSysMode_Maintenance
+        self.mdMainAxisSysMode_Maintenance.addSubMode(self.mdAzimuthMode_Maintenance)
+        # Marcamos AzimuthMode_Pointing como elegible para MainAxisSysMode_Pointing
+        self.mdMainAxisSysMode_Pointing.addSubMode(self.mdAzimuthMode_Pointing)
+        # Marcamos AzimuthMode_PointingTech como elegible para MainAxisSysMode_PointingTech
+        self.mdMainAxisSysMode_PointingTech.addSubMode(self.mdAzimuthMode_PointingTech)
+        # Marcamos Azimuth_Y_HOME como elegible para AzimuthMode_Homing
+        self.mdAzimuthMode_Homing.addValue(self.vlAzimuth_Y_HOME)
+        # Marcamos Azimuth_Y_PARK como elegible para AzimuthMode_Parking
+        self.mdAzimuthMode_Parking.addValue(self.vlAzimuth_Y_PARK)
+        # Marcamos Azimuth_Y_MAINT como elegible para AzimuthMode_Maintenance
+        self.mdAzimuthMode_Maintenance.addValue(self.vlAzimuth_Y_MAINT)
+        # Marcamos Azimuth_Y_angle como elegible para AzimuthMode_Pointing
+        self.mdAzimuthMode_Pointing.addValue(self.vlAzimuth_Y_angle)
+        # Marcamos Azimuth_Y_angle_unbound como elegible para AzimuthMode_PointingTech
+        self.mdAzimuthMode_PointingTech.addValue(self.vlAzimuth_Y_angle_unbound)
+        # Marcamos ElevationMode_Homing como elegible para MainAxisSysMode_Homing
+        self.mdMainAxisSysMode_Homing.addSubMode(self.mdElevationMode_Homing)
+        # Marcamos ElevationMode_Parking como elegible para MainAxisSysMode_Parking
+        self.mdMainAxisSysMode_Parking.addSubMode(self.mdElevationMode_Parking)
+        # Marcamos ElevationMode_Maintenance como elegible para MainAxisSysMode_Maintenance
+        self.mdMainAxisSysMode_Maintenance.addSubMode(self.mdElevationMode_Maintenance)
+        # Marcamos ElevationMode_Pointing como elegible para MainAxisSysMode_Pointing
+        self.mdMainAxisSysMode_Pointing.addSubMode(self.mdElevationMode_Pointing)
+        # Marcamos ElevationMode_PointingTech como elegible para MainAxisSysMode_PointingTech
+        self.mdMainAxisSysMode_PointingTech.addSubMode(self.mdElevationMode_PointingTech)
+        # Marcamos Elevation_P_HOME como elegible para ElevationMode_Homing
+        self.mdElevationMode_Homing.addValue(self.vlElevation_P_HOME)
+        # Marcamos Elevation_P_PARK como elegible para ElevationMode_Parking
+        self.mdElevationMode_Parking.addValue(self.vlElevation_P_PARK)
+        # Marcamos Elevation_P_MAINT como elegible para ElevationMode_Maintenance
+        self.mdElevationMode_Maintenance.addValue(self.vlElevation_P_MAINT)
+        # Marcamos Elevation_P_angle como elegible para ElevationMode_Pointing
+        self.mdElevationMode_Pointing.addValue(self.vlElevation_P_angle)
+        # Marcamos Elevation_P_angle_unbound como elegible para ElevationMode_PointingTech
+        self.mdElevationMode_PointingTech.addValue(self.vlElevation_P_angle_unbound)
 
     #----------------------------------------------------------------------
     #  Specific methods
@@ -324,88 +274,88 @@ class mainaxisPORIS(PORISDoc):
         return self.sysMainAxisSys.selectMode(mode)
 
 
-    ## prParam Yaw 
+    ## prParam Azimuth 
 
-    # Yaw
-    def get_Yaw(self)-> PORISValue :
-        return self.prYaw.getSelectedValue()
+    # Azimuth
+    def get_Azimuth(self)-> PORISValue :
+        return self.prAzimuth.getSelectedValue()
 
-    def set_Yaw(self, value: PORISValue)-> PORISValue :
-        return self.prYaw.setValue(value)
-
-
-    ## YawMode 
-    def get_YawMode(self)-> PORISMode:
-        return self.prYaw.getSelectedMode()
-
-    def set_YawMode(self, mode: PORISMode)-> PORISMode :
-        return self.prYaw.selectMode(mode)
+    def set_Azimuth(self, value: PORISValue)-> PORISValue :
+        return self.prAzimuth.setValue(value)
 
 
-    ## prParam MainAxisSys 
+    ## AzimuthMode 
+    def get_AzimuthMode(self)-> PORISMode:
+        return self.prAzimuth.getSelectedMode()
 
-    # YawDouble  
-    def get_YawDouble(self)-> float :
-        v = self.prYaw.getSelectedValue()
-        v.__class__ = PORISValueFloat
-        return v.getData()
-
-    def set_YawDouble(self, data: float)-> float :
-        return self.prYaw.getSelectedValue().setData(data)
+    def set_AzimuthMode(self, mode: PORISMode)-> PORISMode :
+        return self.prAzimuth.selectMode(mode)
 
 
     ## prParam MainAxisSys 
 
-    # YawDouble  
-    def get_YawDouble(self)-> float :
-        v = self.prYaw.getSelectedValue()
+    # AzimuthDouble  
+    def get_AzimuthDouble(self)-> float :
+        v = self.prAzimuth.getSelectedValue()
         v.__class__ = PORISValueFloat
         return v.getData()
 
-    def set_YawDouble(self, data: float)-> float :
-        return self.prYaw.getSelectedValue().setData(data)
-
-
-    ## prParam Pitch 
-
-    # Pitch
-    def get_Pitch(self)-> PORISValue :
-        return self.prPitch.getSelectedValue()
-
-    def set_Pitch(self, value: PORISValue)-> PORISValue :
-        return self.prPitch.setValue(value)
-
-
-    ## PitchMode 
-    def get_PitchMode(self)-> PORISMode:
-        return self.prPitch.getSelectedMode()
-
-    def set_PitchMode(self, mode: PORISMode)-> PORISMode :
-        return self.prPitch.selectMode(mode)
+    def set_AzimuthDouble(self, data: float)-> float :
+        return self.prAzimuth.getSelectedValue().setData(data)
 
 
     ## prParam MainAxisSys 
 
-    # PitchDouble  
-    def get_PitchDouble(self)-> float :
-        v = self.prPitch.getSelectedValue()
+    # AzimuthDouble  
+    def get_AzimuthDouble(self)-> float :
+        v = self.prAzimuth.getSelectedValue()
         v.__class__ = PORISValueFloat
         return v.getData()
 
-    def set_PitchDouble(self, data: float)-> float :
-        return self.prPitch.getSelectedValue().setData(data)
+    def set_AzimuthDouble(self, data: float)-> float :
+        return self.prAzimuth.getSelectedValue().setData(data)
+
+
+    ## prParam Elevation 
+
+    # Elevation
+    def get_Elevation(self)-> PORISValue :
+        return self.prElevation.getSelectedValue()
+
+    def set_Elevation(self, value: PORISValue)-> PORISValue :
+        return self.prElevation.setValue(value)
+
+
+    ## ElevationMode 
+    def get_ElevationMode(self)-> PORISMode:
+        return self.prElevation.getSelectedMode()
+
+    def set_ElevationMode(self, mode: PORISMode)-> PORISMode :
+        return self.prElevation.selectMode(mode)
 
 
     ## prParam MainAxisSys 
 
-    # PitchDouble  
-    def get_PitchDouble(self)-> float :
-        v = self.prPitch.getSelectedValue()
+    # ElevationDouble  
+    def get_ElevationDouble(self)-> float :
+        v = self.prElevation.getSelectedValue()
         v.__class__ = PORISValueFloat
         return v.getData()
 
-    def set_PitchDouble(self, data: float)-> float :
-        return self.prPitch.getSelectedValue().setData(data)
+    def set_ElevationDouble(self, data: float)-> float :
+        return self.prElevation.getSelectedValue().setData(data)
+
+
+    ## prParam MainAxisSys 
+
+    # ElevationDouble  
+    def get_ElevationDouble(self)-> float :
+        v = self.prElevation.getSelectedValue()
+        v.__class__ = PORISValueFloat
+        return v.getData()
+
+    def set_ElevationDouble(self, data: float)-> float :
+        return self.prElevation.getSelectedValue().setData(data)
 
 
     ## Action trigger MainAxisSys_command ##

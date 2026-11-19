@@ -1,0 +1,307 @@
+format: cosmosys-model
+version: 1
+project_profile: poris
+projects:
+  model:
+    name: MainAxis
+items:
+  node_1:
+    type: system
+    project: model
+    subject: MainAxis
+  node_4:
+    type: system
+    project: model
+    subject: MainAxisSys
+    parent: node_1
+  node_7:
+    type: parameter
+    project: model
+    subject: Azimuth
+    parent: node_4
+  node_11:
+    type: parameter
+    project: model
+    subject: Elevation
+    parent: node_4
+  node_15:
+    type: mode
+    project: model
+    subject: Operation
+    parent: node_1
+  node_16:
+    type: value
+    project: model
+    subject: Y_HOME
+    parent: node_7
+    fields:
+      value_kind: enum
+  node_17:
+    type: value
+    project: model
+    subject: Y_PARK
+    parent: node_7
+    fields:
+      value_kind: enum
+  node_18:
+    type: value
+    project: model
+    subject: Y_MAINT
+    parent: node_7
+    fields:
+      value_kind: enum
+  node_19:
+    type: value
+    project: model
+    subject: Y_angle
+    parent: node_7
+    fields:
+      value_kind: float
+      min: -270.0
+      default: 0.0
+      max: 270.0
+  node_20:
+    type: mode
+    project: model
+    subject: Homing
+    parent: node_7
+  node_21:
+    type: mode
+    project: model
+    subject: Parking
+    parent: node_7
+  node_22:
+    type: mode
+    project: model
+    subject: Maintenance
+    parent: node_7
+  node_23:
+    type: mode
+    project: model
+    subject: Pointing
+    parent: node_7
+  node_24:
+    type: mode
+    project: model
+    subject: PointingTech
+    parent: node_7
+  node_25:
+    type: value
+    project: model
+    subject: Y_angle_unbound
+    parent: node_7
+    fields:
+      value_kind: float
+      min: -300.0
+      default: 0.0
+      max: 300.0
+  node_26:
+    type: mode
+    project: model
+    subject: Homing
+    parent: node_4
+  node_27:
+    type: mode
+    project: model
+    subject: Parking
+    parent: node_4
+  node_28:
+    type: mode
+    project: model
+    subject: Maintenance
+    parent: node_4
+  node_29:
+    type: mode
+    project: model
+    subject: Pointing
+    parent: node_4
+  node_30:
+    type: value
+    project: model
+    subject: P_HOME
+    parent: node_11
+    fields:
+      value_kind: enum
+  node_31:
+    type: value
+    project: model
+    subject: P_PARK
+    parent: node_11
+    fields:
+      value_kind: enum
+  node_32:
+    type: value
+    project: model
+    subject: P_MAINT
+    parent: node_11
+    fields:
+      value_kind: enum
+  node_33:
+    type: value
+    project: model
+    subject: P_angle
+    parent: node_11
+    fields:
+      value_kind: float
+      min: 0.0
+      default: 0.0
+      max: 90.0
+  node_34:
+    type: mode
+    project: model
+    subject: Homing
+    parent: node_11
+  node_35:
+    type: mode
+    project: model
+    subject: Parking
+    parent: node_11
+  node_36:
+    type: mode
+    project: model
+    subject: Maintenance
+    parent: node_11
+  node_37:
+    type: mode
+    project: model
+    subject: Pointing
+    parent: node_11
+  node_38:
+    type: mode
+    project: model
+    subject: PointingTech
+    parent: node_11
+  node_39:
+    type: value
+    project: model
+    subject: P_angle_unbound
+    parent: node_11
+    fields:
+      value_kind: float
+      min: -18.0
+      default: 0.0
+      max: 90.0
+  node_40:
+    type: mode
+    project: model
+    subject: PointingTech
+    parent: node_4
+  node_41:
+    type: command
+    project: model
+    subject: command
+    parent: node_4
+  node_42:
+    type: mode
+    project: model
+    subject: Technical
+    parent: node_1
+relations:
+- from: node_15
+  to: node_26
+  type: precedes
+  delay: 0
+- from: node_15
+  to: node_27
+  type: precedes
+  delay: 0
+- from: node_15
+  to: node_29
+  type: precedes
+  delay: 0
+- from: node_20
+  to: node_16
+  type: precedes
+  delay: 0
+- from: node_21
+  to: node_17
+  type: precedes
+  delay: 0
+- from: node_22
+  to: node_18
+  type: precedes
+  delay: 0
+- from: node_23
+  to: node_19
+  type: precedes
+  delay: 0
+- from: node_24
+  to: node_25
+  type: precedes
+  delay: 0
+- from: node_26
+  to: node_20
+  type: precedes
+  delay: 0
+- from: node_26
+  to: node_34
+  type: precedes
+  delay: 0
+- from: node_27
+  to: node_21
+  type: precedes
+  delay: 0
+- from: node_27
+  to: node_35
+  type: precedes
+  delay: 0
+- from: node_28
+  to: node_22
+  type: precedes
+  delay: 0
+- from: node_28
+  to: node_36
+  type: precedes
+  delay: 0
+- from: node_29
+  to: node_23
+  type: precedes
+  delay: 0
+- from: node_29
+  to: node_37
+  type: precedes
+  delay: 0
+- from: node_34
+  to: node_30
+  type: precedes
+  delay: 0
+- from: node_35
+  to: node_31
+  type: precedes
+  delay: 0
+- from: node_36
+  to: node_32
+  type: precedes
+  delay: 0
+- from: node_37
+  to: node_33
+  type: precedes
+  delay: 0
+- from: node_38
+  to: node_39
+  type: precedes
+  delay: 0
+- from: node_40
+  to: node_24
+  type: precedes
+  delay: 0
+- from: node_40
+  to: node_38
+  type: precedes
+  delay: 0
+- from: node_42
+  to: node_26
+  type: precedes
+  delay: 0
+- from: node_42
+  to: node_27
+  type: precedes
+  delay: 0
+- from: node_42
+  to: node_28
+  type: precedes
+  delay: 0
+- from: node_42
+  to: node_40
+  type: precedes
+  delay: 0
